@@ -23,7 +23,7 @@ if( function_exists('acf_add_options_page') ) {
 
 			////////////
 			array(
-				'key' => 'field_5f64ef6a615edx',
+				'key' => 'field_brand5f64ef6a615ed',
 				'label' => 'Explore Screen',
 				'name' => '',
 				'type' => 'tab',
@@ -39,7 +39,7 @@ if( function_exists('acf_add_options_page') ) {
 				'endpoint' => 0,
 			),
 			array(
-				'key' => 'field_5f64c23da4525',
+				'key' => 'field_brand5f64c23da4525',
 				'label' => 'Explore Screen Settings',
 				'name' => 'r_explore_screen',
 				'type' => 'repeater',
@@ -58,7 +58,7 @@ if( function_exists('acf_add_options_page') ) {
 				'button_label' => '',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5f64c388a4526',
+						'key' => 'field_brand5f64c388a4526',
 						'label' => 'Title',
 						'name' => 'r_title',
 						'type' => 'text',
@@ -82,7 +82,7 @@ if( function_exists('acf_add_options_page') ) {
 
 					
 					array(
-						'key' => 'field_5f93049f2afc4',
+						'key' => 'field_brand5f93049f2afc4',
 						'label' => 'Select Post Type',
 						'name' => 'r_post_type',
 						'type' => 'select',
@@ -109,7 +109,7 @@ if( function_exists('acf_add_options_page') ) {
 						'placeholder' => '',
 					),
 					array(
-						'key' => 'field_5f9303d98da73',
+						'key' => 'field_brand5f9303d98da73',
 						'label' => 'Select Album Category',
 						'name' => 'r_category',
 						'type' => 'taxonomy',
@@ -118,7 +118,7 @@ if( function_exists('acf_add_options_page') ) {
 						'conditional_logic' => array(
 							array(
 								array(
-									'field' => 'field_5f93049f2afc4',
+									'field' => 'field_brand5f93049f2afc4',
 									'operator' => '==',
 									'value' => 'album',
 								),
@@ -130,7 +130,7 @@ if( function_exists('acf_add_options_page') ) {
 							'id' => '',
 						),
 						'taxonomy' => 'album-categories',
-						'field_type' => 'select',
+						'field_brandtype' => 'select',
 						'allow_null' => 0,
 						'add_term' => 0,
 						'save_terms' => 0,
@@ -139,7 +139,7 @@ if( function_exists('acf_add_options_page') ) {
 						'multiple' => 0,
 					),
 					array(
-						'key' => 'field_5f9305792afc6',
+						'key' => 'field_brand5f9305792afc6',
 						'label' => 'Select Artist Category',
 						'name' => 'r_category',
 						'type' => 'taxonomy',
@@ -148,7 +148,7 @@ if( function_exists('acf_add_options_page') ) {
 						'conditional_logic' => array(
 							array(
 								array(
-									'field' => 'field_5f93049f2afc4',
+									'field' => 'field_brand5f93049f2afc4',
 									'operator' => '==',
 									'value' => 'artist',
 								),
@@ -160,7 +160,7 @@ if( function_exists('acf_add_options_page') ) {
 							'id' => '',
 						),
 						'taxonomy' => 'artist-categories',
-						'field_type' => 'select',
+						'field_brandtype' => 'select',
 						'allow_null' => 0,
 						'add_term' => 0,
 						'save_terms' => 0,
@@ -169,7 +169,7 @@ if( function_exists('acf_add_options_page') ) {
 						'multiple' => 0,
 					),
 					array(
-						'key' => 'field_5f93059d2afc7',
+						'key' => 'field_brand5f93059d2afc7',
 						'label' => 'Select Track Category',
 						'name' => 'r_category',
 						'type' => 'taxonomy',
@@ -178,7 +178,7 @@ if( function_exists('acf_add_options_page') ) {
 						'conditional_logic' => array(
 							array(
 								array(
-									'field' => 'field_5f93049f2afc4',
+									'field' => 'field_brand5f93049f2afc4',
 									'operator' => '==',
 									'value' => 'track',
 								),
@@ -190,7 +190,7 @@ if( function_exists('acf_add_options_page') ) {
 							'id' => '',
 						),
 						'taxonomy' => 'track-categories',
-						'field_type' => 'select',
+						'field_brandtype' => 'select',
 						'allow_null' => 0,
 						'add_term' => 0,
 						'save_terms' => 0,
@@ -204,7 +204,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 					array(
-						'key' => 'field_5f64c657d50c8',
+						'key' => 'field_brand5f64c657d50c8',
 						'label' => 'Number of Post',
 						'name' => 'r_number_of_post',
 						'type' => 'number',
@@ -226,7 +226,7 @@ if( function_exists('acf_add_options_page') ) {
 					),
 				
 					// array(
-					// 	'key' => 'field_5f64f29f18f7f',
+					// 	'key' => 'field_brand5f64f29f18f7f',
 					// 	'label' => 'Style',
 					// 	'name' => 'r_style',
 					// 	'type' => 'radio',
@@ -254,7 +254,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 			array(
-				'key' => 'field_5f64ef6a615ex1cZ',
+				'key' => 'field_brand5f64ef6a615ex1cZ',
 				'label' =>'Albums Screen',
 				'type' => 'tab',
 				'instructions' => '',
@@ -269,7 +269,7 @@ if( function_exists('acf_add_options_page') ) {
 				'endpoint' => 0,
 			),
 			array(
-				'key' => 'field_5f64c657d50c82',
+				'key' => 'field_brand5f64c657d50c82',
 				'label' => 'Number of Post',
 				'name' => 'r_album_post_per_page',
 				'type' => 'number',
@@ -292,7 +292,7 @@ if( function_exists('acf_add_options_page') ) {
 
 			
 			array(
-				'key' => 'field_5f64ef6a615ex2dZ',
+				'key' => 'field_brand5f64ef6a615ex2dZ',
 				'label' =>'Artists Screen',
 				'name' => '',
 				'type' => 'tab',
@@ -308,7 +308,7 @@ if( function_exists('acf_add_options_page') ) {
 				'endpoint' => 0,
 			),
 			array(
-				'key' => 'field_5f64c657d50c81',
+				'key' => 'field_brand5f64c657d50c81',
 				'label' => 'Number of Post',
 				'name' => 'r_artist_post_per_page',
 				'type' => 'number',
