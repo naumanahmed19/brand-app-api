@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: Rekord App
+ * Plugin Name: Brand Woo App
  * Description: A must have plugin to enhance Rekord theme functionality.
  * Plugin URI:  https://xvelopers.com/
- * Version:     1.0.1
+ * Version:     1.0.0
  * Author:      Nomi
  * Author URI:  https://xvelopers.com/
  * Text Domain: rekord
@@ -11,7 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-final class Rekord_App {
+final class Bran_App {
 
 	/**
 	 * Plugin Version
@@ -75,7 +75,7 @@ final class Rekord_App {
 			include_once( plugin_dir_path( __FILE__ ) . 'updater.php' );
 			$updater = new XV_Updater( __FILE__ );
 			$updater->set_username( 'naumanahmed19' );
-			$updater->set_repository( 'rekord-app' );
+			$updater->set_repository( 'brand-app' );
 			/*
 				$updater->authorize( 'abcdefghijk1234567890' ); // Your auth code goes here for private repos
 			*/
