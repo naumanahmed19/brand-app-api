@@ -11,7 +11,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-final class Bran_App {
+final class Brand_App_API {
 
 	/**
 	 * Plugin Version
@@ -88,4 +88,4 @@ final class Bran_App {
 
 	}
 }
-new Rekord_App();
+new Brand_App_API();
