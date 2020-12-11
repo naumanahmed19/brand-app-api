@@ -15,7 +15,7 @@ jobs:
     - name: Demo Upload
       uses: sebastianpopp/ftp-action@releases/v2
       with:
-        host: ${{ secrets.HOST }}/rekord
+        host: ${{ secrets.HOST }}
         user: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         forceSsl: true
