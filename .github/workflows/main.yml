@@ -1,0 +1,22 @@
+name: Deployment
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    
+    - name: Demo Upload
+      uses: sebastianpopp/ftp-action@releases/v2
+      with:
+        host: ${{ secrets.HOST }}/rekord
+        user: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        forceSsl: true
+      
