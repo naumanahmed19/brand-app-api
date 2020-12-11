@@ -108,7 +108,7 @@ function rekord_api_get_home($post_type){
 // add_action('rest_api_init', function() {
 
 	
-	$routes = ['home','posts','taxonomy'];
+	$routes = ['home'];
 	foreach($routes as $route){
 		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',
