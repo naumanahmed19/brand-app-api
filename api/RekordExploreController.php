@@ -8,11 +8,6 @@ class RekordExploreController{
             $i = 0;
 
 
-            $albums = new RekordAlbumsController();
-            $tracks = new RekordTracksController();
-            $artists = new RekordArtistsController();
-
-
             $sections =  get_field('home_screen_sections', 'option');
 
             foreach($sections as $section){
