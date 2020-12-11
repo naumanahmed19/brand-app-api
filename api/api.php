@@ -14,13 +14,13 @@ include ( __DIR__ . '/acf.php');
 // include ( __DIR__ . '/RekordTracksController.php');
 // include ( __DIR__ . '/RekordAlbumsController.php');
 
-// include ( __DIR__ . '/RekordExploreController.php');
+	include ( __DIR__ . '/RekordExploreController.php');
 // include ( __DIR__ . '/RekordUserController.php');
 
-// function rekord_api_get_explore($post_type){
-//     $response = new RekordExploreController();
-//     return  $response->get();
-// }
+function rekord_api_get_home($post_type){
+    $response = new RekordExploreController();
+    return  $response->get();
+}
 
 
 // function rekord_api_get_albums() {
@@ -108,13 +108,13 @@ include ( __DIR__ . '/acf.php');
 // add_action('rest_api_init', function() {
 
 	
-// 	$routes = ['explore','posts','albums','artists','tracks','taxonomy'];
-// 	foreach($routes as $route){
-// 		register_rest_route('wl/v1', $route, [
-// 			'methods' => 'GET',
-// 			'callback' => 'rekord_api_get_'.$route,
-// 		]);
-// 	}
+	$routes = ['home','posts','taxonomy'];
+	foreach($routes as $route){
+		register_rest_route('wl/v1', $route, [
+			'methods' => 'GET',
+			'callback' => 'brand_api_get_'.$route,
+		]);
+	}
 
 
 // 	register_rest_route( 'wl/v1', 'fav', array(
