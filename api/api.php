@@ -110,7 +110,7 @@ function rekord_api_get_home($post_type){
 	
 	$routes = ['home','posts','taxonomy'];
 	foreach($routes as $route){
-		register_rest_route('wl/v1', $route, [
+		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',
 			'callback' => 'brand_api_get_'.$route,
 		]);
