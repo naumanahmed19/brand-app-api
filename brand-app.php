@@ -4,7 +4,7 @@
  * Description: A app to extend woo API
  * Plugin URI:  https://xvelopers.com/
  * Version:     1.0.0
- * Author:      Nomi
+ * Author:      Nauman
  * Author URI:  https://xvelopers.com/
  * Text Domain: rekord
  */
