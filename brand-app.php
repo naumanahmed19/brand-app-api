@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Brand App API
- * Description: A must have plugin to enhance Rekord theme functionality.
+ * Description: A app to extend woo API
  * Plugin URI:  https://xvelopers.com/
  * Version:     1.0.0
  * Author:      Nomi
