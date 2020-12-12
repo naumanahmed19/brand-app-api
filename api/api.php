@@ -14,7 +14,7 @@ add_action('rest_api_init', function() {
 
 	$routes = ['home'];
 	foreach($routes as $route){
-		register_rest_route('wl/v1', $route, [
+		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',
 			'callback' => 'rekord_api_get_'.$route,
 		]);
