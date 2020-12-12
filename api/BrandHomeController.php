@@ -73,10 +73,7 @@ class BrandHomeController{
             }
 
 
-            return [
-                'data' => $data,
-                'status' => 200
-            ];
+            return $data;
     }
     
         
