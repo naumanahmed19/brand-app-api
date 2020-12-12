@@ -1,5 +1,5 @@
 <?php
-class RekordExploreController{
+class BrandHomeController{
 
 
     public function get(){
