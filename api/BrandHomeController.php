@@ -24,10 +24,7 @@ class BrandHomeController{
             $data['categories'] =  get_field('filter_categories', 'option');;
             $data['sections'] = $sd;
 
-            return [
-             'data' => $data,
-             'status' => 200
-         ];
+            return  $data;
     }
     
         
