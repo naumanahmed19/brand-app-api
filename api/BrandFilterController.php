@@ -20,9 +20,9 @@ class BrandCategoriesController{
 
 
            // $data['categories'] =  get_field('filter_categories', 'option');;
-            $data['colors'] = $terms = get_terms( 'pa_color' );
-            $data['pattern'] = $terms = get_terms( 'pa_pattern' );
-            $data['size'] = $terms = get_terms( 'pa_size' );
+            $data['colors'] =  get_terms( 'pa_color' );
+            $data['pattern'] = get_terms( 'pa_pattern');
+            $data['size'] = get_terms( 'pa_size' );
 
             
 
