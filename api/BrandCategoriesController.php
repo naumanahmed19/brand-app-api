@@ -22,6 +22,8 @@ class BrandCategoriesController{
            // $data['categories'] =  get_field('filter_categories', 'option');;
             $data['sections'] = $sd;
 
+            
+
             return  $data;
     }
     

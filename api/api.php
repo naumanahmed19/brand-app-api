@@ -4,6 +4,7 @@ include ( __DIR__ . '/acf.php');
 
 include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
+include ( __DIR__ . '/BrandFilterController.php');
 
 function rekord_api_get_home($post_type){
     $response = new BrandHomeController();
@@ -13,10 +14,14 @@ function rekord_api_get_categories($post_type){
     $response = new BrandCategoriesController();
     return  $response->get();
 }
+function rekord_api_get_filters($post_type){
+    $response = new BrandFilterController();
+    return  $response->get();
+}
 
 add_action('rest_api_init', function() {
 
-	$routes = ['home','categories'];
+	$routes = ['home','categories','filters'];
 	foreach($routes as $route){
 		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',
