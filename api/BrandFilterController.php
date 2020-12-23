@@ -5,14 +5,30 @@ class BrandFilterController{
        
             $data = [];
 
-           // $data['categories'] =  get_field('filter_categories', 'option');;
-            $data['colors'] =  get_terms( 'pa_color' );
-            $data['pattern'] = get_terms( 'pa_pattern');
-            $data['size'] = get_terms( 'pa_size' );
+            $attr = [];
 
+            $terms = [
+                'Colors'=>'pa_color',
+                'Pattern'=>'pa_pattern',
+                'Size'=>'pa_size',
+            ];
+
+            foreach($terms as $key=>$term){
+                if(term_exists($term)){
+                    $attr[] =  $this->getSection($key,$term);
+                }
+            }
+            $data['sections'] = $attr;
             
-
             return  $data;
+    }
+
+    private function getSection($title,$term){
+        $attr = [];
+        $attr['title'] = $title;
+        $attr['categories'] =  get_terms($term);
+        
+        return $attr;
     }
     
         
