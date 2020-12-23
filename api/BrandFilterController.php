@@ -14,9 +14,9 @@ class BrandFilterController{
             ];
 
             foreach($terms as $key=>$term){
-                if(term_exists($term)){
+              //  if(term_exists($term)){
                     $attr[] =  $this->getSection($key,$term);
-                }
+//}
             }
             $data['sections'] = $attr;
             
