@@ -230,23 +230,23 @@ add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query'
 
 function testing_woo_product_query( $q ){ 
     ///$args = woocommerce_rest_product_object_query_args();
-    $args = array(
-      'post_type'             => 'product',
-      'post_status'           => 'publish',
-      'ignore_sticky_posts'   => 1,
-      'posts_per_page'        => '12',
-      'tax_query'             => array(
-          array(
-              'taxonomy'      => 'product_cat',
-              'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-              'terms'         => 25,
-              'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
-          ),
+  //   $args = array(
+  //     'post_type'             => 'product',
+  //     'post_status'           => 'publish',
+  //     'ignore_sticky_posts'   => 1,
+  //     'posts_per_page'        => '12',
+  //     'tax_query'             => array(
+  //         array(
+  //             'taxonomy'      => 'product_cat',
+  //             'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+  //             'terms'         => 25,
+  //             'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
+  //         ),
 
-      )
-  );
-
-    $q->set( 'meta_query', $args );
+  //     )
+  // );
+      var_dump($q);
+    // $q->set( 'meta_query', $args );
     //var_dump($q);
 
 	   // $q->set( 'meta_query', $args );
