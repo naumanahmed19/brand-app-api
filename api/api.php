@@ -105,6 +105,8 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 	$output = [];
 
 
+
+
     // Use default arguments.
     $args = [
       'post_type'      => 'product',
@@ -244,15 +246,22 @@ function wc_app_add_custom_data_to_product( $response, $post, $request ) {
 	/**
 	 * Add Colors
 	 */
-	$terms = get_terms( 'pa_color' );
-	$colors=[];
-	foreach($terms as $term){
-		$colors[] = get_term_meta( $term->term_id,'color', true );
-	}
+  if(taxonomy_exists( 'pa_color' )){
+
+    $terms = get_terms( 'pa_color' );
+    $colors=[];
+    foreach($terms as $term){
+      $colors[] = get_term_meta( $term->term_id,'color', true );
+    }
+  
+  }
 
 	/**
 	 * Add Patterns
 	 */
+  
+   
+  if(taxonomy_exists( 'pa_pattern' )){
 	$terms = get_terms( 'pa_pattern' );
 	$patterns=[];
 	foreach($terms as $term){
@@ -275,13 +284,21 @@ function wc_app_add_custom_data_to_product( $response, $post, $request ) {
 
 	}
 
+  }
 
 
 
 
  //	$response =  custom_change_product_response($response)
-
+ if(!empty( $data['variations'])){
  $variations = $data['variations'];
+
+
+ //$handle->get_avaialable_variations();
+
+
+
+
  $variations_res = array();
  $variations_array = array();
  if (!empty($variations) && is_array($variations)) {
@@ -318,10 +335,12 @@ function wc_app_add_custom_data_to_product( $response, $post, $request ) {
  }
  $data['variations'] = $variations_array;
 
+}
+
 
   
-  $response->set_data($data );   
-  return $response;
+  // $response->set_data($data );   
+  return  $data;
 
 }
 
