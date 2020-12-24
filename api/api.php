@@ -185,7 +185,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 	return $args;
 
   }
-  add_filter('woocommerce_rest_orderswoocommerce_rest_products_prepare_object_query_prepare_object_query', function(array $args, \WP_REST_Request $request) {
+  add_filter('woocommerce_rest_products_prepare_object_query', function(array $args, \WP_REST_Request $request) {
     $modified_after = $request->get_param('modified_after');
 
     if (!$modified_after) {
