@@ -228,7 +228,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 // }
 add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
-function testing_woo_product_query( $q ,$request ){ 
+function testing_woo_product_query( $q){ 
     ///$args = woocommerce_rest_product_object_query_args();
   //   $args = array(
   //     'post_type'             => 'product',
@@ -248,7 +248,7 @@ function testing_woo_product_query( $q ,$request ){
   $q['xxxx']='somethings';
 
 
-    var_dump($request);
+    var_dump($_REQUEST);
 
   if ( ! empty( $filters ) ) {
     foreach ( $filters as $filter_key => $filter_value ) {
