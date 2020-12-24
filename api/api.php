@@ -198,19 +198,19 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 	return  $products;
 
   }
-  add_filter('woocommerce_rest_product_prepare_object_query', function(array $args, \WP_REST_Request $request) {
-    $modified_after = $request->get_param('modified_after');
+//   add_filter('woocommerce_rest_product_prepare_object_query', function(array $args, \WP_REST_Request $request) {
+//     $modified_after = $request->get_param('modified_after');
 
-    var_dump('test');
+//     var_dump('test');
 
-    if (!$modified_after) {
-        return $args;
-    }
+//     if (!$modified_after) {
+//         return $args;
+//     }
 
-	$args = rekord_api_get_home_listxx($request );
-    return $args;
+// 	$args = rekord_api_get_home_listxx($request );
+//     return $args;
 
-}, 10, 2);
+// }, 10, 2);
 
 
 // function testing_woo_product_query( $q ){ 
