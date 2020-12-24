@@ -192,7 +192,7 @@ function testing_woo_product_query( $q ){
     $q->set( 'meta_query', $args );
 
 }
-add_action( 'woocommerce_product_query', 'testing_woo_product_query' );
+add_action( 'woocommerce_rest_products_prepare_object_query', 'testing_woo_product_query' );
 
 
 // add this code to a custom plugin
