@@ -259,8 +259,11 @@ function woocommerce_rest_product_object_query_args() {
 	// $params = $request->get_params();
 			$n = new WP_REST_Request();
 
-			$params = $n->get_params() ;
+      $params = $n->get_params() ;
+      
 
+      var_dump(
+        $params);
 
 		
 	$category = !empty($request['category'])? $request['category'] :null;
