@@ -250,7 +250,8 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 
 
 // add this code to a custom plugin
-//add_filter( 'woocommerce_rest_product_object_query', 'woocommerce_rest_product_object_query_args', 10, 3 );
+
+add_filter( 'woocommerce_rest_product_object_query', 'woocommerce_rest_product_object_query_args', 10, 3 );
 
 function woocommerce_rest_product_object_query_args() {
 
