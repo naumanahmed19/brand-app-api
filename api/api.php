@@ -313,18 +313,18 @@ function woocommerce_rest_product_object_query_args() {
     //   }
     // }
 
-    // // If filter buy category or attributes.
-    // if ( ! empty( $category ) || ! empty( $filters ) ) {
-    //   $args['tax_query']['relation'] = 'AND';
+    // If filter buy category or attributes.
+    if ( ! empty( $category ) || ! empty( $filters ) ) {
+      $args['tax_query']['relation'] = 'AND';
 
-    //   // Category filter.
-    //   if ( ! empty( $category ) ) {
-    //     $args['tax_query'][] = [
-    //       'taxonomy' => 'product_cat',
-    //       'field'    => 'slug',
-    //       'terms'    => [ $category ],
-    //     ];
-    //   }
+      // Category filter.
+      if ( ! empty( $category ) ) {
+        $args['tax_query'][] = [
+          'taxonomy' => 'product_cat',
+          'field'    => 'slug',
+          'terms'    => [ $category ],
+        ];
+      }
 
     //   // Attributes filter.
     //   if ( ! empty( $filters ) ) {
@@ -355,7 +355,7 @@ function woocommerce_rest_product_object_query_args() {
 
     //     $args['meta_query'][] = \wc_get_min_max_price_meta_query( $price_request );
     //   }
-  }
+    }
   return $args;
 }
 
