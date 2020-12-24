@@ -228,7 +228,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 // }
 add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
-function testing_woo_product_query( $q ){ 
+function testing_woo_product_query( $q ,$request ){ 
     ///$args = woocommerce_rest_product_object_query_args();
   //   $args = array(
   //     'post_type'             => 'product',
@@ -246,6 +246,24 @@ function testing_woo_product_query( $q ){
   //     )
   // );
   $q['xxxx']='somethings';
+
+
+    var_dump($request);
+
+  if ( ! empty( $filters ) ) {
+    foreach ( $filters as $filter_key => $filter_value ) {
+      if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
+        continue;
+      }
+
+      $args['tax_query'][] = [
+        'taxonomy' => $filter_key,
+        'field'    => 'term_id',
+        'terms'    => \explode( ',', $filter_value ),
+      ];
+    }
+  }
+
       var_dump($q);
 
       return $q;
