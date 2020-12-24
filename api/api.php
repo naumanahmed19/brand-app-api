@@ -229,11 +229,28 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
 function testing_woo_product_query( $q ){ 
-    $args = rekord_api_get_home_listxx($request );
+    ///$args = woocommerce_rest_product_object_query_args();
+    $args = array(
+      'post_type' => 'product',
+      'tax_query' => array(
+          array(
+              'relation' => 'AND',
+              array(
+                  'taxonomy' => 'pa_color',
+                  'field'    => 'term_id',
+                  'terms'    => array( 'red' ),
+              ),
+              array(
+                  'taxonomy' => 'pa_size',
+                  'field'    => 'term_id',
+                  'terms'    => array( 'S' ),
+              ),
+          ),
+      ),
+      );
+    //var_dump($q);
 
-    var_dump($q);
-
-	// $q->set( 'meta_query', $args );
+	   // $q->set( 'meta_query', $args );
 	
 
 	// $modified_after = $request->get_param('modified_after');
@@ -253,20 +270,20 @@ function testing_woo_product_query( $q ){
 
 // add this code to a custom plugin
 
-add_filter( 'woocommerce_rest_product_object_query', 'woocommerce_rest_product_object_query_args', 10, 3 );
+//add_filter( 'woocommerce_rest_product_object_query', 'woocommerce_rest_product_object_query_args', 10, 3 );
 
 function woocommerce_rest_product_object_query_args() {
 
     
 
 	// $params = $request->get_params();
-			$n = new WP_REST_Request();
+			// $n = new WP_REST_Request();
 
-      $params = $n->get_params() ;
+      // $params = $n->get_params() ;
       
 
-      var_dump(
-        $params);
+      // var_dump(
+      //   $params);
 
 		
 	$category = !empty($request['category'])? $request['category'] :null;
@@ -279,7 +296,7 @@ function woocommerce_rest_product_object_query_args() {
 
 
 	$output = [];
-
+  $args =[];
 
 
 
@@ -329,19 +346,19 @@ function woocommerce_rest_product_object_query_args() {
       }
 
     //   // Attributes filter.
-    //   if ( ! empty( $filters ) ) {
-    //     foreach ( $filters as $filter_key => $filter_value ) {
-    //       if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
-    //         continue;
-    //       }
+      if ( ! empty( $filters ) ) {
+        foreach ( $filters as $filter_key => $filter_value ) {
+          if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
+            continue;
+          }
 
-    //       $args['tax_query'][] = [
-    //         'taxonomy' => $filter_key,
-    //         'field'    => 'term_id',
-    //         'terms'    => \explode( ',', $filter_value ),
-    //       ];
-    //     }
-    //   }
+          $args['tax_query'][] = [
+            'taxonomy' => $filter_key,
+            'field'    => 'term_id',
+            'terms'    => \explode( ',', $filter_value ),
+          ];
+        }
+      }
 
     //   // Min / Max price filter.
     //   if ( isset( $filters['min_price'] ) || isset( $filters['max_price'] ) ) {
