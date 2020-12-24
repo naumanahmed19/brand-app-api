@@ -226,28 +226,27 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 //   $q->set( 'meta_query', $args );
 
 // }
-///add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
+add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
 function testing_woo_product_query( $q ){ 
     ///$args = woocommerce_rest_product_object_query_args();
     $args = array(
-      'post_type' => 'product',
-      'tax_query' => array(
+      'post_type'             => 'product',
+      'post_status'           => 'publish',
+      'ignore_sticky_posts'   => 1,
+      'posts_per_page'        => '12',
+      'tax_query'             => array(
           array(
-              'relation' => 'AND',
-              array(
-                  'taxonomy' => 'pa_color',
-                  'field'    => 'term_id',
-                  'terms'    => array( 'red' ),
-              ),
-              array(
-                  'taxonomy' => 'pa_size',
-                  'field'    => 'term_id',
-                  'terms'    => array( 'S' ),
-              ),
+              'taxonomy'      => 'product_cat',
+              'field' => 'term_id', //This is optional, as it defaults to 'term_id'
+              'terms'         => 25,
+              'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
           ),
-      ),
-      );
+
+      )
+  );
+
+    $q->set( 'meta_query', $args );
     //var_dump($q);
 
 	   // $q->set( 'meta_query', $args );
@@ -261,9 +260,6 @@ function testing_woo_product_query( $q ){
 
   //   $args['date_query'][0]['column'] = 'post_modified';
   //   $args['date_query'][0]['after']  = $modified_after;
-
-    return $args;
-
 }
 // add_action( 'woocommerce_rest_products_prepare_object_query', 'testing_woo_product_query' );
 
