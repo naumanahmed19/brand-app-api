@@ -226,26 +226,28 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 //   $q->set( 'meta_query', $args );
 
 // }
-// add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
+add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
-// function testing_woo_product_query( $q ){ 
-//     $args = rekord_api_get_home_listxx($request );
+function testing_woo_product_query( $q ){ 
+    $args = rekord_api_get_home_listxx($request );
 
-// 	$q->set( 'meta_query', $args );
+    var_dump($q);
+
+	// $q->set( 'meta_query', $args );
 	
 
-// 	$modified_after = $request->get_param('modified_after');
+	// $modified_after = $request->get_param('modified_after');
 
-//     if (!$modified_after) {
-//         return $args;
-//     }
+  //   if (!$modified_after) {
+  //       return $args;
+  //   }
 
-//     $args['date_query'][0]['column'] = 'post_modified';
-//     $args['date_query'][0]['after']  = $modified_after;
+  //   $args['date_query'][0]['column'] = 'post_modified';
+  //   $args['date_query'][0]['after']  = $modified_after;
 
-//     return $args;
+    return $args;
 
-// }
+}
 // add_action( 'woocommerce_rest_products_prepare_object_query', 'testing_woo_product_query' );
 
 
