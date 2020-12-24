@@ -281,80 +281,80 @@ function woocommerce_rest_product_object_query_args() {
 
 
 
-    // Use default arguments.
-    $args = [
-      'post_type'      => 'product',
-      'posts_per_page' => get_option( 'posts_per_page' ),
-      'post_status'    => 'publish',
-      'paged'          => 1,
-    ];
+    // // Use default arguments.
+    // $args = [
+    //   'post_type'      => 'product',
+    //   'posts_per_page' => get_option( 'posts_per_page' ),
+    //   'post_status'    => 'publish',
+    //   'paged'          => 1,
+    // ];
 
-    // Posts per page.
-    if ( ! empty( $per_page ) ) {
-      $args['posts_per_page'] = $per_page;
-    }
+    // // Posts per page.
+    // if ( ! empty( $per_page ) ) {
+    //   $args['posts_per_page'] = $per_page;
+    // }
 
-    // Pagination, starts from 1.
-    if ( ! empty( $offset ) ) {
-      $args['paged'] = $offset;
-    }
+    // // Pagination, starts from 1.
+    // if ( ! empty( $offset ) ) {
+    //   $args['paged'] = $offset;
+    // }
 
-    // Order condition. ASC/DESC.
-    if ( ! empty( $order ) ) {
-      $args['order'] = $order;
-    }
+    // // Order condition. ASC/DESC.
+    // if ( ! empty( $order ) ) {
+    //   $args['order'] = $order;
+    // }
 
-    // Orderby condition. Name/Price.
-    if ( ! empty( $orderby ) ) {
-      if ( $orderby === 'price' ) {
-        $args['orderby'] = 'meta_value_num';
-      } else {
-        $args['orderby'] = $orderby;
-      }
-    }
+    // // Orderby condition. Name/Price.
+    // if ( ! empty( $orderby ) ) {
+    //   if ( $orderby === 'price' ) {
+    //     $args['orderby'] = 'meta_value_num';
+    //   } else {
+    //     $args['orderby'] = $orderby;
+    //   }
+    // }
 
-    // If filter buy category or attributes.
-    if ( ! empty( $category ) || ! empty( $filters ) ) {
-      $args['tax_query']['relation'] = 'AND';
+    // // If filter buy category or attributes.
+    // if ( ! empty( $category ) || ! empty( $filters ) ) {
+    //   $args['tax_query']['relation'] = 'AND';
 
-      // Category filter.
-      if ( ! empty( $category ) ) {
-        $args['tax_query'][] = [
-          'taxonomy' => 'product_cat',
-          'field'    => 'slug',
-          'terms'    => [ $category ],
-        ];
-      }
+    //   // Category filter.
+    //   if ( ! empty( $category ) ) {
+    //     $args['tax_query'][] = [
+    //       'taxonomy' => 'product_cat',
+    //       'field'    => 'slug',
+    //       'terms'    => [ $category ],
+    //     ];
+    //   }
 
-      // Attributes filter.
-      if ( ! empty( $filters ) ) {
-        foreach ( $filters as $filter_key => $filter_value ) {
-          if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
-            continue;
-          }
+    //   // Attributes filter.
+    //   if ( ! empty( $filters ) ) {
+    //     foreach ( $filters as $filter_key => $filter_value ) {
+    //       if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
+    //         continue;
+    //       }
 
-          $args['tax_query'][] = [
-            'taxonomy' => $filter_key,
-            'field'    => 'term_id',
-            'terms'    => \explode( ',', $filter_value ),
-          ];
-        }
-      }
+    //       $args['tax_query'][] = [
+    //         'taxonomy' => $filter_key,
+    //         'field'    => 'term_id',
+    //         'terms'    => \explode( ',', $filter_value ),
+    //       ];
+    //     }
+    //   }
 
-      // Min / Max price filter.
-      if ( isset( $filters['min_price'] ) || isset( $filters['max_price'] ) ) {
-        $price_request = [];
+    //   // Min / Max price filter.
+    //   if ( isset( $filters['min_price'] ) || isset( $filters['max_price'] ) ) {
+    //     $price_request = [];
 
-        if ( isset( $filters['min_price'] ) ) {
-          $price_request['min_price'] = $filters['min_price'];
-        }
+    //     if ( isset( $filters['min_price'] ) ) {
+    //       $price_request['min_price'] = $filters['min_price'];
+    //     }
 
-        if ( isset( $filters['max_price'] ) ) {
-          $price_request['max_price'] = $filters['max_price'];
-        }
+    //     if ( isset( $filters['max_price'] ) ) {
+    //       $price_request['max_price'] = $filters['max_price'];
+    //     }
 
-        $args['meta_query'][] = \wc_get_min_max_price_meta_query( $price_request );
-      }
+    //     $args['meta_query'][] = \wc_get_min_max_price_meta_query( $price_request );
+    //   }
   }
   return $args;
 }
