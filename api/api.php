@@ -400,6 +400,8 @@ function woocommerce_rest_product_object_query_args() {
     }
   return $args;
 }
+// add this code to a custom plugin
+add_filter( 'woocommerce_rest_prepare_product_object', 'wc_app_add_custom_data_to_product', 10, 3 );
 
 // filter the product response here
 function wc_app_add_custom_data_to_product( $response, $post, $request ) {
