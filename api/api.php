@@ -228,7 +228,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 // }
 add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
-function testing_woo_product_query( $q){ 
+function testing_woo_product_query($args){ 
     ///$args = woocommerce_rest_product_object_query_args();
   //   $args = array(
   //     'post_type'             => 'product',
@@ -245,10 +245,16 @@ function testing_woo_product_query( $q){
 
   //     )
   // );
-  $q['xxxx']='somethings';
+
+    $request = $_REQUEST;
 
 
-    var_dump($_REQUEST);
+    // $category = !empty($request['category'])? $request['category'] :null;
+    $filters  =!empty($request['filter'])? $request['filter'] :null;
+    // $per_page = !empty($request['per_page'])? $request['per_page'] :null;
+    // $offset   = !empty($request['offset'])? $request['offset'] :null;
+    // $order    = !empty($request['order'])? $request['order'] : null;
+    // $orderby  = !empty($request['orderby'])? $request['orderby'] :null;
 
   if ( ! empty( $filters ) ) {
     foreach ( $filters as $filter_key => $filter_value ) {
@@ -264,9 +270,9 @@ function testing_woo_product_query( $q){
     }
   }
 
-      var_dump($q);
+      var_dump($args);
 
-      return $q;
+      return $args;
     // $q->set( 'meta_query', $args );
     //var_dump($q);
 
