@@ -213,20 +213,20 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 }, 10, 2);
 
 
-function testing_woo_product_query( $q ){ 
-  $args = array(
-    array(
-      // 'key'       => '_price',
-      // 'value'     => array( 10 , 30 ),
-      // 'compare'   => 'BETWEEN',
-      // 'type'      => 'numeric'  
-    ),
-  );
+// function testing_woo_product_query( $q ){ 
+//   $args = array(
+//     array(
+//       // 'key'       => '_price',
+//       // 'value'     => array( 10 , 30 ),
+//       // 'compare'   => 'BETWEEN',
+//       // 'type'      => 'numeric'  
+//     ),
+//   );
 
-  $q->set( 'meta_query', $args );
+//   $q->set( 'meta_query', $args );
 
-}
-add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
+// }
+// add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
 // function testing_woo_product_query( $q ){ 
 //     $args = rekord_api_get_home_listxx($request );
