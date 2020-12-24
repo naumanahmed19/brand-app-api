@@ -379,9 +379,13 @@ function woocommerce_rest_product_object_query_args() {
             'taxonomy' => $filter_key,
             'field'    => 'term_id',
             'terms'    => \explode( ',', $filter_value ),
+            'operator'  => 'IN',
           ];
         }
       }
+
+
+   
 
     //   // Min / Max price filter.
     //   if ( isset( $filters['min_price'] ) || isset( $filters['max_price'] ) ) {
