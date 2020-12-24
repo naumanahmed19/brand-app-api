@@ -181,8 +181,19 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
       }
 	}
 	
+  $result = wc_get_products($args); 
 
-	return $args;
+  $p = wc_get_products(array('status' => 'publish'));
+  $products = array();
+  foreach ($p as $product) {
+
+    //$product =  $product->get_data();
+ 
+      $products[] =   wc_app_add_custom_data_to_product($product,null,null  );
+  }
+
+
+	return  $products;
 
   }
   add_filter('woocommerce_rest_products_prepare_object_query', function(array $args, \WP_REST_Request $request) {
@@ -226,7 +237,9 @@ add_filter( 'woocommerce_rest_prepare_product_object', 'wc_app_add_custom_data_t
 function wc_app_add_custom_data_to_product( $response, $post, $request ) {
 
 
-	$data = $response->get_data();  
+  $data = $response->get_data();  
+  
+
 
 	/**
 	 * Add Colors
