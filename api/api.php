@@ -226,7 +226,7 @@ function testing_woo_product_query( $q ){
   $q->set( 'meta_query', $args );
 
 }
-add_action( 'woocommerce_rest_product_query', 'testing_woo_product_query' );
+add_action( 'woocommerce_rest_product_object_query', 'testing_woo_product_query' );
 
 // function testing_woo_product_query( $q ){ 
 //     $args = rekord_api_get_home_listxx($request );
@@ -250,7 +250,110 @@ add_action( 'woocommerce_rest_product_query', 'testing_woo_product_query' );
 
 
 // add this code to a custom plugin
-add_filter( 'woocommerce_rest_prepare_product_object', 'wc_app_add_custom_data_to_product', 10, 3 );
+add_filter( 'woocommerce_rest_product_object_query', 'woocommerce_rest_product_object_query_args', 10, 3 );
+
+function woocommerce_rest_product_object_query_args() {
+
+
+
+	// $params = $request->get_params();
+			$n = new WP_REST_Request();
+
+			$params = $n->get_params() ;
+
+
+		
+	$category = !empty($request['category'])? $request['category'] :null;
+	$filters  =!empty($request['filter'])? $request['filter'] :null;
+    $per_page = !empty($request['per_page'])? $request['per_page'] :null;
+    $offset   = !empty($request['offset'])? $request['offset'] :null;
+    $order    = !empty($request['order'])? $request['order'] : null;
+    $orderby  = !empty($request['orderby'])? $request['orderby'] :null;
+
+
+
+	$output = [];
+
+
+
+
+    // Use default arguments.
+    $args = [
+      'post_type'      => 'product',
+      'posts_per_page' => get_option( 'posts_per_page' ),
+      'post_status'    => 'publish',
+      'paged'          => 1,
+    ];
+
+    // Posts per page.
+    if ( ! empty( $per_page ) ) {
+      $args['posts_per_page'] = $per_page;
+    }
+
+    // Pagination, starts from 1.
+    if ( ! empty( $offset ) ) {
+      $args['paged'] = $offset;
+    }
+
+    // Order condition. ASC/DESC.
+    if ( ! empty( $order ) ) {
+      $args['order'] = $order;
+    }
+
+    // Orderby condition. Name/Price.
+    if ( ! empty( $orderby ) ) {
+      if ( $orderby === 'price' ) {
+        $args['orderby'] = 'meta_value_num';
+      } else {
+        $args['orderby'] = $orderby;
+      }
+    }
+
+    // If filter buy category or attributes.
+    if ( ! empty( $category ) || ! empty( $filters ) ) {
+      $args['tax_query']['relation'] = 'AND';
+
+      // Category filter.
+      if ( ! empty( $category ) ) {
+        $args['tax_query'][] = [
+          'taxonomy' => 'product_cat',
+          'field'    => 'slug',
+          'terms'    => [ $category ],
+        ];
+      }
+
+      // Attributes filter.
+      if ( ! empty( $filters ) ) {
+        foreach ( $filters as $filter_key => $filter_value ) {
+          if ( $filter_key === 'min_price' || $filter_key === 'max_price' ) {
+            continue;
+          }
+
+          $args['tax_query'][] = [
+            'taxonomy' => $filter_key,
+            'field'    => 'term_id',
+            'terms'    => \explode( ',', $filter_value ),
+          ];
+        }
+      }
+
+      // Min / Max price filter.
+      if ( isset( $filters['min_price'] ) || isset( $filters['max_price'] ) ) {
+        $price_request = [];
+
+        if ( isset( $filters['min_price'] ) ) {
+          $price_request['min_price'] = $filters['min_price'];
+        }
+
+        if ( isset( $filters['max_price'] ) ) {
+          $price_request['max_price'] = $filters['max_price'];
+        }
+
+        $args['meta_query'][] = \wc_get_min_max_price_meta_query( $price_request );
+      }
+  }
+  return $args;
+}
 
 // filter the product response here
 function wc_app_add_custom_data_to_product( $response, $post, $request ) {
