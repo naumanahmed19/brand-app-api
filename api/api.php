@@ -181,31 +181,18 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
       }
 	}
 	
+
 	return $args;
 
-    $the_query = new \WP_Query( $args );
-
-    if ( ! $the_query->have_posts() ) {
-      return $output;
-    }
-
-    while ( $the_query->have_posts() ) {
-      $the_query->the_post();
-
-      $output[] = get_the_title();
-    }
-    wp_reset_postdata();
-
-    return $output;
   }
 
-// function testing_woo_product_query( $q ){ 
-//     $args = rekord_api_get_home_listxx($request )
+function testing_woo_product_query( $q ){ 
+    $args = rekord_api_get_home_listxx($request );
 
-//     $q->set( 'meta_query', $args );
+    $q->set( 'meta_query', $args );
 
-// }
-// add_action( 'woocommerce_product_query', 'testing_woo_product_query' );
+}
+add_action( 'woocommerce_product_query', 'testing_woo_product_query' );
 
 
 // add this code to a custom plugin
