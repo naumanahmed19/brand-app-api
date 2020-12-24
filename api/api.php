@@ -245,7 +245,10 @@ function testing_woo_product_query( $q ){
 
   //     )
   // );
+  $q['xxxx']='somethings';
       var_dump($q);
+
+      return $q;
     // $q->set( 'meta_query', $args );
     //var_dump($q);
 
