@@ -216,10 +216,10 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 function testing_woo_product_query( $q ){ 
   $args = array(
     array(
-      'key'       => '_price',
-      'value'     => array( 10 , 30 ),
-      'compare'   => 'BETWEEN',
-      'type'      => 'numeric'  
+      // 'key'       => '_price',
+      // 'value'     => array( 10 , 30 ),
+      // 'compare'   => 'BETWEEN',
+      // 'type'      => 'numeric'  
     ),
   );
 
