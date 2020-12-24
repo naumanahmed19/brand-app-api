@@ -185,14 +185,38 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 	return $args;
 
   }
+  add_filter('woocommerce_rest_orderswoocommerce_rest_products_prepare_object_query_prepare_object_query', function(array $args, \WP_REST_Request $request) {
+    $modified_after = $request->get_param('modified_after');
 
-function testing_woo_product_query( $q ){ 
-    $args = rekord_api_get_home_listxx($request );
+    if (!$modified_after) {
+        return $args;
+    }
 
-    $q->set( 'meta_query', $args );
+	$args = rekord_api_get_home_listxx($request );
+    return $args;
 
-}
-add_action( 'woocommerce_rest_products_prepare_object_query', 'testing_woo_product_query' );
+}, 10, 2);
+
+
+// function testing_woo_product_query( $q ){ 
+//     $args = rekord_api_get_home_listxx($request );
+
+// 	$q->set( 'meta_query', $args );
+	
+
+// 	$modified_after = $request->get_param('modified_after');
+
+//     if (!$modified_after) {
+//         return $args;
+//     }
+
+//     $args['date_query'][0]['column'] = 'post_modified';
+//     $args['date_query'][0]['after']  = $modified_after;
+
+//     return $args;
+
+// }
+// add_action( 'woocommerce_rest_products_prepare_object_query', 'testing_woo_product_query' );
 
 
 // add this code to a custom plugin
