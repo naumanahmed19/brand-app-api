@@ -270,7 +270,7 @@ function testing_woo_product_query($args){
     }
   }
 
-      var_dump($args);
+    
 
       return $args;
     // $q->set( 'meta_query', $args );
