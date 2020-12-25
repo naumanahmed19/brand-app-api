@@ -34,7 +34,7 @@ class BrandFilterController{
     private function getSection($title,$term){
         $attr = [];
         $attr['title'] = $title;
-        $attr['type'] =  strtolower($title);
+        $attr['type'] =  'category';
         $attr['categories'] =  get_terms($term);
         
         return $attr;
