@@ -23,7 +23,7 @@ class BrandFilterController{
             //size
             $attr[] =  $this->getPriceSection();
              //size
-             $attr[] =  $this->getPriceSection();
+             $attr[] =  $this->getOrderSection();
 
 
             $data['sections'] = $attr;
