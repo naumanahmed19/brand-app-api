@@ -22,6 +22,8 @@ class BrandFilterController{
 
             //size
             $attr[] =  $this->getPriceSection();
+             //size
+             $attr[] =  $this->getPriceSection();
 
 
             $data['sections'] = $attr;
@@ -43,8 +45,8 @@ class BrandFilterController{
         $attr = [];
         $attr['title'] = 'Price';
         $attr['type']=  'price';
-        $attr['min_price'] =  '0';
-        $attr['max_price'] = '1000';
+        $attr['minPrice'] =  '0';
+        $attr['maxPrice'] = '1000';
         return $attr;
     }
 
@@ -53,8 +55,7 @@ class BrandFilterController{
         $attr = [];
         $attr['title'] = 'Order By';
         $attr['type']=  'order';
-        $attr['asc'] =  'asc';
-        $attr['desc'] = 'desc';
+        $attr['orders'] =  ['asc','desc'];
         return $attr;
     }
     
