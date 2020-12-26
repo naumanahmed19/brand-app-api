@@ -55,7 +55,17 @@ class BrandFilterController{
         $attr = [];
         $attr['title'] = 'Order By';
         $attr['type']=  'order';
-        $attr['orders'] =  ['asc','desc'];
+        $attr['orders'] =  [
+            [
+                'key'=>  'asc',
+                'name'=> 'Ascending'
+            ],
+            [
+                'key'=>  'desc',
+                'name'=> 'Descending'
+            ]
+
+        ];
         return $attr;
     }
     
