@@ -200,7 +200,7 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
     $productData = $product->get_data();
-    $productData['image'] = wp_get_attachment_url($productData->get_image_id() );
+    $productData['image'] = wp_get_attachment_url( $productData['image_id']);
  
     $products[] =  $productData;
      
