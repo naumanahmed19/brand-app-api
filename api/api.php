@@ -199,10 +199,10 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
   foreach (  $data['line_items'] as $item) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
-    // $productData = $product->get_data();
-    // $productData['image'] = wp_get_attachment_url( $productData['image_id']);
+    $productData = $product->get_data();
+    $productData['images'] =woo_get_images($product);
  
-    $products[] = brand_add_custom_data_to_product($product,$product,null);
+    //$products[] = brand_add_custom_data_to_product($product,$product,null);
      
   }
 
@@ -249,3 +249,43 @@ function wpse_mime_types_webp( $mimes ) {
   return $mimes;
 }
 
+
+
+function woo_get_images( $product ) {
+  $images         = array();
+  $attachment_ids = array();
+
+  // Add featured image.
+  if ( $product->get_image_id() ) {
+    $attachment_ids[] = $product->get_image_id();
+  }
+
+  // Add gallery images.
+  $attachment_ids = array_merge( $attachment_ids, $product->get_gallery_image_ids() );
+
+  // Build image data.
+  foreach ( $attachment_ids as $attachment_id ) {
+    $attachment_post = get_post( $attachment_id );
+    if ( is_null( $attachment_post ) ) {
+      continue;
+    }
+
+    $attachment = wp_get_attachment_image_src( $attachment_id, 'full' );
+    if ( ! is_array( $attachment ) ) {
+      continue;
+    }
+
+    $images[] = array(
+      'id'                => (int) $attachment_id,
+      'date_created'      => wc_rest_prepare_date_response( $attachment_post->post_date, false ),
+      'date_created_gmt'  => wc_rest_prepare_date_response( strtotime( $attachment_post->post_date_gmt ) ),
+      'date_modified'     => wc_rest_prepare_date_response( $attachment_post->post_modified, false ),
+      'date_modified_gmt' => wc_rest_prepare_date_response( strtotime( $attachment_post->post_modified_gmt ) ),
+      'src'               => current( $attachment ),
+      'name'              => get_the_title( $attachment_id ),
+      'alt'               => get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ),
+    );
+  }
+
+  return $images;
+}
