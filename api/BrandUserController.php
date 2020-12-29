@@ -1,6 +1,6 @@
 <?php
 
-class RekordUserController{
+class BrandUserController{
 
 
     public function get($id){

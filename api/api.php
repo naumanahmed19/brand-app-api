@@ -5,7 +5,7 @@ include ( __DIR__ . '/acf.php');
 include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
 include ( __DIR__ . '/BrandFilterController.php');
-include ( __DIR__ . '/RekordUserController.php');
+include ( __DIR__ . '/BrandUserController.php');
 function rekord_api_get_home($post_type){
     $response = new BrandHomeController();
     return  $response->get();
@@ -34,7 +34,7 @@ add_action('rest_api_init', function() {
 		'methods' => 'POST',
 		'callback' => function (){
 			return get_currentuserinfo();
-			$userController = new RekordUserController();
+			$userController = new BrandUserController();
 			return $userController->update($_REQUEST);
 		},
 		// 'permission_callback' => function($request){	  
@@ -59,7 +59,7 @@ add_action('rest_api_init', function() {
 
 add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
 
-	$userController = new RekordUserController();
+	$userController = new BrandUserController();
 	global $current_user;
 	
 	$payload['user'] =	$userController->get($payload['id']);
@@ -185,6 +185,22 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
     $data['variations'] = $variations_array;
   }
   return  $data;
+}
+
+add_filter( 'woocommerce_rest_prepare_order_object', 'brand_add_custom_data_to_order', 10, 3 );
+function brand_add_custom_data_to_order( $response, $post, $request ) {
+
+  $data = $response->get_data();  
+
+  $products = [];
+  foreach (  $data['line_items'] as $product) {
+    $products[] = get_post($product['id']);
+  }
+
+  $data['products'] =  $products;
+
+  return $data;
+
 }
 /**
  * Sets the extension and mime type for .webp files.
