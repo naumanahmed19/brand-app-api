@@ -187,6 +187,22 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
   return  $data;
 }
 
+
+add_filter( 'woocommerce_rest_prepare_order_object', 'custom_order_api_data', 10, 3 );
+function custom_order_api_data ( $response, $order, $request ) {
+
+	$items_order=$order->get_items();
+	foreach ($items_order as $item_obj) {
+			$product_id=$item_obj->get_product_id();
+			function custom_order_product_api_data ( $response, $product_id, $request ) {
+			$author_id = $product_id->post->post_author;
+			$author_name = get_the_author_meta( 'display_name', $product_id->post->post_author );
+			if ( ! empty( $response->data ) && ! empty( $author_name ) ) {
+				$response->data['author_name'] = $author_name;
+				$response->data['author_id'] = $author_id;
+			}		
+
+      
 add_filter( 'woocommerce_rest_prepare_order_object', 'brand_add_custom_data_to_order', 10, 3 );
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
