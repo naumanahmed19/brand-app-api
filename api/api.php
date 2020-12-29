@@ -200,9 +200,12 @@ function custom_order_api_data ( $response, $order, $request ) {
 			if ( ! empty( $response->data ) && ! empty( $author_name ) ) {
 				$response->data['author_name'] = $author_name;
 				$response->data['author_id'] = $author_id;
-			}		
+      }		
+    }
 
-      
+  }
+}
+
 add_filter( 'woocommerce_rest_prepare_order_object', 'brand_add_custom_data_to_order', 10, 3 );
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
