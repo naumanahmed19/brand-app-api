@@ -5,7 +5,7 @@ include ( __DIR__ . '/acf.php');
 include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
 include ( __DIR__ . '/BrandFilterController.php');
-
+include ( __DIR__ . '/RekordUserController.php');
 function rekord_api_get_home($post_type){
     $response = new BrandHomeController();
     return  $response->get();
