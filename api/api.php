@@ -190,7 +190,7 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
 add_filter( 'woocommerce_rest_prepare_order_object', 'brand_add_custom_data_to_order', 10, 3 );
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
-  var_dump('test');
+  var_dump($data['line_items'] );
   $data = $response->get_data();  
 
   $products = [];
