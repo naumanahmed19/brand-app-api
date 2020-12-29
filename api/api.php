@@ -197,7 +197,8 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $products = [];
   foreach (  $data['line_items'] as $product) {
-    $products[] = new WC_Product($product['id']);
+    $products['test'] =$product['id'];
+    $products[] = wc_get_product($product['id']);
   }
 
   $data['products'] =  $products;
