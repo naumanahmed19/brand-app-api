@@ -197,10 +197,12 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $products = [];
   foreach (  $data['line_items'] as $item) {
-    $products['idcheck'] = $item['product_id'];
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
-    $products[] = $product->get_data();
+    $productData = $product->get_data();
+    $productData['image'] = wp_get_attachment_url($productData->get_image_id() );
+ 
+    $products[] =  $productData;
      
   }
 
