@@ -30,18 +30,53 @@ add_action('rest_api_init', function() {
 	}
 
 	
-	register_rest_route( 'wl/v1', 'user/update', array(
+	register_rest_route( 'wc/v3', 'user/update', array(
 		'methods' => 'POST',
-		'callback' => function (){
-			return get_currentuserinfo();
+		'callback' => function ( $request ) use ( $route  ) {
+
+      global $current_user;
+      return $current_user;
 			$userController = new BrandUserController();
 			return $userController->update($_REQUEST);
-		},
+    },
+   // 'permission_callback' => true
 		// 'permission_callback' => function($request){	  
 		// 	return is_user_logged_in();
 		//   }
 		
-	) );
+  ) );
+  
+
+//   foreach ( $availableRoutes as $route ) {
+// 		register_rest_route( rtrim($jwtSettings->getRouteNamespace(),'/\\'), $route['name'], [
+// 				'methods'  => $route['method'],
+// 				'callback' => function ( $request ) use ( $route, $routeService, $jwtService, $jwtSettings ) {
+// 					/***
+// 					 * @var $request WP_REST_Request
+// 					 */
+
+// 					try {
+// 						$jwtService->withRequest( $request->get_params() );
+// 						$routeService->withService( $jwtService );
+
+// 						return $routeService->makeAction( $route['name'], $route['method'] );
+// 					} catch ( Exception $e ) {
+// 						@header( 'Content-Type: application/json; charset=UTF-8' );
+// 						wp_send_json_error( [
+// 							'message'   => $e->getMessage(),
+// 							'errorCode' => $e->getCode()
+// 						],
+// 							400
+// 						);
+
+// 						return false;
+// 					}
+// 				},
+//                                 'permission_callback' => true
+// 			]
+// 		);
+// 	}
+// } );
 
 
 	
@@ -52,6 +87,8 @@ add_action('rest_api_init', function() {
  // $response = new WP_REST_Response($data, 200);
  add_action( 'simple_jwt_login_login_hook', function($user){
 
+
+
 	return $user;
 
 }, 10, 2);
@@ -61,12 +98,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($payload, $request){
 
 	$userController = new BrandUserController();
   global $current_user;
-  
-  ///var_dump('test');
-  
-  //return $payload['id'];
-$payload['user'] =	$userController->get($payload['id']);
-	
+  $payload['user'] =	$userController->get($payload['id']);
 	return $payload;
 
 }, 10, 2);
