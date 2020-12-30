@@ -57,12 +57,15 @@ add_action('rest_api_init', function() {
 }, 10, 2);
 
 
-add_action( 'simple_jwt_login_jwt_payload_auth', function($user){
+add_action( 'simple_jwt_login_jwt_payload_auth', function($payload, $request){
 
 	$userController = new BrandUserController();
-	global $current_user;
-	
-	$payload['user'] =	$userController->get($payload['id']);
+  global $current_user;
+  
+  ///var_dump('test');
+  
+  //return $payload['id'];
+$payload['user'] =	$userController->get($payload['id']);
 	
 	return $payload;
 
@@ -194,6 +197,7 @@ add_filter( 'woocommerce_rest_prepare_shop_order_object', 'brand_add_custom_data
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $data = $response->get_data();  
+  
 
   $products = [];
   foreach (  $data['line_items'] as $item) {

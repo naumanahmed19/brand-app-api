@@ -6,7 +6,7 @@ class BrandUserController{
     public function get($id){
         $user  = get_userdata($id);
       
-        $data['id'] = $current_user->ID;
+        $data['id'] =$user->ID;
         $data['email'] = $user->user_email;
         $data['firstName'] = $user->first_name;
         $data['lastName'] = $user->last_name;
