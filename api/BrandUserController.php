@@ -20,11 +20,9 @@ class BrandUserController{
     }
     public function update($request){
 
-
-    //     global $current_user;
+         global $current_user;
     //    return  $current_user;
 
-      
 
         $request['ID'] = $current_user->ID;
         wp_update_user($request); 

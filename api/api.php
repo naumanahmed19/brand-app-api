@@ -6,6 +6,11 @@ include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
 include ( __DIR__ . '/BrandFilterController.php');
 include ( __DIR__ . '/BrandUserController.php');
+require_once ABSPATH . '/wp-content/plugins/simple-jwt-login/src/modules/SimpleJWTLoginService.php';
+
+
+
+
 function rekord_api_get_home($post_type){
     $response = new BrandHomeController();
     return  $response->get();
@@ -30,9 +35,14 @@ add_action('rest_api_init', function() {
 	}
 
 	
-	register_rest_route( 'wc/v3', 'user/update', array(
+	register_rest_route( 'jwt', 'user/update', array(
 		'methods' => 'POST',
 		'callback' => function ( $request ) use ( $route  ) {
+
+
+      // var_dump($sm->getUserIdFromJWT('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDkzNDk2MTQsImV4cCI6MTYyNzM0OTYxNCwiZW1haWwiOiJuYXVtYW5haG1lZDE5QGdtYWlsLmNvbSIsImlkIjoxLCJzaXRlIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDAiLCJ1c2VybmFtZSI6ImFkbWluIiwidXNlciI6eyJpZCI6MSwiZW1haWwiOiJuYXVtYW5haG1lZDE5QGdtYWlsLmNvbSIsImZpcnN0TmFtZSI6Ik5hdWFtbiIsImxhc3ROYW1lIjoiQWhtYWQiLCJhdmF0YXIiOiJodHRwOlwvXC8yLmdyYXZhdGFyLmNvbVwvYXZhdGFyXC8_cz05NiZkPW1tJnI9ZyJ9fQ.srwf7hZSCkJPxn46AELRbLdXG-t40gQN0uo22MzZeO0'));
+
+      
 
       global $current_user;
       return $current_user;
@@ -46,39 +56,6 @@ add_action('rest_api_init', function() {
 		
   ) );
   
-
-//   foreach ( $availableRoutes as $route ) {
-// 		register_rest_route( rtrim($jwtSettings->getRouteNamespace(),'/\\'), $route['name'], [
-// 				'methods'  => $route['method'],
-// 				'callback' => function ( $request ) use ( $route, $routeService, $jwtService, $jwtSettings ) {
-// 					/***
-// 					 * @var $request WP_REST_Request
-// 					 */
-
-// 					try {
-// 						$jwtService->withRequest( $request->get_params() );
-// 						$routeService->withService( $jwtService );
-
-// 						return $routeService->makeAction( $route['name'], $route['method'] );
-// 					} catch ( Exception $e ) {
-// 						@header( 'Content-Type: application/json; charset=UTF-8' );
-// 						wp_send_json_error( [
-// 							'message'   => $e->getMessage(),
-// 							'errorCode' => $e->getCode()
-// 						],
-// 							400
-// 						);
-
-// 						return false;
-// 					}
-// 				},
-//                                 'permission_callback' => true
-// 			]
-// 		);
-// 	}
-// } );
-
-
 	
 
 }, 100, 2);
