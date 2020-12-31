@@ -35,7 +35,7 @@ add_action('rest_api_init', function() {
 	}
 
 	
-	register_rest_route( 'jwt', 'user/update', array(
+	register_rest_route( 'xv', 'user/update', array(
 		'methods' => 'POST',
 		'callback' => function ( $request ) use ( $route  ) {
 
