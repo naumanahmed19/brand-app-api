@@ -56,7 +56,7 @@ class BrandHomeController{
           //  $args['category'] =   $section['category']['slug'];
         }
 
-        return $section['category'];
+        return $section['category']->slug;
 
         
         /** 
