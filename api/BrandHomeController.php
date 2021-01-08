@@ -56,17 +56,17 @@ class BrandHomeController{
          * Add Terms
          * 
         */
-        $terms =  $section['category'];
-        if(!empty($terms)){
-            $data[$i]['terms']  = $terms->slug;
-            $args['tax_query'] = array(
-                array(
-                    'taxonomy' => $postType.'-categories',
-                    'field'    => 'slug',
-                    'terms'    => $terms,
-                ),
-            );
-        }
+        // $terms =  $section['category'];
+        // if(!empty($terms)){
+        //     $data[$i]['terms']  = $terms->slug;
+        //     $args['tax_query'] = array(
+        //         array(
+        //             'taxonomy' => $postType.'-categories',
+        //             'field'    => 'slug',
+        //             'terms'    => $terms,
+        //         ),
+        //     );
+        // }
 
 
 
