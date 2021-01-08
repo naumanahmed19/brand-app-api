@@ -72,7 +72,7 @@ class BrandHomeController{
 
         //$posts = get_posts($args);
     
-        $products_query = $query->get_products($args);
+        $products_query = wc_get_products($args);
         $products = array();
         foreach ( $products_query as $product ) {
 
