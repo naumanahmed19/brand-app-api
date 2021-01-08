@@ -53,8 +53,10 @@ class BrandHomeController{
         );
 
         if(!empty($section['category'])) {
-            $args['category'] =   $section['category']['slug'];
+          //  $args['category'] =   $section['category']['slug'];
         }
+
+        return $section['category'];
 
         
         /** 
