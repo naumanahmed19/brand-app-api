@@ -45,11 +45,16 @@ class BrandHomeController{
 
     public function getPosts($section){
         
+
+     
         $args = array(
             'posts_per_page'  => $section['posts_per_page'],
             //'offset'          => $postOffset,
-           /// 'post_type'       => 'products',
         );
+
+        if(!empty($section['category'])) {
+            $args['category'] =   $section['category']['slug'];
+        }
 
         
         /** 
