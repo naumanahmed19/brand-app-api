@@ -87,7 +87,11 @@ class BrandHomeController{
         $products = array();
         foreach ( $products_query as $product ) {
 
-            $products[] = wc_get_product($product->id);
+
+            $p = wc_get_product($product['product_id']);
+            $products[] = $p->get_data();
+      
+            
         }
 
         return $products;
