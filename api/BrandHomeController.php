@@ -48,7 +48,7 @@ class BrandHomeController{
         $args = array(
             'posts_per_page'  => $section['posts_per_page'],
             //'offset'          => $postOffset,
-            'post_type'       =>  $section['post_type'],
+           /// 'post_type'       => 'products',
         );
 
         
@@ -72,7 +72,7 @@ class BrandHomeController{
 
         //$posts = get_posts($args);
     
-        $products_query = wc_get_products();
+        $products_query = wc_get_products($args);
         $products = array();
         foreach ( $products_query as $product ) {
 
