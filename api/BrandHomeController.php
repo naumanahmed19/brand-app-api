@@ -14,7 +14,11 @@ class BrandHomeController{
 
             foreach($sections as $section){
                 $sd[$i]['title'] = $section['title'];
-                $sd[$i]['image'] = $section['image'];
+
+                if(!empty( $section['image'])){
+                 $sd[$i]['image'] = $section['image'];
+                }
+              
                 $sd[$i]['filter'] =$section['filter'];
                 $sd[$i]['categories'] =$section['categories'];
 
