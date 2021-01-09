@@ -21,7 +21,8 @@ class BrandHomeController{
                 $sd[$i]['type'] =$section['type'];
               
                 $sd[$i]['filter'] =$section['filter'] ? $section['filter'] : null;
-                $sd[$i]['categories'] =$section['categories'];
+               
+                $sd[$i]['categories'] =getCategories($section);
 
              
              
@@ -44,6 +45,22 @@ class BrandHomeController{
 
             return  $data;
     }
+
+
+
+    public function getCategories($section){
+      $categories  = $section['categories'];
+      foreach ($categories as $key => $cat ) {
+      // get the thumbnail id using the queried category term_id
+        $thumbnail_id = get_term_meta( $cat->id, 'thumbnail_id', true ); 
+        // get the image URL
+        $image = wp_get_attachment_url( $thumbnail_id ); 
+
+        $categories[$key]['thumbnail'] = $image;
+    }
+
+    return $categories;
+  }
     
 
 
@@ -57,6 +74,7 @@ class BrandHomeController{
             //'offset'          => $postOffset,
         );
 
+        
         if(!empty($section['category'])) {
          $args['category'] =   $section['category']->slug;
         }
