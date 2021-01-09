@@ -53,11 +53,14 @@ class BrandHomeController{
       foreach ($categories as $key => $cat ) {
       // get the thumbnail id using the queried category term_id
         $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+     
 
         var_dump(  $thumbnail_id);
         var_dump($key);
-        // // get the image URL
-        $image = wp_get_attachment_url( $thumbnail_id ); 
+
+        $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+        $image = wp_get_attachment_url( $cat_thumb_id ); 
+
 
         $categories[$key]['thumbnail'] = $image;
     }
