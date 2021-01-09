@@ -55,7 +55,7 @@ class BrandHomeController{
         $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
         $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
         $image = wp_get_attachment_url( $cat_thumb_id ); 
-        $cat['image'] = $image;
+        $cat['image'] = $image ? $image : null;
         $categories[] = $cat;
       }
 
