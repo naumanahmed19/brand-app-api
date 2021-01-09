@@ -48,19 +48,25 @@ class BrandHomeController{
 
 
 
+    /**
+     * Get categories:
+     * Issue: Acf taxonomy does not return product category image so we are mapping it here
+     */
     public function getCategories($section){
-      $cats  = $section['categories'];
-      $categories = [];
-      foreach ($cats as $key => $cat ) {
-        $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-        $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-        $image = wp_get_attachment_url( $cat_thumb_id ); 
-        $cat['image'] = $image ? $image : null;
-        $categories[] = $cat;
-      }
+        $cats  = $section['categories'];
+        $categories = [];
+        foreach ($cats as $key => $cat ) {
+          $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+          $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+          $image = wp_get_attachment_url( $cat_thumb_id ); 
+         // $cat->image = $image ? $image : null;
+          $categories[] = $cat;
+        }
 
-    return $categories;
-  }
+        
+
+      return $categories;
+    }
     
 
 
