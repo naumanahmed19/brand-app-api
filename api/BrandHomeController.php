@@ -56,13 +56,13 @@ class BrandHomeController{
      
 
         var_dump(  $thumbnail_id);
-        var_dump($key);
+       
 
         $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
         $image = wp_get_attachment_url( $cat_thumb_id ); 
+        var_dump(   $image );
 
-
-        $categories[$key]['thumbnail'] = $image;
+     //   $categories[$key]['thumbnail'] = $image;
     }
 
     return $categories;
