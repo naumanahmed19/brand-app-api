@@ -18,11 +18,12 @@ class BrandHomeController{
                 if(!empty( $section['image'])){
                  $sd[$i]['image'] = $section['image'];
                 }
+                $sd[$i]['type'] =$section['type'];
               
-                $sd[$i]['filter'] =$section['filter'];
+                $sd[$i]['filter'] =$section['filter'] ? $section['filter'] : null;
                 $sd[$i]['categories'] =$section['categories'];
 
-                $sd[$i]['type'] =$section['type'];
+             
              
 
 
