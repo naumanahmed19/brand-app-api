@@ -22,7 +22,7 @@ class BrandHomeController{
               
                 $sd[$i]['filter'] =$section['filter'] ? $section['filter'] : null;
                
-                $sd[$i]['categories'] =getCategories($section);
+                $sd[$i]['categories'] = $this->getCategories($section);
 
              
              
