@@ -2,10 +2,13 @@
 
 include ( __DIR__ . '/acf.php');
 
+
+include ( __DIR__ . '/BrandProductController.php');
 include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
 include ( __DIR__ . '/BrandFilterController.php');
 include ( __DIR__ . '/BrandUserController.php');
+
 require_once ABSPATH . '/wp-content/plugins/simple-jwt-login/src/modules/SimpleJWTLoginService.php';
 
 
@@ -212,14 +215,12 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
   
 
   $products = [];
+  $ctrl = new BrandProductController();
+
   foreach (  $data['line_items'] as $item) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
-    $productData = $product->get_data();
-    $productData['images'] =woo_get_images($product);
-    $products[] = $productData;
-    //$products[] = brand_add_custom_data_to_product($product,$product,null);
-     
+    $products[] = $ctrl->get($product,$product); 
   }
 
   $data['products'] =  $products;
