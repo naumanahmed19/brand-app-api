@@ -33,7 +33,7 @@ class BrandHomeController{
 
                 if($section['type'] == 'slider' ){
                   $sd[$i]['slides'] = $this->getSlides($section);
-              }
+                }
 
 
                 $i++;
@@ -75,7 +75,7 @@ class BrandHomeController{
       $allSlides = [];
       foreach ($slides as $key => $slide ) {
         $allSlides[$key]['image']  = $slide['image'];
-        $allSlides[$key]['category']  $slide['category'];
+        $allSlides[$key]['category']  = $slide['category'];
       }
 
       return $allSlides;
