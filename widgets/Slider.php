@@ -22,15 +22,14 @@ class Brandslider_Widget extends WP_Widget {
 
               // widget ID with prefix for use in ACF API functions
       $widget_id = 'widget_' . $args['widget_id'];
-        var_dump($slides );  
+     
         $slides = get_field( 'slides', $widget_id ) ? get_field( 'slides', $widget_id ) : '';
-var_dump($slides );
+        
+        echo '<div class="brand-slider">';
         foreach ($slides as $key => $slide ) {
-           echo '<img src="'.$slide['image'].'" />';
+           echo '<div=class="brand-slide-item"></div=class=><img src="'.$slide['image'].'" /></div>';
         }
-
-
-    
+        echo '</div>';
 
 
 		// Output generated fields

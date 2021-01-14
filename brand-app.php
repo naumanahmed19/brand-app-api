@@ -83,11 +83,20 @@ final class Brand_App_API {
 	
 		}
 
+		add_action('wp_enqueue_scripts', 'brand_enqueue_script');
+
 
 		require_once( __DIR__ . '/api/api.php' );
 		
 		require_once( __DIR__ . '/widgets/Slider.php' );
 
 	}
+
+	function brand_enqueue_script()
+	{   
+		wp_enqueue_style( 'slick', plugin_dir_url( __FILE__ )  . '/assets/css/slick.css' );
+		wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
+	}
+
 }
 new Brand_App_API();
