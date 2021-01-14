@@ -25,13 +25,15 @@ class BrandHomeController{
                 $sd[$i]['categories'] = $this->getCategories($section);
 
              
-             
-
+            
 
                 if($section['type'] == 'product' ){
                     $sd[$i]['products'] = $this->getPosts($section);
-
                 }
+
+                if($section['type'] == 'slider' ){
+                  $sd[$i]['slides'] = $this->getSlides($section);
+              }
 
 
                 $i++;
@@ -68,6 +70,16 @@ class BrandHomeController{
       return $categories;
     }
     
+    public function getSlides($section){
+      $slides  = $section['slides'];
+      $allSlides = [];
+      foreach ($slides as $key => $slide ) {
+        $allSlides[$key]['image']  = $slide['image'];
+        $allSlides[$key]['category']  $slide['category'];
+      }
+
+      return $allSlides;
+    }
 
 
 
