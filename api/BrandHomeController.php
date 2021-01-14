@@ -33,8 +33,9 @@ class BrandHomeController{
                 }else{
 
 
+
                 //do not add categoires in slider section    
-                      
+                    
                 $sd[$i]['categories'] = $this->getCategories($section);
 
              
