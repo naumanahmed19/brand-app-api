@@ -21,7 +21,7 @@ class Brandslider_Widget extends WP_Widget {
         }
         
         $slides = get_field( 'slides', $widget_id ) ? get_field( 'slides', $widget_id ) : '';
-
+var_dump($slides );
         foreach ($slides as $key => $slide ) {
            echo '<img src="'.$slide['image'].'" />';
         }
