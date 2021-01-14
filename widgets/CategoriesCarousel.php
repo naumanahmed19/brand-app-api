@@ -5,8 +5,8 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Brand_CategoriesCarousel_widget',
-			esc_html__( 'Brand Slider', 'brand-app' ),
-			array( 'description' => esc_html__( 'A slider with images linked to  a product category or url', 'brand-app' ), ) // Args
+			esc_html__( 'Brand Category Carousel', 'brand-app' ),
+			array( 'description' => esc_html__( 'Display categories list in a carousel', 'brand-app' ), ) // Args
 		);
 	}
 
