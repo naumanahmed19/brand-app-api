@@ -21,10 +21,7 @@ class BrandHomeController{
                 $sd[$i]['type'] =$section['type'];
               
                 $sd[$i]['filter'] =$section['filter'] ? $section['filter'] : null;
-               
-                $sd[$i]['categories'] = $this->getCategories($section);
-
-             
+           
             
 
                 if($section['type'] == 'product' ){
@@ -33,6 +30,14 @@ class BrandHomeController{
 
                 if($section['type'] == 'slider' ){
                   $sd[$i]['slides'] = $this->getSlides($section);
+                }else{
+
+
+                //do not add categoires in slider section    
+                      
+                $sd[$i]['categories'] = $this->getCategories($section);
+
+             
                 }
 
 
