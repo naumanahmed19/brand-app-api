@@ -3,9 +3,7 @@ jQuery(document).ready(function ($) {
     "use strict";
 
     lightSlider();
- });
 
- 
 var lightSlider = window.lightSlider = function () {
     var light = $(".lightSlider");
     light.each(function () {
@@ -85,3 +83,7 @@ var lightSlider = window.lightSlider = function () {
         // });
     });
 };
+
+});
+
+ 
