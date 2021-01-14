@@ -19,7 +19,10 @@ class Brandslider_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
-        
+
+              // widget ID with prefix for use in ACF API functions
+      $widget_id = 'widget_' . $args['widget_id'];
+        var_dump($slides );  
         $slides = get_field( 'slides', $widget_id ) ? get_field( 'slides', $widget_id ) : '';
 var_dump($slides );
         foreach ($slides as $key => $slide ) {
@@ -27,8 +30,7 @@ var_dump($slides );
         }
 
 
-          // widget ID with prefix for use in ACF API functions
-      $widget_id = 'widget_' . $args['widget_id'];
+    
 
 
 		// Output generated fields
