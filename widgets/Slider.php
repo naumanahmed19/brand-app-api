@@ -25,7 +25,7 @@ class Brandslider_Widget extends WP_Widget {
      
         $slides = get_field( 'slides', $widget_id ) ? get_field( 'slides', $widget_id ) : '';
         
-        echo '<div class="brand-slider">';
+        echo '<div class="lightSlider">';
         foreach ($slides as $key => $slide ) {
            echo '<div=class="brand-slide-item"></div=class=><img src="'.$slide['image'].'" /></div>';
         }
