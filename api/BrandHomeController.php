@@ -122,7 +122,7 @@ class BrandHomeController{
         //     );
         // }
 
-
+        getWidgets();
 
         //$posts = get_posts($args);
     
@@ -263,4 +263,28 @@ class BrandHomeController{
         
 }
 
+
+
+//TODO
+//Add template to plugin
+//add sidebar locations
+
+
+
+function getWidgets(){
+  $sidebars_widgets = wp_get_sidebars_widgets();
+  $widgets = $sidebars_widgets['sidebar-1'];
+
+  foreach( $widgets as $widget){
+    $arr = explode("-",$widget);
+    $name = $arr[0];
+    $id = $arr[1];
+    
+    $widget_instances = get_option('widget_' . $name);
+
+    var_dump( $widget_instances );
+  }
+  
+
+}
 
