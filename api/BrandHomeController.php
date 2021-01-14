@@ -15,9 +15,7 @@ class BrandHomeController{
             foreach($sections as $section){
                 $sd[$i]['title'] = $section['title'];
 
-                if(!empty( $section['image'])){
-                 $sd[$i]['image'] = $section['image'];
-                }
+             
                 $sd[$i]['type'] =$section['type'];
               
                 $sd[$i]['filter'] =$section['filter'] ? $section['filter'] : null;
@@ -32,7 +30,9 @@ class BrandHomeController{
                   $sd[$i]['slides'] = $this->getSlides($section);
                 }else{
 
-
+                  if(!empty( $section['image'])){
+                    $sd[$i]['image'] = $section['image'];
+                   }
 
                 //do not add categoires in slider section    
                     
