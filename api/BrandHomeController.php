@@ -9,6 +9,8 @@ class BrandHomeController{
             $sd = [];
             $i = 0;
 
+            $this->getWidgets();
+
 
             $sections =  get_field('home_screen_sections', 'option');
 
@@ -27,7 +29,7 @@ class BrandHomeController{
                 }
 
                 if($section['type'] == 'slider' ){
-                  $sd[$i]['slides'] = $this->getSlides($section);
+                  $sd[$i]['slides'] = $this->getSlides($section['slides']);
                 }else{
 
                   if(!empty( $section['image'])){
@@ -36,7 +38,7 @@ class BrandHomeController{
 
                 //do not add categoires in slider section    
                     
-                $sd[$i]['categories'] = $this->getCategories($section);
+                $sd[$i]['categories'] = $this->getCategories($section['categories']);
 
              
                 }
@@ -60,8 +62,8 @@ class BrandHomeController{
      * Get categories:
      * Issue: Acf taxonomy does not return product category image so we are mapping it here
      */
-    public function getCategories($section){
-        $cats  = $section['categories'];
+    public function getCategories($cats){
+         
         $categories = [];
         foreach ($cats as $key => $cat ) {
           $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
@@ -76,8 +78,8 @@ class BrandHomeController{
       return $categories;
     }
     
-    public function getSlides($section){
-      $slides  = $section['slides'];
+    public function getSlides($slides){
+    
       $allSlides = [];
       foreach ($slides as $key => $slide ) {
         $allSlides[$key]['image']  = $slide['image'];
@@ -122,7 +124,7 @@ class BrandHomeController{
         //     );
         // }
 
-        getWidgets();
+
 
         //$posts = get_posts($args);
     
@@ -275,19 +277,29 @@ function getWidgets(){
   $sidebars_widgets = wp_get_sidebars_widgets();
   $widgets = $sidebars_widgets['sidebar-1'];
 
-  foreach( $widgets as $widget){
+  $sections = [];
+  foreach( $widgets as $key => $widget){
     $arr = explode("-",$widget);
-    $name = $arr[0];
-    $widget_id = 'widget_' . $name;
-    var_dump($widget_id);
-    $widget_instances = get_option('widget_' . $name);
-    $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
-    var_dump($categories);
     
+    $name = $arr[0];
+    $widget_id = $arr[1];
+    // var_dump('widget_' . $name);
+    //$widget_instances = get_option('widget_' . $name);
+    
+    if($name == 'brandslider_widget'){
+      $slides = get_field('slides', 'widget_' .$widget);
+      $sections[$key]['categories'] = $this->getSlides($slides);
+    }
+    
+    if($name == 'widget_brand_categoriescarousel_widget'){
+      $cats = get_field('categories', 'widget_' .$widget);
+      $sections[$key]['categories'] = $this->getCategories($cats);
+    }
+    
+    
+    }
 
-    var_dump( $widget_instances );
-  }
-  
+    var_dump($sections);
 
 }
 
