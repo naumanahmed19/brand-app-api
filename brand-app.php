@@ -90,8 +90,7 @@ final class Brand_App_API {
 		{   
 			wp_enqueue_style( 'tailwind', plugin_dir_url( __FILE__ )  . '/assets/css/tailwind.min.css' );
 			wp_enqueue_style( 'slick', plugin_dir_url( __FILE__ )  . '/assets/css/slick.css' );
-
-			wp_enqueue_style( 'tailwind', plugin_dir_url( __FILE__ )  . '/assets/css/main.css' );
+			wp_enqueue_style( 'brand-css', plugin_dir_url( __FILE__ )  . '/assets/css/main.css' );
 
 
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
