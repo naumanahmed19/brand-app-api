@@ -263,7 +263,6 @@ class BrandHomeController{
         return  $data;
       }
         
-}
 
 
 
@@ -303,3 +302,4 @@ function getWidgets(){
 
 }
 
+}
