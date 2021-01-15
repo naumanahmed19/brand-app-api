@@ -22,32 +22,26 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
-        $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
+		$image = get_field( 'image', $widget_id ) ? get_field( 'image', $widget_id ) : '';
 		?>
 	      <div>
          <p>Open <strong>multiple</strong></p>
          <div class="shadow-md">
             <div class="tab w-full overflow-hidden border-t">
                <input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
-               <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">Label One</label>
+               <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">
+			  	<img src="<?php echo $image; ?>" alt="" />
+			   <?php echo $title; ?>
+			   </label>
                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+			   <?php  foreach ($categories as $key => $cat ) { ?>
+                  <p class="p-5"><?php  $cat->name; ?></p>
                </div>
+			   <?php } ?> 
             </div>
-            <div class="tab w-full overflow-hidden border-t">
-               <input class="absolute opacity-0" id="tab-multi-two" type="checkbox" name="tabs">
-               <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-two">Label Two</label>
-               <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-               </div>
-            </div>
-            <div class="tab w-full overflow-hidden border-t">
-               <input class="absolute opacity-0" id="tab-multi-three" type="checkbox" name="tabs">
-               <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-three">Label Three</label>
-               <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
-                  <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-               </div>
-            </div>
+         
          </div>
       </div>
 		<?php
@@ -89,19 +83,13 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	}
 
 	public function form( $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'brand-app' );
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'brand-app' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-		</p>
-		<?php
+	
 		$this->field_generator( $instance );
 	}
 
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+	
 		foreach ( $this->widget_fields as $widget_field ) {
 			switch ( $widget_field['type'] ) {
 				default:
