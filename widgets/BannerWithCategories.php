@@ -37,7 +37,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 			   </label>
                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
 			   <?php  foreach ($categories as $key => $cat ) { ?>
-                  <p class="p-5"><?php  $cat->name; ?></p>
+                  <p class="p-5"><?php echo $cat->name; ?></p>
                </div>
 			   <?php } ?> 
             </div>
