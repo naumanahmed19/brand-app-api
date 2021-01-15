@@ -27,7 +27,7 @@ class BrandHomeController{
                 }
 
                 if($section['type'] == 'slider' ){
-                  $sd[$i]['slides'] = $this->getSlides($section);
+                  $sd[$i]['slides'] = $this->getSlides($section['slides']);
                 }else{
 
                 if(!empty( $section['image'])){
@@ -36,7 +36,7 @@ class BrandHomeController{
 
                 //do not add categoires in slider section    
                     
-                $sd[$i]['categories'] = $this->getCategories($section);
+                $sd[$i]['categories'] = $this->getCategories($section['categories']);
 
              
                 }
@@ -60,8 +60,7 @@ class BrandHomeController{
      * Get categories:
      * Issue: Acf taxonomy does not return product category image so we are mapping it here
      */
-    public function getCategories($section){
-        $cats  = $section['categories'];
+    public function getCategories($cats){
         $categories = [];
         foreach ($cats as $key => $cat ) {
           $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
@@ -76,8 +75,8 @@ class BrandHomeController{
       return $categories;
     }
     
-    public function getSlides($section){
-      $slides  = $section['slides'];
+    public function getSlides($slides){
+  
       $allSlides = [];
       foreach ($slides as $key => $slide ) {
         $allSlides[$key]['image']  = $slide['image'];
