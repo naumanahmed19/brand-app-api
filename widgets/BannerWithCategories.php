@@ -16,9 +16,6 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-        }
 
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
@@ -32,8 +29,8 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
             <div class="tab w-full overflow-hidden">
                <input class="absolute opacity-0 " id="tab-<?php echo $widget_id ;?>" type="checkbox" name="tabs">
                <label class="block p-5 text-center cursor-pointer" for="tab-<?php echo $widget_id ;?>">
-			  	<img src="<?php echo $image; ?>" alt="" />
-			   <?php echo $title; ?>
+			  	<img class="rounded-md" src="<?php echo $image; ?>" alt="" />
+			  	<h2 class="text-md"> <?php echo $title; ?></h2>
 			   </label>
                <div class="tab-content overflow-hidden  leading-normal">
 			   <?php  foreach ($categories as $key => $cat ) { ?>
