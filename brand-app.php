@@ -102,6 +102,7 @@ final class Brand_App_API {
 		// require_once( __DIR__ . '/blocks/blocks.php' );
 		require_once( __DIR__ . '/widgets/Slider.php' );
 		require_once( __DIR__ . '/widgets/CategoriesCarousel.php' );
+		require_once( __DIR__ . '/widgets/ProductsCarousel.php' );
 		require_once( __DIR__ . '/widgets/BannerWithCategories.php' );
 	}
 
