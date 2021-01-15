@@ -48,7 +48,7 @@ class BrandHomeController{
 
 
             $data['categories'] =  get_field('filter_categories', 'option');
-            $data['widgets'] =  $this->getWidgets();
+           // $data['widgets'] =  $this->getWidgets();
             $data['sections'] = $sd;
 
 
