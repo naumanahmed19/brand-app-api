@@ -290,7 +290,7 @@ function getWidgets(){
       $sections[$i]['slides'] = $this->getSlides($slides);
     }
     
-    if($name == 'widget_brand_categoriescarousel_widget'){
+    if($name == 'brand_categoriescarousel_widget'){
       $cats = get_field('categories', 'widget_' .$widget);
      $sections[$i]['categories'] = $this->getCategories($cats);
     }
