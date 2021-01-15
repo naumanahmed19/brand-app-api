@@ -9,8 +9,6 @@ class BrandHomeController{
             $sd = [];
             $i = 0;
 
-            
-
 
             $sections =  get_field('home_screen_sections', 'option');
 
@@ -29,16 +27,16 @@ class BrandHomeController{
                 }
 
                 if($section['type'] == 'slider' ){
-                  $sd[$i]['slides'] = $this->getSlides($section['slides']);
+                  $sd[$i]['slides'] = $this->getSlides($section);
                 }else{
 
-                  if(!empty( $section['image'])){
-                    $sd[$i]['image'] = $section['image'];
-                   }
+                if(!empty( $section['image'])){
+                              $sd[$i]['image'] = $section['image'];
+                              }
 
                 //do not add categoires in slider section    
                     
-                $sd[$i]['categories'] = $this->getCategories($section['categories']);
+                $sd[$i]['categories'] = $this->getCategories($section);
 
              
                 }
@@ -53,9 +51,6 @@ class BrandHomeController{
             $data['sections'] = $sd;
 
 
-            //$data['sections']['widgets'] =  $this->getWidgets();
-
-
             return  $data;
     }
 
@@ -65,8 +60,8 @@ class BrandHomeController{
      * Get categories:
      * Issue: Acf taxonomy does not return product category image so we are mapping it here
      */
-    public function getCategories($cats){
-         
+    public function getCategories($section){
+        $cats  = $section['categories'];
         $categories = [];
         foreach ($cats as $key => $cat ) {
           $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
@@ -81,8 +76,8 @@ class BrandHomeController{
       return $categories;
     }
     
-    public function getSlides($slides){
-    
+    public function getSlides($section){
+      $slides  = $section['slides'];
       $allSlides = [];
       foreach ($slides as $key => $slide ) {
         $allSlides[$key]['image']  = $slide['image'];
@@ -265,9 +260,8 @@ class BrandHomeController{
         $data['images'] =woo_get_images($product);
         return  $data;
       }
-        
 
-
+      
 
 //TODO
 //Add template to plugin
@@ -308,5 +302,7 @@ function getWidgets(){
    return $sections;
 
 }
-
+        
 }
+
+
