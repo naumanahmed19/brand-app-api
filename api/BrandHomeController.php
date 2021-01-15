@@ -278,9 +278,12 @@ function getWidgets(){
   foreach( $widgets as $widget){
     $arr = explode("-",$widget);
     $name = $arr[0];
-    $id = $arr[1];
-    
+    $widget_id = 'widget_' . $name;
+    var_dump($widget_id);
     $widget_instances = get_option('widget_' . $name);
+    $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+    var_dump($categories);
+    
 
     var_dump( $widget_instances );
   }
