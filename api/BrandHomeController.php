@@ -289,7 +289,7 @@ function getWidgets(){
     // var_dump('widget_' . $name);
     //$widget_instances = get_option('widget_' . $name);
    
-    $sections[$i]['title'] = get_option('title');
+    $sections[$i]['title'] = get_field('title', 'widget_' .$widget);
 
     if($name == 'brandslider_widget'){
       $slides = get_field('slides', 'widget_' .$widget);
