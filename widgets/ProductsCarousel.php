@@ -21,18 +21,23 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
         }
 
         // widget ID with prefix for use in ACF API functions
-      	$widget_id = 'widget_' . $args['widget_id'];
+		  $widget_id = 'widget_' . $args['widget_id'];
+		  
+		  $ctrl = new BrandProductController();
+		  $products = $ctrl->getPosts($section);
+
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
-		
-	
+		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
+		 echo $title; 
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
-        foreach ($categories as $key => $cat ) {
-			$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-			$cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-			$image = wp_get_attachment_url( $cat_thumb_id ); 
-			echo '
-			<div><img src="'.$image.'" />
-			</div>';
+        foreach ($products as $key => $product ) {
+			 echo  $product->name;
+			// $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+			// $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+			// $image = wp_get_attachment_url( $cat_thumb_id ); 
+			// echo '
+			// <div><img src="'.$image.'" />
+			// </div>';
         }
         echo '</div>';
 
@@ -43,6 +48,8 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
         
         
 	}
+
+	
 
 	public function field_generator( $instance ) {
 		$output = '';

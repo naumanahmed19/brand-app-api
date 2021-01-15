@@ -52,3 +52,6 @@ function isFavorited($id){
 	global $current_user;
 	 return in_array($id, get_user_favorites( $current_user->ID)) ;
 }
+
+
+
