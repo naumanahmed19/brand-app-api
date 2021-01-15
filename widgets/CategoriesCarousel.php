@@ -20,11 +20,14 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
 
+		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
+	
+		
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
-		
 	
+		echo '<div calss="text-2xl font-medium">'.$title.'</div>';
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
         foreach ($categories as $key => $cat ) {
 			$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 

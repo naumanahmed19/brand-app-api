@@ -39,7 +39,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		 echo $title; 
-        echo '<div class="lightSlider" data-pager="false" data-item="4">';
+        echo '<div class="lightSlider" data-pager="false" data-item="2">';
 		foreach ($products as $key => $product ) {?>
 			<div>
 				<img src="<?php echo $product['images'][0]['src'] ; ?>" />
