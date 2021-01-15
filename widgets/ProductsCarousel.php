@@ -43,9 +43,8 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		foreach ($products as $key => $product ) {?>
 			<div>
 				<img src="<?php echo $product->images[0].src ; ?>" />
-				<div><?php echo $product->name ; ?></div>
+				<div><?php echo $product['name'] ; ?></div>
 				<div><?php echo $product->price ; ?></div>
-
 
 		 </div>
        <?php }
