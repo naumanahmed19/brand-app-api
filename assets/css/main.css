@@ -10,15 +10,6 @@
     max-height: 100vh;
     }
     /* Label formatting when open */
-    .tab input:checked + label{
-    /*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
-    font-size: 1.25rem; /*.text-xl*/
-    padding: 1.25rem; /*.p-5*/
-    border-left-width: 2px; /*.border-l-2*/
-    border-color: #6574cd; /*.border-indigo*/
-    background-color: #f8fafc; /*.bg-gray-100 */
-    color: #6574cd; /*.text-indigo*/
-    }
  
     .tab input[type=radio] + label::after {
     content: "\25BE";

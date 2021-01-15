@@ -27,7 +27,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
        
          <div>
             <div class="tab w-full overflow-hidden">
-               <input class="absolute opacity-0 " id="tab-<?php echo $widget_id ;?>" type="checkbox" name="tabs">
+               <input class="absolute opacity-0 hidden " id="tab-<?php echo $widget_id ;?>" type="checkbox" name="tabs">
                <label class="block p-5 text-center cursor-pointer" for="tab-<?php echo $widget_id ;?>">
 			  	<img class="rounded-md" src="<?php echo $image; ?>" alt="" />
 			  	<div class="text-2xl p-3"> <?php echo $title; ?></div>
