@@ -40,17 +40,15 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		 echo $title; 
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
-        foreach ($products as $key => $product ) {
+		foreach ($products as $key => $product ) {?>
+			<div>
+				<img src="<?php echo $product->images[0].src ; ?>" />
+				<div><?php echo $product->name ; ?></div>
+				<div><?php echo $product->price ; ?></div>
 
-			var_dump( $product);
-			// echo  $product->name;
-			// $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-			// $cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-			// $image = wp_get_attachment_url( $cat_thumb_id ); 
-			// echo '
-			// <div><img src="'.$image.'" />
-			// </div>';
-        }
+
+		 </div>
+       <?php }
         echo '</div>';
 
 
