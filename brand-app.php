@@ -88,6 +88,7 @@ final class Brand_App_API {
 		function brand_enqueue_script()
 
 		{   
+			wp_enqueue_style( 'tailwind', plugin_dir_url( __FILE__ )  . '/assets/css/tailwind.min.css' );
 			wp_enqueue_style( 'slick', plugin_dir_url( __FILE__ )  . '/assets/css/slick.css' );
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
 			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
@@ -98,6 +99,7 @@ final class Brand_App_API {
 		require_once( __DIR__ . '/blocks/blocks.php' );
 		require_once( __DIR__ . '/widgets/Slider.php' );
 		require_once( __DIR__ . '/widgets/CategoriesCarousel.php' );
+		require_once( __DIR__ . '/widgets/BannerWithCategories.php' );
 	}
 
 
