@@ -293,7 +293,7 @@ function getWidgets(){
 
     if($name == 'brandslider_widget'){
       $slides = get_field('slides', 'widget_' .$widget);
-      $sections[$i]['categories'] = $this->getSlides($slides);
+      $sections[$i]['slides'] = $this->getSlides($slides);
     }
     
     if($name == 'widget_brand_categoriescarousel_widget'){

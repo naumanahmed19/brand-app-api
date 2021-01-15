@@ -20,9 +20,8 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
 
-              // widget ID with prefix for use in ACF API functions
-      $widget_id = 'widget_' . $args['widget_id'];
-     
+        // widget ID with prefix for use in ACF API functions
+      	$widget_id = 'widget_' . $args['widget_id'];
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		
 	
