@@ -53,7 +53,7 @@ class BrandHomeController{
             $data['sections'] = $sd;
 
 
-            $data['sections']['widgets'] =  $this->getWidgets();
+            //$data['sections']['widgets'] =  $this->getWidgets();
 
 
             return  $data;
