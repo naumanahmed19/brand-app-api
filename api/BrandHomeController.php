@@ -299,7 +299,7 @@ function getWidgets(){
     if($name == 'widget_brand_categoriescarousel_widget'){
       $cats = get_field('categories', 'widget_' .$widget);
       var_dump( $cats);
-      $sections[$i]['categories'] = $this->getCategories($cats);
+    //  $sections[$i]['categories'] = $this->getCategories($cats);
     }
     
     $i++;
