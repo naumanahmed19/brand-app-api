@@ -23,8 +23,19 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
         // widget ID with prefix for use in ACF API functions
 		  $widget_id = 'widget_' . $args['widget_id'];
 		  
+		  $posts_per_page = get_field( 'posts_per_page', $widget_id ) ? get_field( 'posts_per_page', $widget_id ) : '';
+		  $category = get_field( 'category', $widget_id ) ? get_field( 'category', $widget_id ) : '';
+		  $args = array(
+			'posts_per_page'  => $section['posts_per_page'],
+			//'offset'          => $postOffset,
+		);
+		
+		if(!empty($category)) {
+		 $args['category'] =   $category->slug;
+		}
+	
 		  $ctrl = new BrandProductController();
-		  $products = $ctrl->getPosts($section);
+		  $products = $ctrl->getPosts($args);
 
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';

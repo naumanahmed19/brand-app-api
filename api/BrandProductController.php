@@ -4,19 +4,10 @@ class BrandProductController{
 
 
 
-  public function getPosts($section){
+  public function getPosts($args){
         
 
      
-    $args = array(
-        'posts_per_page'  => $section['posts_per_page'],
-        //'offset'          => $postOffset,
-    );
-
-    
-    if(!empty($section['category'])) {
-     $args['category'] =   $section['category']->slug;
-    }
 
  
 

@@ -24,6 +24,14 @@ class BrandHomeController{
 
                 if($section['type'] == 'product' ){
                     $ctrl = new BrandProductController();
+                    $args = array(
+                      'posts_per_page'  => $section['posts_per_page'],
+                      //'offset'          => $postOffset,
+                  );
+                  if(!empty($section['category'])) {
+                   $args['category'] =   $section['category']->slug;
+                  }
+              
                     $sd[$i]['products'] = $ctrl->getPosts($section);
                 }
 
