@@ -26,8 +26,8 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		$image = get_field( 'image', $widget_id ) ? get_field( 'image', $widget_id ) : '';
 		?>
-	      <div>
-         <p>Open <strong>multiple</strong></p>
+	
+       
          <div class="shadow-md">
             <div class="tab w-full overflow-hidden border-t">
                <input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
@@ -37,13 +37,14 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 			   </label>
                <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
 			   <?php  foreach ($categories as $key => $cat ) { ?>
-                  <p class="p-5"><?php echo $cat->name; ?></p>
-               </div>
+                  <p class="p-2"><?php echo $cat->name; ?></p>
+              
 			   <?php } ?> 
+			   </div>
             </div>
          
          </div>
-      </div>
+   
 		<?php
 	
         // echo '<div class="lightSlider" data-pager="false" data-item="4">';
