@@ -29,13 +29,13 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	
        
          <div class="shadow-md">
-            <div class="tab w-full overflow-hidden border-t">
+            <div class="tab w-full overflow-hidden">
                <input class="absolute opacity-0 " id="tab-multi-one" type="checkbox" name="tabs">
                <label class="block p-5 leading-normal cursor-pointer" for="tab-multi-one">
 			  	<img src="<?php echo $image; ?>" alt="" />
 			   <?php echo $title; ?>
 			   </label>
-               <div class="tab-content overflow-hidden border-l-2 bg-gray-100 border-indigo-500 leading-normal">
+               <div class="tab-content overflow-hidden  leading-normal">
 			   <?php  foreach ($categories as $key => $cat ) { ?>
                   <p class="p-2"><?php echo $cat->name; ?></p>
               
