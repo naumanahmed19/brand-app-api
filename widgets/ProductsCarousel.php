@@ -36,8 +36,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 	
 		  $ctrl = new BrandProductController();
 		  $products = $ctrl->getPosts($args);
-
-        $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+		  var_dump( $products);
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		 echo $title; 
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
