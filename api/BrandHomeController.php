@@ -9,7 +9,7 @@ class BrandHomeController{
             $sd = [];
             $i = 0;
 
-            $this->getWidgets();
+            
 
 
             $sections =  get_field('home_screen_sections', 'option');
@@ -51,6 +51,9 @@ class BrandHomeController{
 
             $data['categories'] =  get_field('filter_categories', 'option');;
             $data['sections'] = $sd;
+
+
+            $data['sections']['widgets'] =  $this->getWidgets();
 
 
             return  $data;
@@ -298,7 +301,7 @@ function getWidgets(){
     
     }
 
-    var_dump($sections);
+   return $sections;
 
 }
 
