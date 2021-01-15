@@ -1,10 +1,6 @@
 
-jQuery(document).ready(function ($) {
-    "use strict";
-
-
     //
-    var myRadios = document.getElementsByName('tabs2');
+    var myRadios = document.getElementsByName('tabs1');
     var setCheck;
     var x = 0;
     for(x = 0; x < myRadios.length; x++){
@@ -17,6 +13,11 @@ jQuery(document).ready(function ($) {
         }
         };
     }
+
+
+
+jQuery(document).ready(function ($) {
+    "use strict";
 
 
 //light slider

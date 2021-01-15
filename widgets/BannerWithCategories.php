@@ -5,7 +5,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Brand_BannerWithCategories_widget',
-			esc_html__( 'Brand Category Carousel', 'brand-app' ),
+			esc_html__( 'Brand Banner Categoires', 'brand-app' ),
 			array( 'description' => esc_html__( 'Display categories list in a carousel', 'brand-app' ), ) // Args
 		);
 	}
@@ -24,7 +24,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
       	$widget_id = 'widget_' . $args['widget_id'];
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		?>
-	      <div class="w-full md:w-3/5 mx-auto p-8">
+	      <div>
          <p>Open <strong>multiple</strong></p>
          <div class="shadow-md">
             <div class="tab w-full overflow-hidden border-t">
