@@ -280,6 +280,7 @@ function getWidgets(){
   $widgets = $sidebars_widgets['sidebar-1'];
 
   $sections = [];
+  $i = 0;
   foreach( $widgets as $key => $widget){
     $arr = explode("-",$widget);
     
@@ -287,18 +288,20 @@ function getWidgets(){
     $widget_id = $arr[1];
     // var_dump('widget_' . $name);
     //$widget_instances = get_option('widget_' . $name);
-    
+   
+    $sections[$i]['title'] = get_option('title');
+
     if($name == 'brandslider_widget'){
       $slides = get_field('slides', 'widget_' .$widget);
-      $sections[$key]['categories'] = $this->getSlides($slides);
+      $sections[$i]['categories'] = $this->getSlides($slides);
     }
     
     if($name == 'widget_brand_categoriescarousel_widget'){
       $cats = get_field('categories', 'widget_' .$widget);
-      $sections[$key]['categories'] = $this->getCategories($cats);
+      $sections[$i]['categories'] = $this->getCategories($cats);
     }
     
-    
+    $i++;
     }
 
    return $sections;
