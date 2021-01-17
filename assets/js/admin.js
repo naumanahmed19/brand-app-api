@@ -7,6 +7,7 @@ jQuery(document).ready(function ($) {
 $(".control-subsection").on('click', function(event){
     var index = 0;
 
+    console.log(event.target.id);
 
   switch (event.target.id) {
     case 'accordion-section-sidebar-widgets-brand-home-screen':
