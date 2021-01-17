@@ -1,6 +1,6 @@
 
     //
-    var myRadios = document.getElementsByName('tabs1');
+    var myRadios = document.getElementsByName('accordion1');
     var setCheck;
     var x = 0;
     for(x = 0; x < myRadios.length; x++){
@@ -16,33 +16,26 @@
 
 
     //tabs
-    const tabs = document.querySelectorAll(".tabs");
-const tab = document.querySelectorAll(".tab");
-const panel = document.querySelectorAll(".tab-content");
-
-function onTabClick(event) {
-
-  // deactivate existing active tabs and panel
-
-  for (let i = 0; i < tab.length; i++) {
-    tab[i].classList.remove("active");
-  }
-
-  for (let i = 0; i < panel.length; i++) {
-    panel[i].classList.remove("active");
-  }
-
-
-  // activate new tabs and panel
-  event.target.classList.add('active');
-  let classString = event.target.getAttribute('data-target');
-  console.log(classString);
-  document.getElementById('panels').getElementsByClassName(classString)[0].classList.add("active");
-}
-
-for (let i = 0; i < tab.length; i++) {
-  tab[i].addEventListener('click', onTabClick, false);
-}
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+      
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+      
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+      
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
 
 
 jQuery(document).ready(function ($) {

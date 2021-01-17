@@ -1,17 +1,17 @@
- /* Tab content - closed */
- .tab-content {
+ /* accordion1 content - closed */
+ .accordion1-content {
     max-height: 0;
     -webkit-transition: max-height .35s;
     -o-transition: max-height .35s;
     transition: max-height .35s;
     }
     /* :checked - resize to full height */
-    .tab input:checked ~ .tab-content {
+    .accordion1 input:checked ~ .accordion1-content {
     max-height: 100vh;
     }
     /* Label formatting when open */
  
-    .tab input[type=radio] + label::after {
+    .accordion1 input[type=radio] + label::after {
     content: "\25BE";
     font-weight:bold; /*.font-bold*/
     border-width: 1px; /*.border*/
@@ -19,22 +19,64 @@
     border-color: #b8c2cc; /*.border-grey*/
     }
     /* Icon formatting - open */
-    .tab input[type=checkbox]:checked + label::after {
+    .accordion1 input[type=checkbox]:checked + label::after {
     transform: rotate(315deg);
     background-color: #6574cd; /*.bg-indigo*/
     color: #f8fafc; /*.text-grey-lightest*/
     }
-    .tab input[type=radio]:checked + label::after {
+    .accordion1 input[type=radio]:checked + label::after {
     transform: rotateX(180deg);
     background-color: #6574cd; /*.bg-indigo*/
     color: #f8fafc; /*.text-grey-lightest*/
+
     }
 
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
 
-    .customize-partial-edit-shortcut button, .widget .customize-partial-edit-shortcut button {
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+
+  .customize-partial-edit-shortcut button, .widget .customize-partial-edit-shortcut button {
       position: absolute;
       left: 0 !important;;
- 
       background: #000 !important;
 
   }
+
+  
+
+
+  
