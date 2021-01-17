@@ -104,6 +104,38 @@ final class Brand_App_API {
 		require_once( __DIR__ . '/widgets/CategoriesCarousel.php' );
 		require_once( __DIR__ . '/widgets/ProductsCarousel.php' );
 		require_once( __DIR__ . '/widgets/BannerWithCategories.php' );
+
+
+
+
+
+		/**
+		 * Add a sidebar.
+		 */
+		function brand_sidebars_init() {
+			register_sidebar( array(
+				'name'          => __( 'Brand Home Screen', 'textdomain' ),
+				'id'            => 'brand-home-screen',
+				'description'   => __( 'Widgets in this area will be shown on app home screen.', 'textdomain' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="widgettitle">',
+				'after_title'   => '</h4>',
+			) );
+			register_sidebar( array(
+				'name'          => __( 'Brand Search Screen', 'textdomain' ),
+				'id'            => 'brand-search-screen',
+				'description'   => __( 'Widgets in this area will be shown on app search screen.', 'textdomain' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="widgettitle">',
+				'after_title'   => '</h4>',
+			) );
+		}
+		add_action( 'widgets_init', 'brand_sidebars_init' );
+
+
+		
 	}
 
 
