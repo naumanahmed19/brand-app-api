@@ -8,11 +8,7 @@ $(".control-subsection").on('click', function(event){
 var id = $(event.target).attr('id');
     var index = 0;
   console.log(id);
-  if(id==){
-  
-  }else{
 
-  }
   switch (id) {
     case 'accordion-section-sidebar-widgets-brand-home-screen':
         index = 0;
