@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
 
 
 $(".control-subsection").on('click', function(event){
-var id = $(event.target).attr('id');
+var id = event.attr('id');
     var index = 0;
   console.log(id);
 
