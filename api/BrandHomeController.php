@@ -57,8 +57,8 @@ class BrandHomeController{
 
 
             $data['categories'] =  get_field('filter_categories', 'option');
-            $data['widgets'] =  $this->getWidgets();
-            $data['sections'] = $sd;
+            $data['sections'] =  $this->getWidgets();
+            // $data['sections'] = $sd;
 
 
             return  $data;
@@ -241,15 +241,21 @@ function getWidgets(){
     $sections[$i]['title'] = get_field('title', 'widget_' .$widget);
 
     if($name == 'brandslider_widget'){
+      $sections[$i]['type']='slider';
+      $sections[$i]['filter']=null;
       $slides = get_field('slides', 'widget_' .$widget);
       $sections[$i]['slides'] = $this->getSlides($slides);
     }
     
     if($name == 'brand_categoriescarousel_widget'){
+      $sections[$i]['type']='cc';
+      $sections[$i]['filter']=null;
       $cats = get_field('categories', 'widget_' .$widget);
       $sections[$i]['categories'] = $this->getCategories($cats);
     }
     if($name == 'brand_bannerwithcategories_widget'){
+      $sections[$i]['type']='bc';
+      $sections[$i]['filter']=null;
       $cats = get_field('categories', 'widget_' .$widget);
       $image = get_field('image', 'widget_' .$widget);
       $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
@@ -257,6 +263,8 @@ function getWidgets(){
       $sections[$i]['categories'] = $this->getCategories($cats);
     }
     if($name == 'brand_productscarousel_widget'){
+      $sections[$i]['type']='product';
+      $sections[$i]['filter']=null;
       $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
       $ctrl = new BrandProductController();
       $sections[$i]['products'] =  $ctrl->getProducts($widget);
