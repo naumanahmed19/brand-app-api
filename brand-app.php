@@ -105,9 +105,7 @@ final class Brand_App_API {
 			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
 		}
 
-		function brand_enqueue_script()
-
-		{  
+		function brand_admin_enqueue_script(){  
 		
 	
 			wp_enqueue_script( 'brand-admin', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', array('jquery'), '1.0.0', false );
