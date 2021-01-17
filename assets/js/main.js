@@ -1,6 +1,6 @@
 
     //
-    var myRadios = document.getElementsByName('accordion1');
+    var myRadios = document.getElementsByName('accordion');
     var setCheck;
     var x = 0;
     for(x = 0; x < myRadios.length; x++){
