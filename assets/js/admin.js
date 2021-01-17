@@ -5,11 +5,10 @@ jQuery(document).ready(function ($) {
 
 
 $(".control-subsection").on('click', function(event){
-var id = event.attr('id');
     var index = 0;
-  console.log(id);
 
-  switch (id) {
+
+  switch (event.target.id) {
     case 'accordion-section-sidebar-widgets-brand-home-screen':
         index = 0;
         break;
