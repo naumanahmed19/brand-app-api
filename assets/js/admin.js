@@ -10,7 +10,7 @@ $(".control-subsection").on('click', function(event){
     //(... rest of your JS code)
 
     document.querySelectorAll('iframe').forEach( item =>
-        console.log(item.contentWindow.document.body),
+        console.log(item),
         item.contentWindow.document.body.querySelector('ons-tabbar').setActiveTab(2)
     );
 });
