@@ -87,11 +87,16 @@ final class Brand_App_API {
 		
 		function brand_enqueue_script()
 
-		{   
+		{   wp_enqueue_style( 'onsenui', 'https://unpkg.com/onsenui/css/onsenui.css' );
+			wp_enqueue_style( 'onsen-css-components', 'https://unpkg.com/onsenui/css/onsen-css-components.min.css' );
+			
 			wp_enqueue_style( 'tailwind', plugin_dir_url( __FILE__ )  . '/assets/css/tailwind.min.css' );
 			wp_enqueue_style( 'slick', plugin_dir_url( __FILE__ )  . '/assets/css/slick.css' );
 			wp_enqueue_style( 'brand-css', plugin_dir_url( __FILE__ )  . '/assets/css/main.css' );
 
+			wp_enqueue_script( 'onsenui', 'https://unpkg.com/onsenui/js/onsenui.min.js', array('jquery') );
+			wp_enqueue_script( 'onsen-css-components', 'https://unpkg.com/jquery/dist/jquery.min.js', array('jquery') );
+			
 
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
 			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
