@@ -20,6 +20,11 @@ jQuery(document).ready(function ($) {
     "use strict";
 
 
+
+$(".control-subsection").on('click', function(event){
+    console.log(event);
+    //(... rest of your JS code)
+});
 //light slider
     var light = $(".lightSlider");
     light.each(function () {

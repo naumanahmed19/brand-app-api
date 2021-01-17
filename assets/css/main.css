@@ -43,7 +43,7 @@
     }
 
     button.tabbar__button {
-      background: #fff;
+      background: #fff !important;
   }
     
 
