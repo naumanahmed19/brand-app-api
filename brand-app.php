@@ -135,6 +135,22 @@ final class Brand_App_API {
 		add_action( 'widgets_init', 'brand_sidebars_init' );
 
 
+
+
+		add_action('customize_register','my_customize_register');
+function my_customize_register( $wp_customize ) {
+$wp_customize->add_panel( 'menus', array(
+  'title' => __( 'Menus' ),
+  'description' => $description, // Include html tags such as <p>.
+  'priority' => 160, // Mixed with top-level-section hierarchy.
+) );
+$wp_customize->add_section( $section_id , array(
+  'title' => $menu->name,
+  'panel' => 'menus',
+) );
+}
+
+
 		
 	}
 
