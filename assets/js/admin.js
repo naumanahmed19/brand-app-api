@@ -6,6 +6,7 @@ jQuery(document).ready(function ($) {
 
 $(".control-subsection").on('click', function(event){
     console.log(event);
+    document.querySelector('ons-tabbar').setActiveTab(2);
     //(... rest of your JS code)
 });
 
