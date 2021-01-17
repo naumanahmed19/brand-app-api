@@ -26,13 +26,13 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	
        
          <div>
-            <div class="accordion w-full overflow-hidden">
-               <input class="absolute opacity-0 hidden " id="accordion-<?php echo $widget_id ;?>" type="checkbox" name="accordions">
-               <label class="block p-5 text-center cursor-pointer" for="accordion-<?php echo $widget_id ;?>">
+            <div class="tab w-full overflow-hidden">
+               <input class="absolute opacity-0 hidden " id="tab-<?php echo $widget_id ;?>" type="checkbox" name="tabs">
+               <label class="block p-5 text-center cursor-pointer" for="tab-<?php echo $widget_id ;?>">
 			  	<img class="rounded-md" src="<?php echo $image; ?>" alt="" />
 			  	<div class="text-2xl p-3"> <?php echo $title; ?></div>
 			   </label>
-               <div class="accordion-content overflow-hidden  leading-normal">
+               <div class="tab-content overflow-hidden  leading-normal">
 			   <?php  foreach ($categories as $key => $cat ) { ?>
                   <p class="text-2xl p-3"><?php echo $cat->name; ?></p>
               
