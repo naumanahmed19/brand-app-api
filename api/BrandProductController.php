@@ -3,57 +3,30 @@
 class BrandProductController{
 
 
+  public function getProducts($widget){
+    $category =  get_field('category', 'widget_' .$widget) ;
+    $posts_per_page =  get_field('posts_per_page', 'widget_' .$widget) ;
+    $args = array(
+      'posts_per_page'  => $posts_per_page,
+    );
+    if(!empty($category)) {
+     $args['category'] =   $category->slug;
+    }
+    return $this->getPosts($args);
+  }
+
 
   public function getPosts($args){
-        
-
-     
-
- 
-
-    
-    /** 
-     * Add Terms
-     * 
-    */
-    // $terms =  $section['category'];
-    // if(!empty($terms)){
-    //     $data[$i]['terms']  = $terms->slug;
-    //     $args['tax_query'] = array(
-    //         array(
-    //             'taxonomy' => $postType.'-categories',
-    //             'field'    => 'slug',
-    //             'terms'    => $terms,
-    //         ),
-    //     );
-    // }
-
-
-
-    //$posts = get_posts($args);
-
+  
     $products_query = wc_get_products($args);
     $products = array();
     foreach ( $products_query as $product ) {
-
-            
-    //    $products[]  = wc_get_product($product->id)->get_data();
-    $products[] = $this->get($product,$product);
-
-
-
-             
-
-
-  
-        
+      $products[] = $this->get($product,$product);
     }
-
     return $products;
-
-}
+  }
   
-    function get( $response, $product) {
+  public function get( $response, $product) {
 
         $data = $response->get_data();  
       

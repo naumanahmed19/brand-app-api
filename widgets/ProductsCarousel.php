@@ -23,19 +23,9 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
         // widget ID with prefix for use in ACF API functions
 		  $widget_id = 'widget_' . $args['widget_id'];
 		  
-		  $posts_per_page = get_field( 'posts_per_page', $widget_id ) ? get_field( 'posts_per_page', $widget_id ) : '';
-		  $category = get_field( 'category', $widget_id ) ? get_field( 'category', $widget_id ) : '';
-		  $args = array(
-			'posts_per_page'  => $section['posts_per_page'],
-			//'offset'          => $postOffset,
-		);
 		
-		if(!empty($category)) {
-		 $args['category'] =   $category->slug;
-		}
-	
 		  $ctrl = new BrandProductController();
-		  $products = $ctrl->getPosts($args);
+		  $products = $ctrl->getProducts($widget_id);
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		 echo $title; 
@@ -68,6 +58,8 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 				$default = $widget_field['default'];
 			}
 			$widget_value = ! empty( $instance[$widget_field['id']] ) ? $instance[$widget_field['id']] : esc_html__( $default, 'brand-app' );
+		
+			
 			switch ( $widget_field['type'] ) {
 				default:
 					$output .= '<p>';
