@@ -32,6 +32,19 @@
     }
 
 
+
+    .navbar {
+      padding: 0.15rem 0.5rem;
+      box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  }
+
+  .tabbar{
+    box-shadow: 0 0 3px rgba(0,0,0,0.1) !important;
+    }
+
+    button.tabbar__button {
+      background: #fff;
+  }
     
 
 
