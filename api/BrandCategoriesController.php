@@ -29,10 +29,17 @@ public function getWidgets(){
       if($name == 'brandcategorylist_widget'){
         $sections[$i]['type']='slider';
         $sections[$i]['filter']=null;
-        $category_list = get_field('category_list', 'widget_' .$widget);
-        $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
+        $items = get_field('category_list', 'widget_' .$widget);
+        //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
         $ctrl = new BrandHomeController();
-        $sections[$i]['categories'] = $ctrl->getCategories($category_list);
+   
+        $allSlides = [];
+        foreach ($items as $key => $item ) {
+          $allSlides[$key]['title']  = $item['title'];
+          $allSlides[$key]['categories']  = $ctrl->getCategories($item['category']);
+        }
+
+        $sections[$i]['categories'] =  $allSlides;
       }
 
       $i++;
