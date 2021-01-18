@@ -26,7 +26,7 @@ public function getWidgets(){
   
 
       if($name == 'brandcategorylist_widget'){
-       $sections[$key]['type']='categorylist';
+       $sections['type']='categorylist';
         // $sections[$i]['filter']=null;
         // $items = get_field('category_list', 'widget_' .$widget);
         // //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
