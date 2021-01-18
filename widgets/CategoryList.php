@@ -31,7 +31,9 @@ class Brandcategorylist_Widget extends WP_Widget {
         foreach ($items as $key => $item ) {
 		 // $allSlides[$key]['title']  = $item['title'];
 			echo $item['title'];
-			var_dump($item['categories']);
+		foreach($item['categories'] as $category){
+			echo "<li>$category->name</li>"
+		}
 
          // $allSlides[$key]['categories']  = $ctrl->getCategories($item['category']);
         }
