@@ -46,7 +46,7 @@ class BrandHomeController{
      
       $data = [];
       foreach ($items as $key => $item ) {
-        $data[$key]['title']  = $item['title'];
+        $data[$key]['name']  = $item['title'];
         $data[$key]['categories']  = $this->getCategories($item['categories']);
       }
   
