@@ -32,7 +32,7 @@ class Brandcategorylist_Widget extends WP_Widget {
 		 // $allSlides[$key]['title']  = $item['title'];
 			echo $item['title'];
 			foreach($item['categories'] as $category){
-				echo $$category->name;
+				echo $category->name;
 			}
 
          // $allSlides[$key]['categories']  = $ctrl->getCategories($item['category']);
