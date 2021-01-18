@@ -6,7 +6,7 @@ class BrandCategoriesController{
         $data = [];
         $data['sections'] =  $this->getWidgets();
 
-        return   $this->getWidgets();
+        return   $data;
     }
 
 
@@ -19,17 +19,15 @@ public function getWidgets(){
     $sections = [];
    
     foreach( $widgets as $key => $widget){
-      $arr = explode("-",$widget);
-      
-      $name = $arr[0];
-      $widget_id = $arr[1];
-  
-
-      if($name == 'brandcategorylist_widget'){
-        $sections[$key]['type']= 'categorylist';
-        $sections[$key]['categories']  = $this->getCategories($widget);
-      }
-
+        $arr = explode("-",$widget);
+        
+        $name = $arr[0];
+        $widget_id = $arr[1];
+    
+        if($name == 'brandcategorylist_widget'){
+          $sections['type']= 'categorylist';
+          $sections['categories']  = $this->getCategories($widget);
+        }
       }
   
      return $sections;
