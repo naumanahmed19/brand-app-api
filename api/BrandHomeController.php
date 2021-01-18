@@ -270,6 +270,12 @@ function getWidgets(){
       $sections[$i]['products'] =  $ctrl->getProducts($widget);
     }
 
+
+
+    
+   
+ 
+
     
     
     $i++;
