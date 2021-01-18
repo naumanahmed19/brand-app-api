@@ -18,31 +18,31 @@ public function getWidgets(){
   
     $sections = [];
     $i = 0;
-    // foreach( $widgets as $key => $widget){
-    //   $arr = explode("-",$widget);
+    foreach( $widgets as $key => $widget){
+      $arr = explode("-",$widget);
       
-    //   $name = $arr[0];
-    //   $widget_id = $arr[1];
+      $name = $arr[0];
+      $widget_id = $arr[1];
   
 
-    //   if($name == 'brandcategorylist_widget'){
-    //     $sections[$i]['type']='categorylist';
-    //     $sections[$i]['filter']=null;
-    //     $items = get_field('category_list', 'widget_' .$widget);
-    //     //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
-    //     $ctrl = new BrandHomeController();
+      if($name == 'brandcategorylist_widget'){
+       $sections[$key]['type']='categorylist';
+        // $sections[$i]['filter']=null;
+        // $items = get_field('category_list', 'widget_' .$widget);
+        // //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
+        $ctrl = new BrandHomeController();
    
-    //     $allSlides = [];
-    //     foreach ($items as $key => $item ) {
-    //       $allSlides[$key]['title']  = $item['title'];
-    //       $allSlides[$key]['categories']  = $ctrl->getCategories($item['categories']);
-    //     }
+        $allSlides = [];
+        foreach ($items as $key => $item ) {
+          $allSlides[$key]['title']  = $item['title'];
+          $allSlides[$key]['categories']  = $ctrl->getCategories($item['categories']);
+        }
 
-    //     $sections[$i]['categories'] =  $allSlides;
-    //   }
+        $sections[$i]['categories'] =  $allSlides;
+      }
 
-    //   $i++;
-    //   }
+      $i++;
+      }
   
      return $sections;
   
