@@ -4,7 +4,6 @@ class BrandCategoriesController{
 
     public function get(){
        
-        $data=[];
         $data['sections'] =  $this->getWidgets();
 
         return  $data;
@@ -27,7 +26,7 @@ public function getWidgets(){
   
 
       if($name == 'brandcategorylist_widget'){
-        $sections[$i]['type']='slider';
+        $sections[$i]['type']='categorylist';
         $sections[$i]['filter']=null;
         $items = get_field('category_list', 'widget_' .$widget);
         //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
@@ -36,7 +35,7 @@ public function getWidgets(){
         $allSlides = [];
         foreach ($items as $key => $item ) {
           $allSlides[$key]['title']  = $item['title'];
-          $allSlides[$key]['categories']  = $ctrl->getCategories($item['category']);
+          $allSlides[$key]['categories']  = $ctrl->getCategories($item['categories']);
         }
 
         $sections[$i]['categories'] =  $allSlides;
