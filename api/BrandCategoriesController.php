@@ -6,7 +6,7 @@ class BrandCategoriesController{
         $data = [];
         $data['sections'] =  $this->getWidgets();
 
-        return  $data;
+        return   $this->getWidgets();
     }
 
 
@@ -17,7 +17,7 @@ public function getWidgets(){
     $widgets = $sidebars_widgets['brand-search-screen'];
   
     $sections = [];
-    $i = 0;
+   
     foreach( $widgets as $key => $widget){
       $arr = explode("-",$widget);
       
@@ -26,26 +26,27 @@ public function getWidgets(){
   
 
       if($name == 'brandcategorylist_widget'){
-       $sections['type']='categorylist';
-        // $sections[$i]['filter']=null;
-      $items = get_field('category_list', 'widget_' .$widget);
-        // //$sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
-        $ctrl = new BrandHomeController();
-   
-        $allSlides = [];
-        foreach ($items as $key => $item ) {
-          $allSlides[$key]['title']  = $item['title'];
-          $allSlides[$key]['categories']  = $ctrl->getCategories($item['categories']);
-        }
-
-        $sections[$i]['categories'] =  $allSlides;
+        $sections[$key]['type']= 'categorylist';
+        $sections[$key]['categories']  = $this->getCategories($widget);
       }
 
-      $i++;
       }
   
      return $sections;
   
+  }
+
+  public function getCategories($widget){
+    $ctrl = new BrandHomeController();
+    $items = get_field('category_list', 'widget_' .$widget);
+   
+    $data = [];
+    foreach ($items as $key => $item ) {
+      $data[$key]['title']  = $item['title'];
+      $data[$key]['categories']  = $ctrl->getCategories($item['categories']);
+    }
+
+    return $data;
   }
     
         
