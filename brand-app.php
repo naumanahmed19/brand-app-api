@@ -121,7 +121,7 @@ final class Brand_App_API {
 		require_once( __DIR__ . '/widgets/CategoriesCarousel.php' );
 		require_once( __DIR__ . '/widgets/ProductsCarousel.php' );
 		require_once( __DIR__ . '/widgets/BannerWithCategories.php' );
-
+		require_once( __DIR__ . '/widgets/CategoryList.php' );
 
 
 

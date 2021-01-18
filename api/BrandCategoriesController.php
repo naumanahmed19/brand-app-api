@@ -15,7 +15,7 @@ class BrandCategoriesController{
 
 public function getWidgets(){
     $sidebars_widgets = wp_get_sidebars_widgets();
-    $widgets = $sidebars_widgets['sidebar-1'];
+    $widgets = $sidebars_widgets['brand-search-screen'];
   
     $sections = [];
     $i = 0;
@@ -26,7 +26,7 @@ public function getWidgets(){
       $widget_id = $arr[1];
   
 
-      if($name == 'brandslider_widget'){
+      if($name == 'brandcategorylist_widget'){
         $sections[$i]['type']='slider';
         $sections[$i]['filter']=null;
         $category_list = get_field('category_list', 'widget_' .$widget);
