@@ -35,8 +35,9 @@ class Brandcategorylist_Widget extends WP_Widget {
 			<?php echo $item['title'];?>
 			<?php foreach($item['categories'] as $category){ ?>
 				<div class="expandable-content"><?php echo $category->name ;?></div>
-			</ons-list-item>
+		
 			<?php } ?>
+			</ons-list-item>
 			</ons-list>
 	
 		<?php
