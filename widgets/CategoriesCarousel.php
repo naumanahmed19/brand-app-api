@@ -29,7 +29,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
         foreach ($categories as $key => $cat ) {
 			$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-			$cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
+			$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
 			$image = wp_get_attachment_url( $cat_thumb_id ); 
 			echo '<div><img src="'.$image.'" /></div>';
         }
