@@ -28,27 +28,19 @@ class Brandcategorylist_Widget extends WP_Widget {
         $items = get_field( 'category_list', $widget_id ) ? get_field( 'category_list', $widget_id ) : '';
 
 		$allSlides = [];
-        foreach ($items as $key => $item ) {
-		 // $allSlides[$key]['title']  = $item['title'];
-			echo $item['title'];
-			foreach($item['categories'] as $category){
-				echo $category->name;
-			}
-
-         // $allSlides[$key]['categories']  = $ctrl->getCategories($item['category']);
-        }
-        // echo '<div class="lightcategorylist" data-pager="false" data-item="1" data-item-lg="1" data-item-md="1"
-        // data-item-sm="1">';
-        // foreach ($category_list as $key => $category ) {
-		// 	$category_list = get_field( 'category_list', $widget_id ) ? get_field( 'category_list', $widget_id ) : '';
-        
-        //    echo '<div><img src="'.$slide['image'].'" /></div>';
-        // }
-        // echo '</div>';
-
-
-		// Output generated fields
 		
+        foreach ($items as $key => $item ) {?>
+			<ons-list>
+			<ons-list-item expandable>
+			<?php echo $item['title'];?>
+			<?php foreach($item['categories'] as $category){ ?>
+				<div class="expandable-content"><?php echo $category->name ;?></div>
+			</ons-list-item>
+			<?php } ?>
+			</ons-list>
+	
+		<?php
+		}
         echo $args['after_widget'];
         
         

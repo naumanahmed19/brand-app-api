@@ -58,4 +58,13 @@
   
 
 
-  
+  .list-item list-item--expandable{
+    border-bottom: 1px solid #ddd;
+    margin-left: -21px;
+    padding-left: 20px;
+    padding-right: 25px;
+    background: transparent;
+  }
+  ons-list.list{
+    background: transparent;
+  }
