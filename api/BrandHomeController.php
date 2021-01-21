@@ -118,8 +118,10 @@ function getWidgets($sidebar ){
     if($name == 'widget_link_tile'){
       $sections[$i]['type']= $name ;
       $sections[$i]['icon'] = get_field('leading_icon', 'widget_' .$widget) ;
-      $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
-      $sections[$i]['content'] = get_field('page', 'widget_' .$widget) ;
+     
+      $post =  get_field('page', 'widget_' .$widget) ;
+      $sections[$i]['title'] = $post->post_title;
+      $sections[$i]['content'] = $post->post_content ;
     }
     
 
