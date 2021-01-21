@@ -20,40 +20,24 @@ class BrandLinkTile extends WP_Widget {
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
 	
-			$post =  get_field('page', 'widget_' .$widget) ;
-			$icon =  get_field('leading_icon', 'widget_' .$widget) ;
+			$post =  get_field('page', 'widget_' .$widget);
+			$icon =  get_field('leading_icon', 'widget_' .$widget);
 			$title = $post->post_title;
 		
 		?>
 	
-	<div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
-		<ul class="-mx-4">
-			<li class="flex items-center">
-			
-				<i class="<?php echo $icon ?>"></i>
-				<p><a href="#" class="text-gray-700 font-bold mx-1 hover:underline"><?php echo $title ?> </p>
-			</li>
-		
-		</ul>
-	</div>
+				<div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
+					<ul class="-mx-4">
+						<li class="flex items-center">
+							<i class="<?php echo $icon ?>"></i>
+							<p><a href="#" class="text-gray-700 font-bold mx-1 hover:underline"><?php echo $title ?> </p>
+						</li>
+					
+					</ul>
+				</div>
    
 		<?php
-	
-        // echo '<div class="lightSlider" data-pager="false" data-item="4">';
-        // foreach ($categories as $key => $cat ) {
-		// 	$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-		// 	$cat_thumb_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-		// 	$image = wp_get_attachment_url( $cat_thumb_id ); 
-		// 	echo '<div><img src="'.$image.'" /></div>';
-        // }
-        // echo '</div>';
-
-
-		// Output generated fields
-		
         echo $args['after_widget'];
-        
-        
 	}
 
 	public function field_generator( $instance ) {
