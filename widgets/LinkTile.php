@@ -20,10 +20,13 @@ class BrandLinkTile extends WP_Widget {
         // widget ID with prefix for use in ACF API functions
       	$widget = 'widget_' . $args['widget_id'];
 	
-			$post =  get_field('page', 'widget_' .$widget);
 			$icon =  get_field('leading_icon', 'widget_' .$widget);
-			$title = $post->post_title;
 		
+			
+			$widget_id = 'widget_' . $args['widget_id'];
+			$post = get_field( 'page', $widget_id ) ? get_field( 'page', $widget_id ) : '';
+	var_dump($post);
+			$title = $post->post_title;
 		?>
 	
 				<div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
