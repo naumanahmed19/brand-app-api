@@ -18,7 +18,7 @@ class BrandLinkTile extends WP_Widget {
 
 
         // widget ID with prefix for use in ACF API functions
-      	$widget_id = 'widget_' . $args['widget_id'];
+      	$widget = 'widget_' . $args['widget_id'];
 	
 			$post =  get_field('page', 'widget_' .$widget);
 			$icon =  get_field('leading_icon', 'widget_' .$widget);
