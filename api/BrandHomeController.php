@@ -115,6 +115,13 @@ function getWidgets($sidebar ){
       $sections[$i]['type']= 'categorylist';
       $sections[$i]['categories']  = $this->getCategoriesRow($widget);
     }
+    if($name == 'widget_link_tile'){
+      $sections[$i]['type']= $name ;
+      $sections[$i]['icon'] = get_field('leading_icon', 'widget_' .$widget) ;
+      $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
+      $sections[$i]['content'] = get_field('content', 'widget_' .$widget) ;
+    }
+    
 
 
 
