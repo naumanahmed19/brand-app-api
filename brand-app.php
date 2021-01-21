@@ -132,7 +132,7 @@ final class Brand_App_API {
 		function brand_sidebars_init() {
 			register_sidebar( array(
 				'name'          => __( 'Brand Home Screen', 'textdomain' ),
-				'id'            => 'brand-home-screen',
+				'id'            => 'home_screen',
 				'description'   => __( 'Widgets in this area will be shown on app home screen.', 'textdomain' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
@@ -141,7 +141,7 @@ final class Brand_App_API {
 			) );
 			register_sidebar( array(
 				'name'          => __( 'Brand Search Screen', 'textdomain' ),
-				'id'            => 'brand-search-screen',
+				'id'            => 'search_screen',
 				'description'   => __( 'Widgets in this area will be shown on app search screen.', 'textdomain' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</div>',
