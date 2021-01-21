@@ -30,7 +30,7 @@ class BrandLinkTile extends WP_Widget {
 					<ul class="-mx-4">
 						<li class="flex items-center">
 							<i class="<?php echo $icon ?>"></i>
-							<p><a href="#" class="text-gray-700 font-bold mx-1 hover:underline"><?php echo $title ?> </p>
+							<p><?php echo $title ?> </p>
 						</li>
 					
 					</ul>
