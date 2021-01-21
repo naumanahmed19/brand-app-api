@@ -119,7 +119,7 @@ function getWidgets($sidebar ){
       $sections[$i]['type']= $name ;
       $sections[$i]['icon'] = get_field('leading_icon', 'widget_' .$widget) ;
       $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
-      $sections[$i]['content'] = get_field('content', 'widget_' .$widget) ;
+      $sections[$i]['content'] = get_field('page', 'widget_' .$widget) ;
     }
     
 
