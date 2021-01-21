@@ -19,28 +19,23 @@ class BrandLinkTile extends WP_Widget {
 
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
-		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
-		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
-		$image = get_field( 'image', $widget_id ) ? get_field( 'image', $widget_id ) : '';
+	
+			$post =  get_field('page', 'widget_' .$widget) ;
+			$icon =  get_field('leading_icon', 'widget_' .$widget) ;
+			$title = $post->post_title;
+		
 		?>
 	
-       
-         <div>
-            <div class="tab w-full overflow-hidden">
-               <input class="absolute opacity-0 hidden " id="tab-<?php echo $widget_id ;?>" type="checkbox" name="tabs">
-               <label class="block p-5 text-center cursor-pointer" for="tab-<?php echo $widget_id ;?>">
-			  	<img class="rounded-md" src="<?php echo $image; ?>" alt="" />
-			  	<div class="text-2xl p-3"> <?php echo $title; ?></div>
-			   </label>
-               <div class="tab-content overflow-hidden  leading-normal">
-			   <?php  foreach ($categories as $key => $cat ) { ?>
-                  <p class="text-2xl p-3"><?php echo $cat->name; ?></p>
-              
-			   <?php } ?> 
-			   </div>
-            </div>
-         
-         </div>
+	<div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
+		<ul class="-mx-4">
+			<li class="flex items-center">
+			
+				<i class="<?php echo $icon ?>"></i>
+				<p><a href="#" class="text-gray-700 font-bold mx-1 hover:underline"><?php echo $title ?> </p>
+			</li>
+		
+		</ul>
+	</div>
    
 		<?php
 	
