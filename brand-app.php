@@ -131,7 +131,7 @@ final class Brand_App_API {
 		 */
 		function brand_sidebars_init() {
 			register_sidebar( array(
-				'name'          => __( 'Brand Home Screen', 'textdomain' ),
+				'name'          => __( 'Brand Home Screen New', 'textdomain' ),
 				'id'            => 'home_screen',
 				'description'   => __( 'Widgets in this area will be shown on app home screen.', 'textdomain' ),
 				'before_widget' => '<div id="%1$s" class="widget %2$s">',
