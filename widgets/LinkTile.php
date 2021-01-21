@@ -25,7 +25,7 @@ class BrandLinkTile extends WP_Widget {
 			
 			$widget_id = 'widget_' . $args['widget_id'];
 			$post = get_field( 'page', $widget_id ) ? get_field( 'page', $widget_id ) : '';
-	var_dump($post);
+
 			$title = $post->post_title;
 		?>
 	
