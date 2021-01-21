@@ -65,9 +65,12 @@ class BrandHomeController{
 
 
 
-function getWidgets($sidebar ){
+function getWidgets($s ){
   $sidebars_widgets = wp_get_sidebars_widgets();
-  $widgets = $sidebars_widgets['home_screen','search_screen'];
+  $sidebars= ['home_screen','search_screen'];
+  foreach( $sidebars as $key => $sidebar){
+
+  $widgets = $sidebars_widgets[$sidebar];
 
   $sections = [];
   $i = 0;
@@ -136,6 +139,7 @@ function getWidgets($sidebar ){
     
     $i++;
     }
+  }
 
    return $sections;
 
