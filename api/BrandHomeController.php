@@ -82,8 +82,8 @@ function getWidgets($sidebar ){
     
 
       //common fileds
-      $filter = get_field('title', 'widget_' .$widget);
-      $sections[$i]['title'] = !empty($filter) ? $filter : null;
+      $filter = get_field('filter', 'widget_' .$widget);
+      $sections[$i]['filter'] = !empty($filter) ? $filter : null;
 
 
     if($name == 'brandslider_widget'){
