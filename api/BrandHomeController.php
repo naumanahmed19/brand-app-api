@@ -6,6 +6,7 @@ class BrandHomeController{
             $data = [];
             $data['categories'] =  get_field('filter_categories', 'option');
             $data['sections'] =  $this->getWidgets('home_screen');
+            $data['settings'] =  $this->getSettings('home_screen');
             return  $data;
     }
 
@@ -130,14 +131,6 @@ function getWidgets($s ){
       $sections[$i]['content'] = $post->post_content ;
     }
     
-
-
-
-    
-   
- 
-
-    
     
     $i++;
     }
@@ -146,6 +139,37 @@ function getWidgets($s ){
    return $sections;
 
 }
+
+  public function getSettings($screen)
+  {
+    $settings = [];
+
+   
+
+    //general settings...
+    $general = []; 
+    $general['logo'] =  get_field('logo', 'option') ;
+    $general['app_currency'] =  get_field('app_currency', 'option') ;
+    $general['app_filter_min_price'] =  get_field('app_filter_min_price', 'option') ;
+    $general['app_filter_max_price'] =  get_field('app_filter_max_price', 'option') ;
+    $general['app_default_theme'] =  get_field('app_default_theme', 'option') ;
+    $general['app_theme_switcher'] =  get_field('app_theme_switcher', 'option') ;
+    
+    $settings['general'] = $general;
+    
+
+
+    //home settings...
+    $home = [];
+    $home['app_home_logo'] =  get_field('app_home_logo', 'option') ;
+    $home['app_home_search'] =  get_field('app_home_search', 'option') ;
+ 
+    $settings['home'] = $home;
+
+
+    return $settings;
+
+  }
         
 }
 
