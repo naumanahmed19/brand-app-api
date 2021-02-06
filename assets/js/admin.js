@@ -14,6 +14,8 @@ jQuery(document).ready(function ($) {
 
         var str = "accordion-section-sidebar-widgets-brand-home_screen";
         var screen = str.split("accordion-section-sidebar-widgets-brand-")[1];
+
+        console.log(screen);
     
         
     // switch (id) {
