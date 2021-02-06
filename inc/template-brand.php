@@ -246,28 +246,12 @@ document.addEventListener('prechange', function(event) {
             Help
           </div>
         </div>
-        <div class=" max-w-md mx-auto  h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+     
+        <?php  dynamic_sidebar('settings_screen'); ?>
 
-          <div class="text-gray-500 text-md">
-            About us
-          </div>
-        </div>
-        <div class=" max-w-md mx-auto  h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+      
 
-          <div class="text-gray-500 text-md">
-            Terms & conditions
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -278,7 +262,7 @@ document.addEventListener('prechange', function(event) {
 
 
       
-      <?php  dynamic_sidebar('settings_screen'); ?>
+
       </ons-page>
     </template>
 

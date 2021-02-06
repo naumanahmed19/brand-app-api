@@ -28,16 +28,15 @@ class BrandLinkTile extends WP_Widget {
 
 			$title = $post->post_title;
 		?>
-	
-				<div class="flex flex-col bg-white max-w-sm px-6 py-4 mx-auto rounded-lg shadow-md">
-					<ul class="-mx-4">
-						<li class="flex items-center">
-							<i class="<?php echo $icon ?>"></i>
-							<p><?php echo $title ?> </p>
-						</li>
-					
-					</ul>
+
+
+			<div class=" max-w-md mx-auto  h-11 flex m-3 space-x-5">
+			<i class="<?php echo $icon ?>"></i>
+
+				<div class="text-gray-500 text-md">
+					<?php echo $title ?>
 				</div>
+			</div>	
    
 		<?php
         echo $args['after_widget'];
