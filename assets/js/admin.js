@@ -1,10 +1,9 @@
-
 jQuery(document).ready(function ($) {
     "use strict";
 
     
-    let index =  localStorage.getItem('active_screen');
-    document.querySelector('iframe').contentWindow.document.body.querySelector('ons-tabbar').setActiveTab(index)
+    // let index =  localStorage.getItem('active_screen');
+    // document.querySelector('iframe').contentWindow.document.body.querySelector('ons-tabbar').setActiveTab(index)
 
 
     $(".control-subsection").on('click', function(event){
