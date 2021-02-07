@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
         let index = 0;
         let str = $(this).attr("id");
 
-        localStorage.setItem('active_screen', id);
+        localStorage.setItem('active_screen', str);
         var screen = str.split("accordion-section-sidebar-widgets-brand-")[1];
 
         console.log(screen);
