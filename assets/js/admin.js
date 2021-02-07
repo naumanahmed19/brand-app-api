@@ -8,11 +8,9 @@ jQuery(document).ready(function ($) {
 
     $(".control-subsection").on('click', function(event){
         let index = 0;
-        let id = $(this).attr("id");
+        let str = $(this).attr("id");
 
         localStorage.setItem('active_screen', id);
-
-        var str = "accordion-section-sidebar-widgets-brand-home_screen";
         var screen = str.split("accordion-section-sidebar-widgets-brand-")[1];
 
         console.log(screen);
