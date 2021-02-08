@@ -141,8 +141,8 @@ document.addEventListener('prechange', function(event) {
       <ons-page id="Tab3">
 
       <div class=" ">
-  <div class="bg-gray-100   w-96 h-screen  ">
-    <div class="bg-gray-100  p-2">
+  <div class="   w-96 h-screen  ">
+    <div class="  p-2">
       <div class="py-5 px-1">
 
         <div class=" max-w-md mx-auto  h-11 flex m-3 space-x-5">
