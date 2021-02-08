@@ -140,8 +140,8 @@ document.addEventListener('prechange', function(event) {
     <template id="tab3.html">
       <ons-page id="Tab3">
 
-      <div class=" flex justify-center">
-  <div class="bg-gray-100 absolute  w-96 h-screen  max-w-md">
+      <div class=" ">
+  <div class="bg-gray-100   w-96 h-screen  max-w-md">
     <div class="bg-gray-100  p-2">
       <div class="py-5 px-1">
 
