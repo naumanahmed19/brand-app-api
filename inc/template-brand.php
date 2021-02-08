@@ -145,7 +145,7 @@ document.addEventListener('prechange', function(event) {
     <div class="  p-2">
       <div class="py-5 px-1">
 
-        <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
+        <div class=" max-w-md mx-auto pb-4 h-11 flex m-3 space-x-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8    text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -155,7 +155,7 @@ document.addEventListener('prechange', function(event) {
           <div class="text-gray-500 text-md">
             Sign in | create account  </div>
         </div>
-        <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
+        <div class=" max-w-md mx-auto pb-4 h-11 flex m-3 space-x-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8    text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
