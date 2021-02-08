@@ -153,10 +153,10 @@ document.addEventListener('prechange', function(event) {
           </svg>
 
           <div class="text-gray-500 text-md">
-            Sign in | create account  </div>
+            Sign in | create account 2 </div>
         </div>
         <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6    text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8    text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -167,7 +167,7 @@ document.addEventListener('prechange', function(event) {
           </div>
         </div>
         <div class=" max-w-md mx-auto pb-2 h-11  flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
@@ -178,7 +178,7 @@ document.addEventListener('prechange', function(event) {
           </div>
         </div>
         <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -188,7 +188,7 @@ document.addEventListener('prechange', function(event) {
             My orders </div>
         </div>
         <div class="  max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
@@ -200,7 +200,7 @@ document.addEventListener('prechange', function(event) {
         </div>
         <div class="-between">
           <div class="  max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
-            <svg xmlns="hjustifyttp://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none"
+            <svg xmlns="hjustifyttp://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none"
               viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
