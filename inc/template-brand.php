@@ -146,7 +146,7 @@ document.addEventListener('prechange', function(event) {
       <div class="py-5 px-1">
 
         <div class=" max-w-md mx-auto pb-6 h-11 flex m-3 space-x-5">
-        <div class="pt-4">
+        <div class="pt-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8    text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
