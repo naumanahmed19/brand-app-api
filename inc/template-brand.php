@@ -153,7 +153,7 @@ document.addEventListener('prechange', function(event) {
           </svg>
 
           <div class="text-gray-500 text-md">
-            Sign in | create account 2 </div>
+            Sign in | create account  </div>
         </div>
         <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8    text-gray-500" fill="none" viewBox="0 0 24 24"
@@ -220,7 +220,7 @@ document.addEventListener('prechange', function(event) {
                   <!-- line -->
                   <div class="toggle__line w-10 h-4 mt-1 bg-gray-400 rounded-full shadow-inner"></div>
                   <!-- dot -->
-                  <div class="toggle__dot absolute w-6 h-6   bg-white rounded-full shadow inset-y-0 left-0"></div>
+                  <div class="toggle__dot absolute w-8 h-8   bg-white rounded-full shadow inset-y-0 left-0"></div>
                 </div>
                 <!-- label -->
 
@@ -236,7 +236,7 @@ document.addEventListener('prechange', function(event) {
         </div>
 
         <div class=" max-w-md mx-auto pb-2 h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -250,7 +250,7 @@ document.addEventListener('prechange', function(event) {
         <?php  dynamic_sidebar('settings_screen'); ?>
 
         <div class=" max-w-md mx-auto  h-11 flex m-3 space-x-5">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-gray-500" fill="none" viewBox="0 0 24 24"
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8  text-gray-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
