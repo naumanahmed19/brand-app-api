@@ -84,6 +84,23 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($payload, $request){
 }, 10, 2);
 
 
+
+/**
+ * V3 does not basc account details
+ * so we are modify rest query
+ *
+ */
+add_filter( 'woocommerce_rest_prepare_shop_order_object', 'brand_rest_prepare_order_object', 10, 3 );
+function brand_rest_prepare_order_object( $response, $object, $request ) {
+  // Get the value
+  $bacs_info = get_option( 'woocommerce_bacs_accounts');
+
+  $response->data['bacs_info'] = $bacs_info;
+
+  return $response;
+}
+
+
 /**
  * V3 does not support muliple attributes
  * so we are modify rest products query
