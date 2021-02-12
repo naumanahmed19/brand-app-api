@@ -90,7 +90,7 @@ add_action( 'simple_jwt_login_jwt_payload_auth', function($payload, $request){
  * so we are modify rest query
  *
  */
-add_filter( 'woocommerce_rest_prepare_shop_order_object', 'brand_rest_prepare_order_object', 10, 3 );
+add_filter( 'woocommerce_rest_payment_gateway_object_query', 'brand_rest_prepare_order_object', 10, 3 );
 function brand_rest_prepare_order_object( $response, $object, $request ) {
   // Get the value
   $bacs_info = get_option( 'woocommerce_bacs_accounts');
