@@ -244,7 +244,7 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $bacs_info = get_option( 'woocommerce_bacs_accounts');
 
-  $response->data['bacs_info'] = $bacs_info;
+  $data['bacs_info'] = $bacs_info;
 
   return $data;
 
