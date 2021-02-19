@@ -47,7 +47,7 @@ class Brandslider_Widget extends WP_Widget {
 
 
 		// Output generated fields
-		echo '</div>'
+		echo '</div>';
 		
         echo $args['after_widget'];
         
