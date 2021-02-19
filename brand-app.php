@@ -208,7 +208,7 @@ final class Brand_App_API {
 				$ff[] ='brand-section-'.$f;
 			}
 				
-				$params[0][ 'before_widget' ] = '<div class="'. $widget_id.'filterDiv '. implode(" ", $ff) '">';
+				$params[0][ 'before_widget' ] = '<div class="'. $widget_id.'filterDiv '. implode(" ", $ff) .'">';
 				$params[0][ 'after_widget' ] = '</div>';
 		
 
