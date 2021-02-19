@@ -162,7 +162,7 @@ final class Brand_App_API {
 				'name'          => __( 'Brand Home Screen', 'textdomain' ),
 				'id'            => 'home_screen',
 				'description'   => __( 'Widgets in this area will be shown on app home screen.', 'textdomain' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'before_widget' => '<div id="%1$s" class="widget widget-brand %2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h4 class="widgettitle">',
 				'after_title'   => '</h4>',
@@ -180,7 +180,7 @@ final class Brand_App_API {
 				'name'          => __( 'Brand Settings Screen', 'textdomain' ),
 				'id'            => 'settings_screen',
 				'description'   => __( 'Widgets in this area will be shown on app settings screen.', 'textdomain' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'before_widget' => '<div id="%1$s" class="widget%2$s">',
 				'after_widget'  => '</div>',
 				'before_title'  => '<h4 class="widgettitle">',
 				'after_title'   => '</h4>',
@@ -188,7 +188,6 @@ final class Brand_App_API {
 	
 		}
 		add_action( 'widgets_init', 'brand_sidebars_init' );
-
 
 
 

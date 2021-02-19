@@ -73,6 +73,12 @@
 
 
 
+
+  /* Filter */
+
+  .filterDiv {
+    display: none;
+  }
   /* selectbox */
 
   *,

@@ -172,6 +172,14 @@ document.addEventListener('prechange', function(event) {
         </div>
     </div>
 </div>
+
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <?php foreach($cats as $cat): ?>
+  <button class="btn" onclick="filterSelection('<?php echo $cat->name; ?>')"> <?php echo $cat->name; ?></button>
+  <?php endforeach; ?>
+</div>
 <!-- Profile dropdown -->
 
       <?php  dynamic_sidebar('home_screen'); ?>
