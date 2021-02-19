@@ -103,7 +103,7 @@ final class Brand_App_API {
 			wp_enqueue_script( 'onsen-css-components', 'https://unpkg.com/jquery/dist/jquery.min.js', array('jquery') );
 			
 		
-			wp_enqueue_style( 'material-icons', '	https://fonts.googleapis.com/icon?family=Material+Icons', false ); 
+			wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false ); 
 		
 
 			wp_enqueue_script( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js' );
