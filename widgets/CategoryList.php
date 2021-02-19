@@ -15,6 +15,7 @@ class Brandcategorylist_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
+		
 
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
