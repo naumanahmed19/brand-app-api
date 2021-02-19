@@ -202,7 +202,7 @@ final class Brand_App_API {
 
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
-			if(count($filters) > 0)
+			if(!empty($filters))
 			{
 				foreach($filters as $f){
 					$ff[] ='brand-section-'.$f;
