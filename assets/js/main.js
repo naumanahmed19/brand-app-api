@@ -142,6 +142,22 @@ function filter(){
   });
 }
 
+
+
+$("ul.dropdown").on("click", ".init", function() {
+    $(this).closest("ul").children('li:not(.init)').toggle();
+});
+
+var allOptions = $("ul.dropdown").children('li:not(.init)');
+$("ul.dropdown").on("click", "li:not(.init)", function() {
+    allOptions.removeClass('selected');
+    $(this).addClass('selected');
+    $("ul.dropdown").children('.init').html($(this).html());
+    allOptions.toggle();
+});
+
+
+
 });
 
  

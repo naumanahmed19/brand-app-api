@@ -139,17 +139,21 @@ document.addEventListener('prechange', function(event) {
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
       <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
       <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-      <div class="custom-select-wrapper">
+      <!-- <div class="custom-select-wrapper">
         <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button dropdown" aria-label="Options">more_vert</button>
         <div class="mdc-menu mdc-menu-surface">
         <ul class="mdc-list custom-options" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
         <?php $cats =  get_field('filter_categories', 'option'); ?>
+    
+      </ul> -->
+
+      <ul  class="mdc-list dropdown" role="menu">
+          <li class="init">[SELECT]</li>
           <?php foreach($cats as $cat): ?>
-            <li class="mdc-list-item custom-option" role="menuitem" data-value="<?php echo $cat->term_id; ?>">
-              <span class="mdc-list-item__ripple"></span>
-              <span class="mdc-list-item__text"><?php echo $cat->name; ?></span>
-            </li>
+          <span class="mdc-list-item__ripple"></span>
+          <li class="mdc-list-item custom-option" role="menuitem"  data-value="<?php echo $cat->term_id; ?>"  data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></li>
           <?php endforeach; ?>
+
       </ul>
       </div>
     </div>
@@ -163,6 +167,8 @@ document.addEventListener('prechange', function(event) {
   <?php foreach($cats as $cat): ?>
   <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
   <?php endforeach; ?>
+
+
 
 <!-- 
 
