@@ -88,8 +88,10 @@ final class Brand_App_API {
 		function brand_enqueue_script()
 
 		{  
+
 			wp_dequeue_style( 'twentytwenty-style');
-		 
+		 	wp_enqueue_style( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css' );
+		
 			wp_enqueue_style( 'onsenui', 'https://unpkg.com/onsenui/css/onsenui.css' );
 			wp_enqueue_style( 'onsen-css-components', 'https://unpkg.com/onsenui/css/onsen-css-components.min.css' );
 			
@@ -101,6 +103,7 @@ final class Brand_App_API {
 			wp_enqueue_script( 'onsen-css-components', 'https://unpkg.com/jquery/dist/jquery.min.js', array('jquery') );
 			
 
+			wp_enqueue_script( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js' );
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
 			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
 		}
