@@ -157,7 +157,7 @@ function filterSelection(c) {
     w3RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
-  lightSlider();
+
 }
 
 function w3AddClass(element, name) {
