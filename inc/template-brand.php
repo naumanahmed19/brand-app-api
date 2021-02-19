@@ -95,6 +95,8 @@ document.addEventListener('prechange', function(event) {
 
 <div class="mokup">
 <div class="marvel-device note8 shadow-lg rounded-lg">
+
+
     <div class="screen">
 
       <ons-page>
@@ -155,6 +157,22 @@ document.addEventListener('prechange', function(event) {
           </svg>
         </button>
 
+
+        <?php $cats =  get_field('filter_categories', 'option'); ?>
+
+
+        <div class="custom-select-wrapper">
+            <div class="custom-select">
+                <div class="custom-select__trigger"><span>Select</span>
+                    <div class="arrow"></div>
+                </div>
+                <div class="custom-options">
+                <?php foreach($cats as $cat): ?>
+                    <span class="custom-option " data-value="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></span>
+                 <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
         <!-- Profile dropdown -->
         <div class="ml-3 relative">
           <div>
