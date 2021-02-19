@@ -25,8 +25,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 
 		  $filter = get_field('filter', $widget_id);
 
-		  var_dump(  $filter );
-		  echo '<div class="filterDiv "'.$filter. '>';
+		  echo '<div class="filterDiv "'. implode (", ", $filter). '>';
 
 		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
