@@ -201,13 +201,14 @@ final class Brand_App_API {
 			// $settings = $settings_getter->get_settings();
 			// $settings = $settings[ $params[1]['number'] ];
 
-			$widget_id = $params[0]['widget_id'];
-
+		
+			$widget_id = 'widget_' . $params[0]['widget_id'];
 
 			
 
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
+			 	$widget_id = 'widget_' . $args['widget_id'];
 			var_dump($filters);
 			foreach($filters as $f){
 				$ff[] ='brand-section-'.$f;
