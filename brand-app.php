@@ -208,7 +208,7 @@ final class Brand_App_API {
 
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
-			 	$widget_id = 'widget_' . $args['widget_id'];
+	
 			var_dump($filters);
 			foreach($filters as $f){
 				$ff[] ='brand-section-'.$f;
