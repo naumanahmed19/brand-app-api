@@ -16,12 +16,16 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
-		$filter = get_field('filter', 'widget_' .$widget);
+
 	
-		echo '<div class="filterDiv "'.$filter. '>';
+	
 
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
+
+		  $filter = get_field('filter', $widget_id);
+		  echo '<div class="filterDiv "'.$filter. '>';
+
 		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		$image = get_field( 'image', $widget_id ) ? get_field( 'image', $widget_id ) : '';
