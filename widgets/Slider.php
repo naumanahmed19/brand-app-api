@@ -16,12 +16,25 @@ class Brandslider_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
+
+
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
 
               // widget ID with prefix for use in ACF API functions
       $widget_id = 'widget_' . $args['widget_id'];
+
+	         // widget ID with prefix for use in ACF API functions
+			 $widget_id = 'widget_' . $args['widget_id'];
+			 $ff =[];
+			  $filters = get_field('filter', $widget_id);
+			 foreach($filters as $f){
+				 $ff[] ='brand-section-'.$f;
+			 }
+	 
+	 
+			echo '<div class="filterDiv '. implode(" ", $ff). '">';
      
         $slides = get_field( 'slides', $widget_id ) ? get_field( 'slides', $widget_id ) : '';
         
@@ -34,6 +47,7 @@ class Brandslider_Widget extends WP_Widget {
 
 
 		// Output generated fields
+		echo '</div>'
 		
         echo $args['after_widget'];
         
