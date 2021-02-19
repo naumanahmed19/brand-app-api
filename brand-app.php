@@ -200,13 +200,19 @@ final class Brand_App_API {
 			// $settings_getter = $wp_registered_widgets[ $params[0]['widget_id'] ]['callback'][0];
 			// $settings = $settings_getter->get_settings();
 			// $settings = $settings[ $params[1]['number'] ];
-var_dump($params[0]);
+
 			$widget_id = $params[0]['widget_id'];
+
+
+			var_dump($widget_id);
+			
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
+			
 			foreach($filters as $f){
 				$ff[] ='brand-section-'.$f;
 			}
+			
 				
 				$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.'filterDiv '. implode(" ", $ff) .'">';
 				$params[0][ 'after_widget' ] .= '</div>';
