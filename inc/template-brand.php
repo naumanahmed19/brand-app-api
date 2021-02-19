@@ -144,84 +144,36 @@ document.addEventListener('prechange', function(event) {
   </div>
 </header>
 
-<nav class="bg-gray-800">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-     
-      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
-        </div>
-        <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-          <span class="sr-only">View notifications</span>
-          <!-- Heroicon name: outline/bell -->
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-        </button>
 
+<?php $cats =  get_field('filter_categories', 'option'); ?>
 
-        <?php $cats =  get_field('filter_categories', 'option'); ?>
-
-
-        <div class="custom-select-wrapper">
-            <div class="custom-select">
-                <div class="custom-select__trigger"><span>Select</span>
-                    <div class="arrow"></div>
-                </div>
-                <div class="custom-options">
-                <?php foreach($cats as $cat): ?>
-                    <span class="custom-option " data-value="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></span>
-                 <?php endforeach; ?>
-                </div>
-            </div>
+<div class="mdc-menu mdc-menu-surface">
+  <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+    <li class="mdc-list-item" role="menuitem">
+      <span class="mdc-list-item__ripple"></span>
+      <span class="mdc-list-item__text">A Menu Item</span>
+    </li>
+    <li class="mdc-list-item" role="menuitem">
+      <span class="mdc-list-item__ripple"></span>
+      <span class="mdc-list-item__text">Another Menu Item</span>
+    </li>
+  </ul>
+</div>
+<div class="custom-select-wrapper">
+    <div class="custom-select">
+        <div class="custom-select__trigger"><span>Select</span>
+            <div class="arrow"></div>
         </div>
-        <!-- Profile dropdown -->
-        <div class="ml-3 relative">
-          <div>
-            <button class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
-              <span >Select</span>
-            
-            </button>
-          </div>
-    
-          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-          </div>
+        <div class="custom-options">
+        <?php foreach($cats as $cat): ?>
+            <span class="custom-option " data-value="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></span>
+         <?php endforeach; ?>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+<!-- Profile dropdown -->
 
-  <!--
-    Mobile menu, toggle classes based on menu state.
 
-    Menu open: "block", Menu closed: "hidden"
-  -->
-  <div class="hidden sm:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-    </div>
-  </div>
-</nav>
       <?php  dynamic_sidebar('home_screen'); ?>
       </ons-page>
     </template>
