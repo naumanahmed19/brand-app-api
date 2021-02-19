@@ -29,6 +29,9 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 		}
 
 		var_dump($ff);
+		echo explode(" ", $ff);
+		echo 'test';
+		echo implode(" ", $ff);
 		 
 
 		  echo '<div class="filterDiv "'. explode(" ", $ff). '>';
