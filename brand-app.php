@@ -197,27 +197,21 @@ final class Brand_App_API {
 		function check_sidebar_params( $params ) {
 			global $wp_registered_widgets;
 
-			// $settings_getter = $wp_registered_widgets[ $params[0]['widget_id'] ]['callback'][0];
-			// $settings = $settings_getter->get_settings();
-			// $settings = $settings[ $params[1]['number'] ];
-
-		
+	
 			$widget_id = 'widget_' . $params[0]['widget_id'];
-
-			
 
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
-	
-			var_dump($filters);
-			foreach($filters as $f){
-				$ff[] ='brand-section-'.$f;
+			if(count($filters) > 0)
+			{
+				foreach($filters as $f){
+					$ff[] ='brand-section-'.$f;
+				}
 			}
-			var_dump(implode(" ", $ff));
 				
-				$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.' filterDiv '. implode(" ", $ff) .'">';
-				$params[0][ 'after_widget' ] .= '</div>';
-		
+			$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.' filterDiv '. implode(" ", $ff) .'">';
+			$params[0][ 'after_widget' ] .= '</div>';
+	
 
 			return $params;
 		}
