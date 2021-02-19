@@ -79,6 +79,10 @@
   .filterDiv {
     display: none;
   }
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
   /* selectbox */
 
   *,
