@@ -158,6 +158,13 @@ document.addEventListener('prechange', function(event) {
 </header>
 
 
+<div class="cta filter">
+  <a class="blue-btn btn" data-filter="all" href="#" >All</a>
+  <a class="blue-btn btn" data-filter="cat1" href="#" role="button">Cat1</a>
+  <a class="blue-btn btn" data-filter="cat2" href="#" role="button">Cat2</a>
+  <a class="blue-btn btn" data-filter="cat3" href="#" role="button">Cat3</a>
+
+
 
 
 <div class="custom-select-wrapper">
@@ -183,6 +190,8 @@ document.addEventListener('prechange', function(event) {
 <!-- Profile dropdown -->
 
       <?php  dynamic_sidebar('home_screen'); ?>
+
+      </div>
       </ons-page>
     </template>
 

@@ -209,7 +209,7 @@ final class Brand_App_API {
 				}
 			}
 				
-			$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.' filterDiv '. implode(" ", $ff) .'">';
+			$params[0][ 'before_widget' ] .= '<div data-cat="'.implode(",", $ff).'" class="'. $widget_id.' filterDiv '. implode(" ", $ff) .'">';
 			$params[0][ 'after_widget' ] .= '</div>';
 	
 
