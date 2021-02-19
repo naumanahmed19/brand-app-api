@@ -29,7 +29,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 		}
 
 
-		  echo '<div class="filterDiv "'. implode(" ", $ff). '>';
+		  echo '<div class="filterDiv '. implode(" ", $ff). '">';
 
 		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
