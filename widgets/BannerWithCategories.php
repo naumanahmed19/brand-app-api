@@ -22,11 +22,13 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
-		$ff=[];
+		$ff =[];
 		 $filters = get_field('filter', $widget_id);
 		foreach($filters as $f){
-			$ff[]='brand-widget-'.$f;
+			$ff[] ='brand-widget-'.$f;
 		}
+
+		var_dump($ff);
 		 
 
 		  echo '<div class="filterDiv "'. implode (" ", $ff). '>';
