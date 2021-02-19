@@ -204,17 +204,17 @@ final class Brand_App_API {
 			$widget_id = $params[0]['widget_id'];
 
 
-			var_dump($widget_id);
 			
+
 			$ff =[];
 			$filters = get_field('filter', $widget_id);
-			
+			var_dump($filters);
 			foreach($filters as $f){
 				$ff[] ='brand-section-'.$f;
 			}
-			
+			var_dump(implode(" ", $ff));
 				
-				$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.'filterDiv '. implode(" ", $ff) .'">';
+				$params[0][ 'before_widget' ] .= '<div class="'. $widget_id.' filterDiv '. implode(" ", $ff) .'">';
 				$params[0][ 'after_widget' ] .= '</div>';
 		
 
