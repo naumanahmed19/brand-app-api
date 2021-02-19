@@ -16,16 +16,20 @@
 
 
 
+
 jQuery(document).ready(function ($) {
     "use strict";
 
-
-
+    filter();
+    lightSlider();
 $(".control-subsection").on('click', function(event){
     console.log(event);
     //(... rest of your JS code)
 });
 //light slider
+   
+
+function lightSlider(){
     var light = $(".lightSlider");
     light.each(function () {
         var $this = $(this);
@@ -105,8 +109,38 @@ $(".control-subsection").on('click', function(event){
     });
 
     
+}
 
 
+function filter(){
+    var $filters = $('.filter [data-filter]'),
+    $filterDiv = $('.filterDiv [data-cat]');
+
+  $filters.on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    
+    $filters.removeClass('active');
+    $this.addClass('active');
+
+    var $filterColor = $this.attr('data-filter');
+    
+    if ($filterColor == 'all') {
+      $filterDiv.removeClass('is-animated')
+        .fadeOut().promise().done(function() {
+          $filterDiv.addClass('is-animated').fadeIn();
+        });
+    } else {
+      $filterDiv.removeClass('is-animated')
+        .fadeOut().promise().done(function() {
+          $filterDiv.filter(function(i,el){ 
+              return el.dataset.cat.split(',').indexOf($filterColor)!==-1;
+          })
+            .addClass('is-animated').fadeIn();
+        });
+    }
+  });
+}
 
 });
 
@@ -123,6 +157,7 @@ function filterSelection(c) {
     w3RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
   }
+  lightSlider();
 }
 
 function w3AddClass(element, name) {
