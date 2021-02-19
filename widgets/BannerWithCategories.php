@@ -20,16 +20,19 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 	
 	
 
+
+
+
         // widget ID with prefix for use in ACF API functions
       	$widget_id = 'widget_' . $args['widget_id'];
-		$ff =[];
-		 $filters = get_field('filter', $widget_id);
-		foreach($filters as $f){
-			$ff[] ='brand-section-'.$f;
-		}
+	// 	$ff =[];
+	// 	 $filters = get_field('filter', $widget_id);
+	// 	foreach($filters as $f){
+	// 		$ff[] ='brand-section-'.$f;
+	// 	}
 
 
-	   echo '<div class="filterDiv '. implode(" ", $ff). '">';
+	//    echo '<div class="filterDiv '. implode(" ", $ff). '">';
 
 		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
@@ -68,7 +71,7 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 
 		// Output generated fields
 
-		echo '</div>';
+		// echo '</div>';
 		
         echo $args['after_widget'];
         

@@ -191,6 +191,32 @@ final class Brand_App_API {
 
 
 
+		
+		// if no title then add widget content wrapper to before widget
+		add_filter( 'dynamic_sidebar_params', 'check_sidebar_params' );
+		function check_sidebar_params( $params ) {
+			global $wp_registered_widgets;
+
+			// $settings_getter = $wp_registered_widgets[ $params[0]['widget_id'] ]['callback'][0];
+			// $settings = $settings_getter->get_settings();
+			// $settings = $settings[ $params[1]['number'] ];
+
+			$widget_id = $params[0]['widget_id'];
+			$ff =[];
+			$filters = get_field('filter', $widget_id);
+			foreach($filters as $f){
+				$ff[] ='brand-section-'.$f;
+			}
+				
+				$params[0][ 'before_widget' ] .= '<div class="filterDiv '. implode(" ", $ff). '">';
+				$params[0][ 'after_widget' ] == '</div>'
+		
+
+			return $params;
+		}
+
+
+
 
 		
 	}
