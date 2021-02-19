@@ -104,7 +104,7 @@ final class Brand_App_API {
 			
 		
 			wp_enqueue_style( 'material-icons', '	https://fonts.googleapis.com/icon?family=Material+Icons', false ); 
-		}
+		
 
 			wp_enqueue_script( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js' );
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
