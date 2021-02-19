@@ -177,7 +177,7 @@ document.addEventListener('prechange', function(event) {
 <div id="myBtnContainer">
   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
   <?php foreach($cats as $cat): ?>
-  <button class="btn" onclick="filterSelection('<?php echo $cat->term_id; ?>')"> <?php echo $cat->name; ?></button>
+  <button class="btn" onclick="filterSelection('brand-section-<?php echo $cat->term_id; ?>')"> <?php echo $cat->name; ?></button>
   <?php endforeach; ?>
 </div>
 <!-- Profile dropdown -->
