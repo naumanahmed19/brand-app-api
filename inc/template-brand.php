@@ -160,10 +160,9 @@ document.addEventListener('prechange', function(event) {
 
 <div class="cta filter">
   <a class="blue-btn btn" data-filter="all" href="#" >All</a>
-  <a class="blue-btn btn" data-filter="cat1" href="#" role="button">Cat1</a>
-  <a class="blue-btn btn" data-filter="cat2" href="#" role="button">Cat2</a>
-  <a class="blue-btn btn" data-filter="cat3" href="#" role="button">Cat3</a>
-
+  <?php foreach($cats as $cat): ?>
+  <a class="blue-btn btn" data-filter="<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
+  <?php endforeach; ?>
 
 
 
