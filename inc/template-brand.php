@@ -161,10 +161,10 @@ document.addEventListener('prechange', function(event) {
 <div class="cta filter">
   <a class="blue-btn btn" data-filter="all" href="#" >All</a>
   <?php foreach($cats as $cat): ?>
-  <a class="blue-btn btn" data-filter="<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
+  <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
   <?php endforeach; ?>
 
-
+<!-- 
 
 <div class="custom-select-wrapper">
     <div class="custom-select">
@@ -177,7 +177,7 @@ document.addEventListener('prechange', function(event) {
          <?php endforeach; ?>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <div id="myBtnContainer">
