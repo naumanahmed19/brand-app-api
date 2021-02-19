@@ -188,7 +188,10 @@ document.addEventListener('prechange', function(event) {
 </div>
 <!-- Profile dropdown -->
 
+        <div class="boxes">
+
       <?php  dynamic_sidebar('home_screen'); ?>
+      </div>
 
       </div>
       </ons-page>
