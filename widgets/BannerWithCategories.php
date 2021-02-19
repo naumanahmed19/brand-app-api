@@ -25,13 +25,13 @@ class Brand_BannerWithCategories_Widget extends WP_Widget {
 		$ff =[];
 		 $filters = get_field('filter', $widget_id);
 		foreach($filters as $f){
-			$ff[] ='brand-widget-'.$f;
+			$ff[] ='brand-section-'.$f;
 		}
 
 		var_dump($ff);
 		 
 
-		  echo '<div class="filterDiv "'. implode (" ", $ff). '>';
+		  echo '<div class="filterDiv "'. explode(" ", $ff). '>';
 
 		$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
