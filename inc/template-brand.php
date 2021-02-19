@@ -137,8 +137,7 @@ document.addEventListener('prechange', function(event) {
       <span class="mdc-top-app-bar__title">Page title</span>
     </section>
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
+
       <!-- <div class="custom-select-wrapper">
         <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button dropdown" aria-label="Options">more_vert</button>
         <div class="mdc-menu mdc-menu-surface">
