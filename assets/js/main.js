@@ -112,7 +112,9 @@ $(".control-subsection").on('click', function(event){
 
 for (const dropdown of document.querySelectorAll(".custom-select-wrapper")) {
     dropdown.addEventListener('click', function () {
-        this.querySelector('.custom-select').classList.toggle('open');
+        let item = this.querySelector('.dc-menu mdc-menu-surface');
+        item.style.opacity = "0.5";
+        item.style.display = "block";
     })
 }
 

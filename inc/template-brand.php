@@ -139,26 +139,27 @@ document.addEventListener('prechange', function(event) {
     <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
       <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Favorite">favorite</button>
       <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">search</button>
-      <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Options">more_vert</button>
+      <div class="custom-select-wrapper">
+        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button dropdown" aria-label="Options">more_vert</button>
+        <div class="mdc-menu mdc-menu-surface">
+        <ul class="mdc-list custom-options" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+        <?php $cats =  get_field('filter_categories', 'option'); ?>
+          <?php foreach($cats as $cat): ?>
+            <li class="mdc-list-item custom-option" role="menuitem" data-value="<?php echo $cat->term_id; ?>">
+              <span class="mdc-list-item__ripple"></span>
+              <span class="mdc-list-item__text"><?php echo $cat->name; ?></span>
+            </li>
+          <?php endforeach; ?>
+      </ul>
+      </div>
+    </div>
     </section>
   </div>
 </header>
 
 
-<?php $cats =  get_field('filter_categories', 'option'); ?>
 
-<div class="mdc-menu mdc-menu-surface">
-  <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">A Menu Item</span>
-    </li>
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">Another Menu Item</span>
-    </li>
-  </ul>
-</div>
+
 <div class="custom-select-wrapper">
     <div class="custom-select">
         <div class="custom-select__trigger"><span>Select</span>
@@ -172,7 +173,6 @@ document.addEventListener('prechange', function(event) {
     </div>
 </div>
 <!-- Profile dropdown -->
-
 
       <?php  dynamic_sidebar('home_screen'); ?>
       </ons-page>
