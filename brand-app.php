@@ -102,6 +102,9 @@ final class Brand_App_API {
 			wp_enqueue_script( 'onsenui', 'https://unpkg.com/onsenui/js/onsenui.min.js', array('jquery') );
 			wp_enqueue_script( 'onsen-css-components', 'https://unpkg.com/jquery/dist/jquery.min.js', array('jquery') );
 			
+		
+			wp_enqueue_style( 'material-icons', '	https://fonts.googleapis.com/icon?family=Material+Icons', false ); 
+		}
 
 			wp_enqueue_script( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js' );
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
