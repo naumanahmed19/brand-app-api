@@ -76,13 +76,13 @@
 
   /* Filter */
 
-  .filterDiv {
+  /* .filterDiv {
     display: none;
-  }
+  } */
   /* The "show" class is added to the filtered elements */
-  .show {
+  /* .show {
     display: block;
-  }
+  } */
   /* selectbox */
 
   *,
