@@ -15,6 +15,11 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
+		?>
+
+		<div class="px-5">
+		
+		<?php
 
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
@@ -29,7 +34,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		?>
-			<div class="py-1 px-5"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+			<div class="py-4"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 		<?php 
 		
         echo '<div class="lightSlider" data-pager="false" data-item="2">';
@@ -40,8 +45,14 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 				<div><?php echo $product['price'] ; ?></div>
 
 		 </div>
-       <?php }
-        echo '</div>';
+       <?php } ?>
+	   
+        </div>
+		</div>
+
+
+
+		<?php
 
 
 		// Output generated fields
