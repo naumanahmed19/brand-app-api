@@ -85,6 +85,33 @@ final class Brand_App_API {
 
 		add_action('wp_enqueue_scripts', 'brand_enqueue_script');
 		
+
+
+		/**
+		 * Remove all java scripts.
+		 */
+		function brand_remove_all_scripts() {
+			global $wp_scripts;
+			if ( get_page_template_slug() == 'template-brand.php' ) {
+				$wp_scripts->queue = array();
+			}
+		}
+
+		add_action( 'wp_print_scripts', 'brand_remove_all_scripts', 99 );
+
+		/**
+		 * Remove all style sheets.
+		 */
+		function brand_remove_all_styles() {
+			global $wp_styles;
+			if ( get_page_template_slug() == 'template-brand.php' ) {
+				$wp_styles->queue = array();
+			}
+		}
+
+		add_action( 'wp_print_styles', 'brand_remove_all_styles', 99 );
+
+
 		function brand_enqueue_script()
 
 		{  
@@ -133,7 +160,7 @@ final class Brand_App_API {
 			wp_enqueue_script( 'brand-admin', plugin_dir_url( __FILE__ ) . 'assets/js/admin.js', array('jquery'), '1.0.0', false );
 		}
 
-		add_action('admin_enqueue_scripts', 'brand_admin_enqueue_script');
+		add_action('admin_enqueue_scripts', 'brand_admin_enqueue_script',100);
 		
 		
 
