@@ -137,14 +137,12 @@ function filter(){
     var $this = $(this);
 
 
-    $( "#choose-sel option:selected" ).text();
-    console.log(e.text());
-    console.log($this.text());
-    
+    var filterColor = $( "#choose-sel option:selected" ).text();
+    console.log(filterColor);
+=
     // $filters.removeClass('active');
     // $this.addClass('active');
 
-    var $filterColor = e;
     
     if ($filterColor == 'all') {
       $boxes.removeClass('is-animated')
