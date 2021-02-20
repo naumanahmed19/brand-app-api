@@ -135,6 +135,11 @@ function filter(){
       console.log(e);
     e.preventDefault();
     var $this = $(this);
+
+
+    $( "#choose-sel option:selected" ).text();
+    console.log(e.text());
+    console.log($this.text());
     
     // $filters.removeClass('active');
     // $this.addClass('active');
