@@ -128,16 +128,16 @@ function lightSlider(){
 
 function filter(){
     console.log('www');
-    var $filters = $('.filter [data-filter]'),
+    var $filters = $('#choose-sel'),
     $boxes = $('.boxes [data-cat]');
 
-  $filters.on('click', function(e) {
+  $filters.on('change', function(e) {
       console.log('clciked');
     e.preventDefault();
     var $this = $(this);
     
-    $filters.removeClass('active');
-    $this.addClass('active');
+    // $filters.removeClass('active');
+    // $this.addClass('active');
 
     var $filterColor = $this.attr('data-filter');
     
