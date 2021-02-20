@@ -56,6 +56,15 @@ class BrandHomeController{
 
 
 
+    public function getSectionSettings($wId){
+      $sectionSettings = [];
+      $sectionSettings ['radius'] = get_field('radius', $wId);
+      $sectionSettings ['padding'] = get_field('padding', $wId);
+      return $sectionSettings;
+    }
+    
+
+
 
 
       
@@ -91,6 +100,7 @@ function getWidgets($s ){
       $filter = get_field('filter', 'widget_' .$widget);
       $sections[$i]['filter'] = !empty($filter) ? $filter : null;
       $sections[$i]['screen'] = $sidebar;
+      $sections[$i]['settings'] = $this->getSectionSettings($wId);
 
 
     if($name == 'brandslider_widget'){
@@ -103,12 +113,6 @@ function getWidgets($s ){
       $sections[$i]['type']='cc';
       $cats = get_field('categories', $wId);
       $sections[$i]['categories'] = $this->getCategories($cats);
-      
-      $sectionSettings ['radius'] = get_field('radius', $wId);
-      $sectionSettings ['padding'] = get_field('padding', $wId);
-
-      $sections[$i]['settings'] = $sectionSettings;
-
     }
     if($name == 'brand_bannerwithcategories_widget'){
       $sections[$i]['type']='bc';
