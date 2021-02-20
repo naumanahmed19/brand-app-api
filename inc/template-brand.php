@@ -129,24 +129,23 @@ document.addEventListener('prechange', function(event) {
         </div>
       </ons-toolbar> -->
       <!-- This example requires Tailwind CSS v2.0+ -->
+
+      <div class="cta filter">
       <ons-toolbar>
     <div class="center">Dropdown example</div>
     <div class="right">
     <ons-select id="choose-sel" onchange="editSelects(event)">
-    <option value="basic">Basic</option>
-    <option value="material">Material</option>
-    <option value="underbar">Underbar</option>
+    <option value="all" data-filter="all">All</option>
+    <?php foreach($cats as $cat): ?>
+    <option value="<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
+    <?php endforeach; ?>
+
   </ons-select>
     </div>
   </ons-toolbar>
 
-<div class="cta filter">
-  <a class="blue-btn btn" data-filter="all" href="#" >All</a>
-  <?php foreach($cats as $cat): ?>
-  <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
-  <?php endforeach; ?>
 
-
+ 
 
         <div class="boxes">
 
