@@ -206,119 +206,27 @@ document.addEventListener('prechange', function(event) {
   <?php endforeach; ?>
 </div>
 
-<div class="mdc-select mdc-select--filled demo-width-class">
-  <div class="mdc-select__anchor">
-    <span class="mdc-select__ripple"></span>
-    <span class="mdc-floating-label mdc-floating-label--float-above">Pick a Food Group</span>
-    <span class="mdc-select__selected-text-container">
-      <span class="mdc-select__selected-text">Vegetables</span>
-    </span>
-    <span class="mdc-select__dropdown-icon">
-      <svg
-          class="mdc-select__dropdown-icon-graphic"
-          viewBox="7 10 10 5" focusable="false">
-        <polygon
-            class="mdc-select__dropdown-icon-inactive"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 10 12 15 17 10">
-        </polygon>
-        <polygon
-            class="mdc-select__dropdown-icon-active"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 15 12 10 17 15">
-        </polygon>
-      </svg>
-    </span>
-    <span class="mdc-line-ripple"></span>
-  </div>
-
-  <div class="mdc-select__menu demo-width-class mdc-menu mdc-menu-surface">
-    <ul class="mdc-list">
-      <li class="mdc-list-item" data-value="">
-        <span class="mdc-list-item__ripple"></span>
-      </li>
-      <li class="mdc-list-item" data-value="grains">
-        <span class="mdc-list-item__ripple"></span>
-        <span class="mdc-list-item__text">Bread, Cereal, Rice, and Pasta</span>
-      </li>
-      <li class="mdc-list-item mdc-list-item--selected" data-value="vegetables" aria-selected="true">
-        <span class="mdc-list-item__ripple"></span>
-        <span class="mdc-list-item__text">Vegetables</span>
-      </li>
-      <li class="mdc-list-item" data-value="fruit">
-        <span class="mdc-list-item__ripple"></span>
-        <span class="mdc-list-item__text">Fruit</span>
-      </li>
-    </ul>
-  </div>
-</div><div class="mdc-select mdc-select--filled mdc-select--required">
-  <div class="mdc-select__anchor" aria-required="true">
-    <span class="mdc-select__ripple"></span>
-    <span class="mdc-floating-label">Pick a Food Group</span>
-    <span class="mdc-select__selected-text-container">
-      <span class="mdc-select__selected-text"></span>
-    </span>
-    <span class="mdc-select__dropdown-icon">
-      <svg
-          class="mdc-select__dropdown-icon-graphic"
-          viewBox="7 10 10 5" focusable="false">
-        <polygon
-            class="mdc-select__dropdown-icon-inactive"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 10 12 15 17 10">
-        </polygon>
-        <polygon
-            class="mdc-select__dropdown-icon-active"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 15 12 10 17 15">
-        </polygon>
-      </svg>
-    </span>
-    <span class="mdc-line-ripple"></span>
-  </div>
-
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface">
-    ...
-  </div>
-</div><div class="mdc-select mdc-select--outlined">
-  <div class="mdc-select__anchor" aria-labelledby="outlined-select-label">
-    <span class="mdc-notched-outline">
-      <span class="mdc-notched-outline__leading"></span>
-      <span class="mdc-notched-outline__notch">
-        <span id="outlined-select-label" class="mdc-floating-label">Pick a Food Group</span>
-      </span>
-      <span class="mdc-notched-outline__trailing"></span>
-    </span>
-    <span class="mdc-select__selected-text-container">
-      <span id="demo-selected-text" class="mdc-select__selected-text"></span>
-    </span>
-    <span class="mdc-select__dropdown-icon">
-      <svg
-          class="mdc-select__dropdown-icon-graphic"
-          viewBox="7 10 10 5" focusable="false">
-        <polygon
-            class="mdc-select__dropdown-icon-inactive"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 10 12 15 17 10">
-        </polygon>
-        <polygon
-            class="mdc-select__dropdown-icon-active"
-            stroke="none"
-            fill-rule="evenodd"
-            points="7 15 12 10 17 15">
-        </polygon>
-      </svg>
-    </span>
-  </div>
-
-  <!-- Other elements from the select remain. -->
-  <div class="mdc-select__menu mdc-menu mdc-menu-surface mdc-menu-surface--fullwidth">...</div>
-</div>
+<mwc-select
+    required
+    validationMessage="This Field is Required"
+    label="required (error)">
+  <mwc-list-item selected></mwc-list-item>
+  <mwc-list-item value="0">Item 0</mwc-list-item>
+  <mwc-list-item value="1">Item 1</mwc-list-item>
+  <mwc-list-item value="2">Item 2</mwc-list-item>
+  <mwc-list-item value="3">Item 3</mwc-list-item>
+</mwc-select>
+<mwc-select
+    required
+    validationMessage="This Field is Required"
+    outlined
+    label="required (error)">
+  <mwc-list-item selected></mwc-list-item>
+  <mwc-list-item value="0">Item 0</mwc-list-item>
+  <mwc-list-item value="1">Item 1</mwc-list-item>
+  <mwc-list-item value="2">Item 2</mwc-list-item>
+  <mwc-list-item value="3">Item 3</mwc-list-item>
+</mwc-select>
 <!-- Profile dropdown -->
 
         <div class="boxes">
