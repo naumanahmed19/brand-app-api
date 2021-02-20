@@ -121,32 +121,30 @@ document.addEventListener('prechange', function(event) {
     <template id="tab1.html">
       <ons-page id="Tab1" >
       <div class="cta filter">
-      <ons-toolbar>
-    <div class="center">
+        <ons-toolbar class="scafold">
+          <div class="center">
+            <?php if($home_logo) : ?>
+              <img class="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
+            <?php endif; ?>
 
-    <?php if($home_logo) : ?>
-      <img class="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
-    <?php endif; ?>
-
-    </div>
-    <div class="right">
-      <ons-select id="choose-sel">
-      <option value="all" data-filter="all">All</option>
-      <?php foreach($cats as $cat): ?>
-      <option value="brand-section-<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
-      <?php endforeach; ?>
-    </ons-select>
-    </div>
-  </ons-toolbar>
+            </div>
+            <div class="right">
+              <ons-select id="choose-sel">
+              <option value="all" data-filter="all">All</option>
+              <?php foreach($cats as $cat): ?>
+              <option value="brand-section-<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
+              <?php endforeach; ?>
+            </ons-select>
+          </div>
+      </ons-toolbar>
 
 
-<div class="cta filter has-toolbar">
+<div class="cta filter has-toolbar scafold">
 
 
     <div class="boxes">
-
       <?php  dynamic_sidebar('home_screen'); ?>
-      </div>
+    </div>
 
       </div>
       </ons-page>
