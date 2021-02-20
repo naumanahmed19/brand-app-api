@@ -8,6 +8,10 @@
   margin: 0 auto;
  }
 
+ .scafold{
+   background: #efeff4;
+ }
+
 .toolbar{
   height: 60px;
   border-bottom: none;
@@ -15,7 +19,6 @@
   padding-top: 15px;
   padding-left: 10px;
   padding-right: 10px;
-  background: #fff;
  }
 .h-w-90{
   height: 90px;
