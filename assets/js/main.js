@@ -137,7 +137,7 @@ function filter(){
     var $this = $(this);
 
 
-    var filterColor = $( "#choose-sel option:selected" ).text();
+    var filterColor = $( "#choose-sel option:selected" ).value();
     console.log(filterColor);
 
     // $filters.removeClass('active');
