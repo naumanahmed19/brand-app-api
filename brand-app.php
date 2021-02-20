@@ -89,13 +89,31 @@ final class Brand_App_API {
 
 		{  
 
+			$wp_scripts = wp_scripts();
+			$wp_styles  = wp_styles();
+			$themes_uri = get_theme_root_uri();
+		
+			foreach ( $wp_scripts->registered as $wp_script ) {
+				if ( strpos( $wp_script->src, $themes_uri ) !== false ) {
+					wp_deregister_script( $wp_script->handle );
+				}
+			}
+		
+			foreach ( $wp_styles->registered as $wp_style ) {
+				if ( strpos( $wp_style->src, $themes_uri ) !== false ) {
+					wp_deregister_style( $wp_style->handle );
+				}
+			}
+		}
+
+		
+
 			wp_dequeue_style( 'twentytwenty-style');
 		 	wp_enqueue_style( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css' );
 		
 			wp_enqueue_style( 'onsenui', 'https://unpkg.com/onsenui/css/onsenui.css' );
 			wp_enqueue_style( 'onsen-css-components', 'https://unpkg.com/onsenui/css/onsen-css-components.min.css' );
-			
-			wp_enqueue_style( 'tailwind', plugin_dir_url( __FILE__ )  . '/assets/css/tailwind.min.css' );
+
 			wp_enqueue_style( 'slick', plugin_dir_url( __FILE__ )  . '/assets/css/slick.css' );
 			wp_enqueue_style( 'brand-css', plugin_dir_url( __FILE__ )  . '/assets/css/main.css' );
 
