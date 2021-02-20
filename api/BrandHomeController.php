@@ -115,7 +115,8 @@ function getWidgets($s ){
       $sections[$i]['type']='cc';
       $cats = get_field('categories', $wId);
       $sections[$i]['categories'] = $this->getCategories($cats);
-      $sections[$i]['settings']['img_radius'] = 10;
+      //extra item settings
+      $sections[$i]['settings']['img_radius'] = get_field('img_radius', $wId);
 
     }
     if($name == 'brand_bannerwithcategories_widget'){
