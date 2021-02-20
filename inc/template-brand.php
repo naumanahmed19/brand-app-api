@@ -129,7 +129,16 @@ document.addEventListener('prechange', function(event) {
         </div>
       </ons-toolbar> -->
       <!-- This example requires Tailwind CSS v2.0+ -->
-
+      <ons-toolbar>
+    <div class="center">Dropdown example</div>
+    <div class="right">
+    <ons-select id="choose-sel" onchange="editSelects(event)">
+    <option value="basic">Basic</option>
+    <option value="material">Material</option>
+    <option value="underbar">Underbar</option>
+  </ons-select>
+    </div>
+  </ons-toolbar>
 
 <div class="cta filter">
   <a class="blue-btn btn" data-filter="all" href="#" >All</a>

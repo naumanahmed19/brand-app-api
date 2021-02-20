@@ -16,6 +16,20 @@
 
 
 
+    function editSelects(event) {
+        document.getElementById('choose-sel').removeAttribute('modifier');
+        if (event.target.value == 'material' || event.target.value == 'underbar') {
+          document.getElementById('choose-sel').setAttribute('modifier', event.target.value);
+        }
+      }
+      function addOption(event) {
+        const option = document.createElement('option');
+        var text = document.getElementById('optionLabel').value;
+        option.innerText = text;
+        text = '';
+        document.getElementById('dynamic-sel').appendChild(option);
+      }
+
 
 jQuery(document).ready(function ($) {
     "use strict";
