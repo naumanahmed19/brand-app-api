@@ -1,3 +1,19 @@
+ 
+ .brand-home-logo{
+  height: 25px;
+  margin: 0 auto;
+ }
+
+ ons-toolbar{
+  height: 60px;
+  border-bottom: none;
+  box-shadow: none;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: #fff;
+ }
+ 
  /* Tab content - closed */
  .tab-content {
     max-height: 0;
@@ -45,6 +61,8 @@
     button.tabbar__button {
       background: #fff !important;
   }
+
+  
     
 
 

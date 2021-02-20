@@ -125,7 +125,7 @@ document.addEventListener('prechange', function(event) {
     <div class="center">
 
     <?php if($home_logo) : ?>
-      <img scr="<?php echo $home_logo; ?>" alt=""  />
+      <img cla="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
     <?php endif; ?>
 
     </div>
