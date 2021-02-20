@@ -60,6 +60,8 @@ class BrandHomeController{
       $sectionSettings = [];
       $sectionSettings ['radius'] = get_field('radius', $wId);
       $sectionSettings ['padding'] = get_field('padding', $wId);
+      $sectionSettings ['color'] = get_field('color', $wId);
+      $sectionSettings ['margin'] = get_field('margin', $wId);
       return $sectionSettings;
     }
     
@@ -113,6 +115,8 @@ function getWidgets($s ){
       $sections[$i]['type']='cc';
       $cats = get_field('categories', $wId);
       $sections[$i]['categories'] = $this->getCategories($cats);
+      $sections[$i]['settings']['img_radius'] = 10;
+
     }
     if($name == 'brand_bannerwithcategories_widget'){
       $sections[$i]['type']='bc';
