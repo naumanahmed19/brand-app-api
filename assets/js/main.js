@@ -132,14 +132,14 @@ function filter(){
     $boxes = $('.boxes [data-cat]');
 
   $filters.on('change', function(e) {
-      console.log('clciked');
+      console.log(e);
     e.preventDefault();
     var $this = $(this);
     
     // $filters.removeClass('active');
     // $this.addClass('active');
 
-    var $filterColor = $this.attr('data-filter');
+    var $filterColor = e;
     
     if ($filterColor == 'all') {
       $boxes.removeClass('is-animated')
