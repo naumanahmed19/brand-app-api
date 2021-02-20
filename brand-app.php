@@ -105,8 +105,8 @@ final class Brand_App_API {
 		
 			wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', false ); 
 		
-			wp_enqueue_script( 'material', plugin_dir_url( __FILE__ ) . 'assets/js/material.js' );
-			// wp_enqueue_script( 'material', 'https://material-components.github.io/material-components-web-catalog/static/js/main.a88a1f88.js');
+		
+			wp_enqueue_script( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js');
 			wp_enqueue_script( 'slick', plugin_dir_url( __FILE__ ) . 'assets/js/slick.min.js', array('jquery'), '1.4.0', false );
 			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
 		}
