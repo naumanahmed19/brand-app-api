@@ -114,13 +114,21 @@ document.addEventListener('prechange', function(event) {
     </ons-tabbar>
     </ons-page>
 
-    <?php $cats =  get_field('filter_categories', 'option'); ?>
+    <?php
+    $home_logo =  get_field('app_home_logo', 'option');
+    $cats =  get_field('filter_categories', 'option'); ?>
     
     <template id="tab1.html">
       <ons-page id="Tab1">
       <div class="cta filter">
       <ons-toolbar>
-    <div class="center">Dropdown example</div>
+    <div class="center">
+
+    <?php if($home_logo) : ?>
+      <img scr="<?php echo $home_logo; ?>" alt=""  />
+    <?php endif; ?>
+
+    </div>
     <div class="right">
     <ons-select id="choose-sel">
     <option value="all" data-filter="all">All</option>
@@ -135,13 +143,10 @@ document.addEventListener('prechange', function(event) {
 
 
 <div class="cta filter">
-  <a class="blue-btn btn" data-filter="all" href="#" >All</a>
+  <a class="blue-btn btn" data-filter="all" href="#" >Select</a>
   <?php foreach($cats as $cat): ?>
   <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
   <?php endforeach; ?>
-
-
-
         <div class="boxes">
 
       <?php  dynamic_sidebar('home_screen'); ?>
