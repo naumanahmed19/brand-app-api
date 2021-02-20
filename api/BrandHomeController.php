@@ -117,7 +117,8 @@ function getWidgets($s ){
       $sections[$i]['categories'] = $this->getCategories($cats);
       //extra item settings
       $sections[$i]['settings']['img_radius'] = intval(get_field('img_radius', $wId));
-
+  
+      
     }
     if($name == 'brand_bannerwithcategories_widget'){
       $sections[$i]['type']='bc';
@@ -132,6 +133,7 @@ function getWidgets($s ){
       $sections[$i]['title'] = get_field('title', 'widget_' .$widget) ;
       $ctrl = new BrandProductController();
       $sections[$i]['products'] =  $ctrl->getProducts($widget);
+      $sections[$i]['settings']['columns'] = intval(get_field('columns', $wId));
     }
     if($name == 'brandcategorylist_widget'){
       $sections[$i]['type']= 'categorylist';
