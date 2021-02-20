@@ -33,11 +33,12 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		  $products = $ctrl->getProducts($widget_id);
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
+		$items = intval(get_field('columns', $widget_id));
 		?>
 			<div class="py-5 text-xl font-semibold"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 		<?php 
 		
-        echo '<div class="lightSlider" data-pager="false" data-item="2">';
+        echo '<div class="lightSlider" data-pager="false" data-item="'.$items.'">';
 		foreach ($products as $key => $product ) {?>
 			<div>
 				<img src="<?php echo $product['images'][0]['src'] ; ?>" />
