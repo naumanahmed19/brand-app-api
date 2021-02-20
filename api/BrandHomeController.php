@@ -116,7 +116,7 @@ function getWidgets($s ){
       $cats = get_field('categories', $wId);
       $sections[$i]['categories'] = $this->getCategories($cats);
       //extra item settings
-      $sections[$i]['settings']['img_radius'] = get_field('img_radius', $wId);
+      $sections[$i]['settings']['img_radius'] = intval(get_field('img_radius', $wId));
 
     }
     if($name == 'brand_bannerwithcategories_widget'){
