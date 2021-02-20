@@ -140,13 +140,10 @@ document.addEventListener('prechange', function(event) {
   </ons-toolbar>
 
 
-
 <div class="cta filter has-toolbar">
-  <a class="blue-btn btn" data-filter="all" href="#" >Select</a>
-  <?php foreach($cats as $cat): ?>
-  <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
-  <?php endforeach; ?>
-        <div class="boxes">
+
+
+    <div class="boxes">
 
       <?php  dynamic_sidebar('home_screen'); ?>
       </div>
