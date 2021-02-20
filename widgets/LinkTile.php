@@ -34,7 +34,7 @@ class BrandLinkTile extends WP_Widget {
 			<i class="<?php echo $icon ?>"></i>
 
 				<div class="text-gray-500 text-md">
-					<?php echo $title ?>
+					<?php echo esc_attr($title,'brand-app'); ?>
 				</div>
 			</div>	
    

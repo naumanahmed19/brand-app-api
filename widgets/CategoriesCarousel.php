@@ -25,7 +25,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
       	$widget_id = 'widget_' . $args['widget_id'];
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
 	
-	<div class="py-1 px-5"><?php  esc_html__( $title, 'brand-app' );  ?></div>
+	<div class="py-1 px-5"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 			<?php
 	
         echo '<div class="lightSlider" data-pager="false" data-item="4">';
