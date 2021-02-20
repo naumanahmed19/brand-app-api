@@ -107,8 +107,6 @@ final class Brand_App_API {
 		
 
 
-
-			wp_dequeue_style( 'twentytwenty-style');
 		 	wp_enqueue_style( 'material', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css' );
 		
 			wp_enqueue_style( 'onsenui', 'https://unpkg.com/onsenui/css/onsenui.css' );

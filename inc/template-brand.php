@@ -130,50 +130,6 @@ document.addEventListener('prechange', function(event) {
       </ons-toolbar> -->
       <!-- This example requires Tailwind CSS v2.0+ -->
 
-      <header class="mdc-top-app-bar">
-  <div class="mdc-top-app-bar__row">
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-      <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
-      <span class="mdc-top-app-bar__title">Page title</span>
-    </section>
-    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-
-      <!-- <div class="custom-select-wrapper">
-        <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button dropdown" aria-label="Options">more_vert</button>
-        <div class="mdc-menu mdc-menu-surface">
-        <ul class="mdc-list custom-options" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-        <?php $cats =  get_field('filter_categories', 'option'); ?>
-    
-      </ul> -->
-
-      <ul  class="mdc-list dropdown" role="menu">
-          <li class="init">[SELECT]</li>
-          <?php foreach($cats as $cat): ?>
-          <span class="mdc-list-item__ripple"></span>
-          <li class="mdc-list-item custom-option" role="menuitem"  data-value="<?php echo $cat->term_id; ?>"  data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></li>
-          <?php endforeach; ?>
-
-      </ul>
-      </div>
-    </div>
-    </section>
-  </div>
-</header>
-
-
-
-<div class="mdc-menu mdc-menu-surface">
-  <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">A Menu Item</span>
-    </li>
-    <li class="mdc-list-item" role="menuitem">
-      <span class="mdc-list-item__ripple"></span>
-      <span class="mdc-list-item__text">Another Menu Item</span>
-    </li>
-  </ul>
-</div>
 
 <div class="cta filter">
   <a class="blue-btn btn" data-filter="all" href="#" >All</a>
@@ -182,49 +138,6 @@ document.addEventListener('prechange', function(event) {
   <?php endforeach; ?>
 
 
-
-<!-- 
-
-<div class="custom-select-wrapper">
-    <div class="custom-select">
-        <div class="custom-select__trigger"><span>Select</span>
-            <div class="arrow"></div>
-        </div>
-        <div class="custom-options">
-        <?php foreach($cats as $cat): ?>
-            <span class="custom-option " data-value="<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></span>
-         <?php endforeach; ?>
-        </div>
-    </div>
-</div> -->
-
-
-<div id="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-  <?php foreach($cats as $cat): ?>
-  <button class="btn" onclick="filterSelection('brand-section-<?php echo $cat->term_id; ?>')"> <?php echo $cat->name; ?></button>
-  <?php endforeach; ?>
-</div>
-
-<div class="mdc-tab-bar" role="tablist">
-  <div class="mdc-tab-scroller">
-    <div class="mdc-tab-scroller__scroll-area">
-      <div class="mdc-tab-scroller__scroll-content">
-        <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-          <span class="mdc-tab__content">
-            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-            <span class="mdc-tab__text-label">Favorites</span>
-          </span>
-          <span class="mdc-tab-indicator mdc-tab-indicator--active">
-            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-          </span>
-          <span class="mdc-tab__ripple"></span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Profile dropdown -->
 
         <div class="boxes">
 
