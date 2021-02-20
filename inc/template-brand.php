@@ -119,13 +119,13 @@ document.addEventListener('prechange', function(event) {
     $cats =  get_field('filter_categories', 'option'); ?>
     
     <template id="tab1.html">
-      <ons-page id="Tab1" class="has-toolbar">
+      <ons-page id="Tab1" >
       <div class="cta filter">
       <ons-toolbar>
     <div class="center">
 
     <?php if($home_logo) : ?>
-      <img cla="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
+      <img class="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
     <?php endif; ?>
 
     </div>
@@ -141,7 +141,7 @@ document.addEventListener('prechange', function(event) {
 
 
 
-<div class="cta filter">
+<div class="cta filter has-toolbar">
   <a class="blue-btn btn" data-filter="all" href="#" >Select</a>
   <?php foreach($cats as $cat): ?>
   <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
