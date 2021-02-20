@@ -25,17 +25,22 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
       	$widget_id = 'widget_' . $args['widget_id'];
         $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
 	
-	<div class="py-1 px-5"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+			<div class="py-1 px-5"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+			<div class="lightSlider" data-pager="false" data-item="4">
 			<?php
-	
-        echo '<div class="lightSlider" data-pager="false" data-item="4">';
-        foreach ($categories as $key => $cat ) {
-			$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-			$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-			$image = wp_get_attachment_url( $cat_thumb_id ); 
-			echo '<div><img src="'.$image.'" /></div>';
-        }
-        echo '</div>';
+			foreach ($categories as $key => $cat ) { 
+				$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+				$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+				$image = wp_get_attachment_url( $cat_thumb_id ); 
+		?>
+		<div class="text-center">
+			<div><img class="rounded-lg" src="<?php echo $image ?>" /></div>
+			<div class="py-1"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
+		</div>
+
+		<?php } ?>
+        </div>
+		<?php
 
 
 		// Output generated fields
