@@ -87,29 +87,29 @@ final class Brand_App_API {
 		
 
 
-		/**
-		 * Remove all java scripts.
-		 */
-		function brand_remove_all_scripts() {
-			global $wp_scripts;
-			if ( get_page_template_slug() == 'template-brand.php' ) {
-				$wp_scripts->queue = array();
-			}
-		}
+		// /**
+		//  * Remove all java scripts.
+		//  */
+		// function brand_remove_all_scripts() {
+		// 	global $wp_scripts;
+		// 	if ( get_page_template_slug() == 'template-brand.php' ) {
+		// 		$wp_scripts->queue = array();
+		// 	}
+		// }
 
-		add_action( 'wp_print_scripts', 'brand_remove_all_scripts', 99 );
+		// add_action( 'wp_print_scripts', 'brand_remove_all_scripts', 99 );
 
-		/**
-		 * Remove all style sheets.
-		 */
-		function brand_remove_all_styles() {
-			global $wp_styles;
-			if ( get_page_template_slug() == 'template-brand.php' ) {
-				$wp_styles->queue = array();
-			}
-		}
+		// /**
+		//  * Remove all style sheets.
+		//  */
+		// function brand_remove_all_styles() {
+		// 	global $wp_styles;
+		// 	if ( get_page_template_slug() == 'template-brand.php' ) {
+		// 		$wp_styles->queue = array();
+		// 	}
+		// }
 
-		add_action( 'wp_print_styles', 'brand_remove_all_styles', 99 );
+		// add_action( 'wp_print_styles', 'brand_remove_all_styles', 99 );
 
 
 		function brand_enqueue_script()
