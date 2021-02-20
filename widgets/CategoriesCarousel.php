@@ -34,7 +34,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
 		?>
 		<div class="text-center">
-			<div><img class="rounded-lg" src="<?php echo $image ?>" /></div>
+			<div><img class="rounded-lg h-w-100" src="<?php echo $image ?>" /></div>
 			<div class="py-1"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
 		</div>
 
