@@ -114,22 +114,10 @@ document.addEventListener('prechange', function(event) {
     </ons-tabbar>
     </ons-page>
 
+    <?php $cats =  get_field('filter_categories', 'option'); ?>
+    
     <template id="tab1.html">
       <ons-page id="Tab1">
-      <!-- <ons-toolbar>
-        <div class="left">
-          <ons-toolbar-button icon="md-face"></ons-toolbar-button>
-        </div>
-
-        <div class="center">Title</div>
-
-        <div class="right">
-          <ons-toolbar-button>-</ons-toolbar-button>
-          <ons-toolbar-button>+</ons-toolbar-button>
-        </div>
-      </ons-toolbar> -->
-      <!-- This example requires Tailwind CSS v2.0+ -->
-
       <div class="cta filter">
       <ons-toolbar>
     <div class="center">Dropdown example</div>
@@ -145,7 +133,14 @@ document.addEventListener('prechange', function(event) {
   </ons-toolbar>
 
 
- 
+
+<div class="cta filter">
+  <a class="blue-btn btn" data-filter="all" href="#" >All</a>
+  <?php foreach($cats as $cat): ?>
+  <a class="blue-btn btn" data-filter="brand-section-<?php echo $cat->term_id; ?>" href="#" role="button"><?php echo $cat->name; ?></a>
+  <?php endforeach; ?>
+
+
 
         <div class="boxes">
 
