@@ -15,39 +15,36 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
-  // widget ID with prefix for use in ACF API functions
-  $widget_id = 'widget_' . $args['widget_id'];
-		 
-		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
-	
-		
-        // widget ID with prefix for use in ACF API functions
-      	$widget_id = 'widget_' . $args['widget_id'];
-        $categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
-	
-			<div class="py-4 px-5"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
-			<div class="lightSlider" data-pager="false" data-item="4">
+	?>
+
+		<div class="px-5">
 			<?php
-			foreach ($categories as $key => $cat ) { 
-				$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
-				$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-				$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
-		?>
-		<div class="text-center">
-			<div><img class="rounded-lg h-w-90" src="<?php echo $image ?>" /></div>
-			<div class="py-2 text-xl"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
+				$widget_id = 'widget_' . $args['widget_id'];
+				$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
+				
+				// widget ID with prefix for use in ACF API functions
+				$widget_id = 'widget_' . $args['widget_id'];
+				$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
+			
+					<div class="py-4"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+					<div class="lightSlider" data-pager="false" data-item="4">
+					<?php
+					foreach ($categories as $key => $cat ) { 
+						$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
+						$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
+						$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
+				?>
+				<div class="text-center">
+					<div><img class="rounded-lg h-w-90" src="<?php echo $image ?>" /></div>
+					<div class="py-2 text-xl"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
+				</div>
+
+				<?php } ?>
+			</div>
 		</div>
-
-		<?php } ?>
-        </div>
-		<?php
-
-
-		// Output generated fields
 		
-        echo $args['after_widget'];
-        
-        
+		<?php
+		echo $args['after_widget'];
 	}
 
 	public function field_generator( $instance ) {
