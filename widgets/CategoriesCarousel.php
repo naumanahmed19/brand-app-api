@@ -31,7 +31,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 			foreach ($categories as $key => $cat ) { 
 				$thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true ); 
 				$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-				$image = wp_get_attachment_url( $cat_thumb_id ); 
+				$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
 		?>
 		<div class="text-center">
 			<div><img class="rounded-lg" src="<?php echo $image ?>" /></div>
