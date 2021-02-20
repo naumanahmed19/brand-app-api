@@ -127,10 +127,12 @@ function lightSlider(){
 
 
 function filter(){
+    console.log('www');
     var $filters = $('.filter [data-filter]'),
     $boxes = $('.boxes [data-cat]');
 
   $filters.on('click', function(e) {
+      console.log('clciked');
     e.preventDefault();
     var $this = $(this);
     

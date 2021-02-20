@@ -122,7 +122,7 @@ document.addEventListener('prechange', function(event) {
       <ons-toolbar>
     <div class="center">Dropdown example</div>
     <div class="right">
-    <ons-select id="choose-sel" onchange="editSelects(event)">
+    <ons-select id="choose-sel" onchange="filter(event)">
     <option value="all" data-filter="all">All</option>
     <?php foreach($cats as $cat): ?>
     <option value="<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
