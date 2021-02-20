@@ -85,7 +85,7 @@ function getWidgets($s ){
     // var_dump('widget_' . $name);
     //$widget_instances = get_option('widget_' . $name);
 
-    
+      $wId = 'widget_' .$widget;
 
       //common fileds
       $filter = get_field('filter', 'widget_' .$widget);
@@ -101,8 +101,14 @@ function getWidgets($s ){
     
     if($name == 'brand_categoriescarousel_widget'){
       $sections[$i]['type']='cc';
-      $cats = get_field('categories', 'widget_' .$widget);
+      $cats = get_field('categories', $wId);
       $sections[$i]['categories'] = $this->getCategories($cats);
+      
+      $sectionSettings ['radius'] = get_field('radius', $wId);
+      $sectionSettings ['padding'] = get_field('padding', $wId);
+
+      $sections[$i]['settings'] = $sectionSettings;
+
     }
     if($name == 'brand_bannerwithcategories_widget'){
       $sections[$i]['type']='bc';
