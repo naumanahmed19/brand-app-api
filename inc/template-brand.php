@@ -100,18 +100,18 @@ document.addEventListener('prechange', function(event) {
     <div class="screen">
 
       <ons-page>
-      <ons-tabbar swipeable position="auto">
-        <ons-tab page="tab1.html" icon="md-home" active>
-        </ons-tab>
-        <ons-tab page="tab2.html" icon="md-search">
-        </ons-tab>
-        <ons-tab page="tab3.html" icon="md-settings">
-        </ons-tab>
-        <!-- <ons-tab page="tab3.html" icon="md-favorite">
-        </ons-tab>
-        <ons-tab page="tab4.html" icon="md-settings">
-        </ons-tab> -->
-    </ons-tabbar>
+        <ons-tabbar swipeable position="auto">
+          <ons-tab page="tab1.html" icon="md-home" active>
+          </ons-tab>
+          <ons-tab page="tab2.html" icon="md-search">
+          </ons-tab>
+          <ons-tab page="tab3.html" icon="md-settings">
+          </ons-tab>
+          <!-- <ons-tab page="tab3.html" icon="md-favorite">
+          </ons-tab>
+          <ons-tab page="tab4.html" icon="md-settings">
+          </ons-tab> -->
+      </ons-tabbar>
     </ons-page>
 
     <?php
@@ -119,7 +119,7 @@ document.addEventListener('prechange', function(event) {
     $cats =  get_field('filter_categories', 'option'); ?>
     
     <template id="tab1.html">
-      <ons-page id="Tab1">
+      <ons-page id="Tab1" class="has-toolbar">
       <div class="cta filter">
       <ons-toolbar>
     <div class="center">
@@ -130,13 +130,12 @@ document.addEventListener('prechange', function(event) {
 
     </div>
     <div class="right">
-    <ons-select id="choose-sel">
-    <option value="all" data-filter="all">All</option>
-    <?php foreach($cats as $cat): ?>
-    <option value="brand-section-<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
-    <?php endforeach; ?>
-
-  </ons-select>
+      <ons-select id="choose-sel">
+      <option value="all" data-filter="all">All</option>
+      <?php foreach($cats as $cat): ?>
+      <option value="brand-section-<?php echo $cat->term_id; ?>" data-filter="brand-section-<?php echo $cat->term_id; ?>"><?php echo $cat->name; ?></option>
+      <?php endforeach; ?>
+    </ons-select>
     </div>
   </ons-toolbar>
 

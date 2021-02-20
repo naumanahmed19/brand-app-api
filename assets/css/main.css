@@ -13,6 +13,10 @@
   padding-right: 10px;
   background: #fff;
  }
+
+ .has-toolbar{
+  margin-top: 60px;
+ }
  
  /* Tab content - closed */
  .tab-content {
