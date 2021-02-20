@@ -26,7 +26,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				$widget_id = 'widget_' . $args['widget_id'];
 				$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
 			
-					<div class="py-4"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+					<div class="py-5 text-xl font-semibold"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 					<div class="lightSlider" data-pager="false" data-item="4">
 					<?php
 					foreach ($categories as $key => $cat ) { 
@@ -42,7 +42,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				<?php } ?>
 			</div>
 		</div>
-		
+
 		<?php
 		echo $args['after_widget'];
 	}

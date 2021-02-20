@@ -34,7 +34,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		?>
-			<div class="py-4"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+			<div class="py-5 text-xl font-semibold"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 		<?php 
 		
         echo '<div class="lightSlider" data-pager="false" data-item="2">';
