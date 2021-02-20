@@ -28,7 +28,10 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		  $products = $ctrl->getProducts($widget_id);
 		
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
-		 echo $title; 
+		?>
+			<div class="py-1 px-5"><?php  esc_html__( $title, 'brand-app' );  ?></div>
+		<?php 
+		
         echo '<div class="lightSlider" data-pager="false" data-item="2">';
 		foreach ($products as $key => $product ) {?>
 			<div>
