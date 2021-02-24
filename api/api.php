@@ -58,6 +58,12 @@ add_action('rest_api_init', function() {
 		//   }
 		
   ) );
+
+
+  register_rest_route( 'wl/v1', 'testing', array(
+		'methods' => 'GET',
+		'callback' => 'update_shipping_method',
+	) );
   
 	
 
@@ -327,3 +333,37 @@ function woo_get_images( $product ) {
 
   return $images;
 }
+
+
+
+
+/**
+	 * AJAX update shipping method on cart page.
+	 */
+  function update_shipping_method() {
+	
+		wc_maybe_define_constant( 'WOOCOMMERCE_CART', true );
+
+		$chosen_shipping_methods = WC()->session->get( 'chosen_shipping_methods' );
+		$posted_shipping_methods = isset( $_POST['shipping_method'] ) ? wc_clean( wp_unslash( $_POST['shipping_method'] ) ) : array();
+
+		if ( is_array( $posted_shipping_methods ) ) {
+			foreach ( $posted_shipping_methods as $i => $value ) {
+				$chosen_shipping_methods[ $i ] = $value;
+			}
+		}
+
+		WC()->session->set( 'chosen_shipping_methods', $chosen_shipping_methods );
+
+		return get_cart_totals();
+	}
+
+	/**
+	 * AJAX receive updated cart_totals div.
+	 */
+	 function get_cart_totals() {
+		wc_maybe_define_constant( 'WOOCOMMERCE_CART', true );
+		WC()->cart->calculate_totals();
+		woocommerce_cart_totals();
+		wp_die();
+	}
