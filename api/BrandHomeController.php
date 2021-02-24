@@ -117,6 +117,8 @@ function getWidgets($s ){
       $sections[$i]['categories'] = $this->getCategories($cats);
       //extra item settings
       $sections[$i]['settings']['img_radius'] = intval(get_field('img_radius', $wId));
+      $sections[$i]['settings']['img_size'] = intval(get_field('img_size', $wId));
+      
   
       
     }
