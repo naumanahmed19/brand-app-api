@@ -34,14 +34,14 @@ class BrandProductController{
 
 
 
-        $terms = get_the_terms($product->ID, 'product_cat');
+        $terms = get_terms('product_cat');
         $cats = [];
         foreach ($terms as $term) {
             $cats[] =$term;
         }
         $data['categories'] = $cats;
 
-        
+
       
           /**
            * Add Colors
