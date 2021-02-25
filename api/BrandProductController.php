@@ -26,107 +26,18 @@ class BrandProductController{
       $ctrl  = new WC_REST_Posts_Controller();
       
       
-      $response =$ctrl->get_item($product);
-      $products[] = $this->brand_add_custom_data_to_product($product,$product);
+   //   $response =$ctrl->get_item($product);
+    //  $products[] = $this->brand_add_custom_data_to_product($product,$product);
     }
     return $products;
   }
-  
 
-  public function brand_add_custom_data_to_product( $response, $post) {
-
-    $data = $response->get_data();  
-  
-    
-    $data['currency'] = get_woocommerce_currency_symbol();
-  
-    /**
-     * Add Colors
-     */
-    if(taxonomy_exists( 'pa_color' )){
-  
-      $terms = get_terms( 'pa_color' );
-      $colors=[];
-      foreach($terms as $term){
-        $colors[] = get_term_meta( $term->term_id,'color', true );
-      }
-    
-    }
-  
-    /**
-     * Add Patterns
-     */
-    
-     
-    if(taxonomy_exists( 'pa_pattern' )){
-      $terms = get_terms( 'pa_pattern' );
-      $patterns=[];
-      foreach($terms as $term){
-        $patterns[] =wp_get_attachment_url( get_term_meta( $term->term_id,'image', true ));
-      }
-    }
-  
-      foreach($response->data['attributes'] as $key => $attr){
-  
-        foreach($data['attributes'][$key]['options'] as $k => $option){
-          if($attr['name'] === 'Color'){
-              $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
-          }elseif($attr['name'] === 'Pattern'){
-              // $data['attributes'][$key]['name'] = 'Color';
-              // $data['attributes'][$key]['type'] = 'pattern';	
-              $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
-          }else{
-              $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
-          } 
-        }
-  
-      }
-    
-   //	$response =  custom_change_product_response($response)
-    if(!empty( $data['variations'])){
-      $variations = $data['variations'];
-      $variations_res = array();
-      $variations_array = array();
-      if (!empty($variations) && is_array($variations)) {
-        foreach ($variations as $variation) {
-          $variation_id = $variation;
-          $variation = new WC_Product_Variation($variation_id);
-          $variations_res['id'] = $variation_id;
-          $variations_res['on_sale'] = $variation->is_on_sale();
-          $variations_res['regular_price'] =  (string) $variation->get_regular_price();
-          $variations_res['sale_price'] = $variation->get_sale_price();
-          $variations_res['sku'] = $variation->get_sku();
-          $variations_res['quantity'] = $variation->get_stock_quantity();
-          if ($variations_res['quantity'] == null) {
-            $variations_res['quantity'] = '';
-          }
-          $variations_res['stock'] = $variation->get_stock_quantity();
-  
-          $attributes = array();
-          // variation attributes
-          foreach ( $variation->get_variation_attributes() as $attribute_name => $attribute ) {
-            // taxonomy-based attributes are prefixed with `pa_`, otherwise simply `attribute_`
-            $attributes[] = array(
-              'name'   => wc_attribute_label( str_replace( 'attribute_', '', $attribute_name ), $variation ),
-              'slug'   => str_replace( 'attribute_', '', wc_attribute_taxonomy_slug( $attribute_name ) ),
-              'option' => $attribute,
-            );
-  
-            $variations_res['variation_attributes'][strtolower( wc_attribute_label( str_replace( 'attribute_', '', $attribute_name ), $variation ))] =  $attribute;
-          }
-  
-          $variations_res['attributes'] = $attributes;
-          $variations_array[] = $variations_res;
-        }
-      }
-      $data['variations'] = $variations_array;
-    }
-    return  $data;
-  }
   
   public function get( $response, $product) {
 
         $data = $response->get_data();  
+
+        var_dump( $data);
       
         $data['currency'] = get_woocommerce_currency_symbol();
 
@@ -176,20 +87,20 @@ class BrandProductController{
         $data['attributes'] =$attrs;
 
         
-        // foreach($data['attributes'] as $key => $attr){
-        //     foreach($data['attributes'][$key]['options'] as $k => $option){
-        //       if($attr['name'] === 'Color'){
-        //           $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
-        //       }elseif($attr['name'] === 'Pattern'){
-        //           // $data['attributes'][$key]['name'] = 'Color';
-        //           // $data['attributes'][$key]['type'] = 'pattern';	
-        //           $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
-        //       }else{
-        //           $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
-        //       } 
-        //     }
+        foreach($data['attributes'] as $key => $attr){
+            foreach($data['attributes'][$key]['options'] as $k => $option){
+              if($attr['name'] === 'Color'){
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
+              }elseif($attr['name'] === 'Pattern'){
+                  // $data['attributes'][$key]['name'] = 'Color';
+                  // $data['attributes'][$key]['type'] = 'pattern';	
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
+              }else{
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
+              } 
+            }
       
-        //   }
+          }
 
 
      
