@@ -255,10 +255,10 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
 
-    $ctrl  = new WC_REST_Settings_V2_Controller();
+    $ctrl  = new WC_REST_Posts_Controller();
 
 
-    $response=$ctrl->prepare_item_for_response($product,$_REQUEST);
+    $response=$ctrl->get_item($product);
     $products[] = $ctrl->brand_add_custom_data_to_product($response,$product); 
   }
 
