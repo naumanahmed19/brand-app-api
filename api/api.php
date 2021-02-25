@@ -258,7 +258,7 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
     $ctrl  = new WC_REST_Settings_V2_Controller ();
 
     $response=$ctrl->prepare_item_for_response($product);
-    $products[] = $ctrl->get($response,$product); 
+    $products[] = $ctrl->brand_add_custom_data_to_product($response,$product); 
   }
 
   $data['products'] =  $products;
