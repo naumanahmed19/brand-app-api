@@ -26,8 +26,8 @@ class BrandProductController{
       $ctrl  = new WC_REST_Posts_Controller();
       
       
-      $products[] =$ctrl->prepare_item_for_response($product);
-      ///$products[] = $this->brand_add_custom_data_to_product($response,$product);
+      $response =$ctrl->get_item($product);
+      $products[] = $this->brand_add_custom_data_to_product($product,$product);
     }
     return $products;
   }
