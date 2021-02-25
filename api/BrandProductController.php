@@ -22,8 +22,12 @@ class BrandProductController{
     $products = array();
     foreach ( $products_query as $product ) {
 
-      $product = wc_get_product( $product->get_id());
-      $products[] = $this->brand_add_custom_data_to_product($product,$product);
+
+      $ctrl  = new WC_REST_Posts_Controller();
+      
+      
+      $response =$ctrl->get_item($product);
+      $products[] = $this->brand_add_custom_data_to_product($response,$product);
     }
     return $products;
   }
