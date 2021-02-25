@@ -179,6 +179,7 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
     foreach($terms as $term){
       $patterns[] =wp_get_attachment_url( get_term_meta( $term->term_id,'image', true ));
     }
+  }
 
     foreach($response->data['attributes'] as $key => $attr){
 
@@ -195,7 +196,7 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
       }
 
     }
-  }
+  
  //	$response =  custom_change_product_response($response)
   if(!empty( $data['variations'])){
     $variations = $data['variations'];
