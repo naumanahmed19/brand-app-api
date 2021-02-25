@@ -254,7 +254,11 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
   foreach (  $data['line_items'] as $item) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
-    $products[] = $ctrl->get($product,$product); 
+
+    $ctrl  = new WC_REST_Posts_Controller();
+
+    $response=$ctrl->prepare_item_for_response($product);
+    $products[] = $ctrl->get($response,$product); 
   }
 
   $data['products'] =  $products;
