@@ -34,7 +34,7 @@ class BrandProductController{
 
 
 
-        $terms = get_terms('product_cat');
+        $terms = get_the_terms(get_the_ID(),'product_cat');
         $cats = [];
         foreach ($terms as $term) {
             $cats[] =$term;
