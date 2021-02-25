@@ -44,57 +44,47 @@ class BrandProductController{
         $data['categories'] = $cats;
 
 
-      
-          /**
-           * Add Colors
-           */
-        if(taxonomy_exists( 'pa_color' )){
-      
-          $terms = get_terms( 'pa_color' );
-          $colors=[];
-          foreach($terms as $term){
-            $colors[] = get_term_meta( $term->term_id,'color', true );
-          }
-        
-        }
-      
-          /**
-           * Add Patterns
-           */
-        
-         
-        if(taxonomy_exists( 'pa_pattern' )){
-          $terms = get_terms( 'pa_pattern' );
-          $patterns=[];
-          foreach($terms as $term){
-            $patterns[] =wp_get_attachment_url( get_term_meta( $term->term_id,'image', true ));
-          }
-        }
-    
+      	/**
+	 * Add Colors
+	 */
+  if(taxonomy_exists( 'pa_color' )){
 
+    $terms = get_terms( 'pa_color' );
+    $colors=[];
+    foreach($terms as $term){
+      $colors[] = get_term_meta( $term->term_id,'color', true );
+    }
+  
+  }
 
-       $attrs= [];
-          foreach($product->get_attributes() as $key => $attr){     
-            $attrs[]  = $attr->get_data();
-        }
-        $data['attributes'] =$attrs;
+	/**
+	 * Add Patterns
+	 */
+  
+   
+  if(taxonomy_exists( 'pa_pattern' )){
+    $terms = get_terms( 'pa_pattern' );
+    $patterns=[];
+    foreach($terms as $term){
+      $patterns[] =wp_get_attachment_url( get_term_meta( $term->term_id,'image', true ));
+    }
 
-        
-        foreach($data['attributes'] as $key => $attr){
-            foreach($data['attributes'][$key]['options'] as $k => $option){
-              if($attr['name'] === 'Color'){
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
-              }elseif($attr['name'] === 'Pattern'){
-                  // $data['attributes'][$key]['name'] = 'Color';
-                  // $data['attributes'][$key]['type'] = 'pattern';	
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
-              }else{
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
-              } 
-            }
-      
-          }
+    foreach($response->data['attributes'] as $key => $attr){
 
+      foreach($data['attributes'][$key]['options'] as $k => $option){
+        if($attr['name'] === 'Color'){
+            $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
+        }elseif($attr['name'] === 'Pattern'){
+            // $data['attributes'][$key]['name'] = 'Color';
+            // $data['attributes'][$key]['type'] = 'pattern';	
+            $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
+        }else{
+            $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
+        } 
+      }
+
+    }
+  }
 
      
           if( $product->is_type( 'variable' ) ) {
