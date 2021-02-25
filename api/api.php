@@ -246,7 +246,7 @@ add_filter( 'woocommerce_rest_prepare_shop_order_object', 'brand_add_custom_data
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $data = $response->get_data();  
-  
+  var_dump( $data);
 
   $products = [];
   $ctrl = new BrandProductController();
@@ -254,12 +254,7 @@ function brand_add_custom_data_to_order( $response, $post, $request ) {
   foreach (  $data['line_items'] as $item) {
     // Get the accessible array of product properties:
     $product = wc_get_product($item['product_id']);
-
-    $ctrl  = new WC_REST_Posts_Controller();
-
-
-    $response=$ctrl->get_item($product);
-    $products[] = $ctrl->brand_add_custom_data_to_product($response,$product); 
+    $products[] = $ctrl->get($product,$product); 
   }
 
   $data['products'] =  $products;
