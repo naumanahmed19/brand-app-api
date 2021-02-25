@@ -66,7 +66,7 @@ add_action('rest_api_init', function() {
    * 
    * Brand Route to caclculate price on backend 
    */    
-  */    
+  
   register_rest_route( 'brand/v1', 'calculate', array(
 		'methods' => 'POST',
     'callback' => function ( $request ) use ( $route  ) {
@@ -343,5 +343,3 @@ function woo_get_images( $product ) {
 
   return $images;
 }
-
-
