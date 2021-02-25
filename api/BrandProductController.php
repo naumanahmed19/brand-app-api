@@ -31,6 +31,8 @@ class BrandProductController{
         $data = $response->get_data();  
       
         $data['currency'] = get_woocommerce_currency_symbol();
+
+        $data['categories'] = get_the_terms( $product->ID, 'product_cat' );
       
           /**
            * Add Colors
