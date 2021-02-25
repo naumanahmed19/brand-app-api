@@ -21,6 +21,8 @@ class BrandProductController{
     $products_query = wc_get_products($args);
     $products = array();
     foreach ( $products_query as $product ) {
+
+      $product = wc_get_product($product->ID);
       $products[] = $this->get($product,$product);
     }
     return $products;
