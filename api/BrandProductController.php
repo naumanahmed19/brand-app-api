@@ -22,7 +22,7 @@ class BrandProductController{
     $products = array();
     foreach ( $products_query as $product ) {
 
-      $product = wc_get_product($product->ID);
+      $product = wc_get_product( $product->get_id());
       $products[] = $this->get($product,$product);
     }
     return $products;
