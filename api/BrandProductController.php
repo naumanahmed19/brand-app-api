@@ -32,6 +32,13 @@ class BrandProductController{
       
         $data['currency'] = get_woocommerce_currency_symbol();
       
+        $terms = get_the_terms(get_the_ID(),'product_cat');
+        $cats = [];
+        foreach ($terms as $term) {
+            $cats[] =$term;
+        }
+        $data['categories'] = $cats;
+
           /**
            * Add Colors
            */
