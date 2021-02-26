@@ -344,3 +344,15 @@ function woo_get_images( $product ) {
 
   return $images;
 }
+
+
+
+add_action( 'rest_insert_post', 'wpse220930_rest_insert_post', 1, 3 );
+function wpse220930_rest_insert_post( $post, $request, $update = true )
+{
+    if ( ! empty( $request['tags'] ) )
+        wp_set_object_terms( $post->ID, $request['tags'], 'post_tag', $update );
+
+    if ( ! empty( $request['categories'] ) )
+        wp_set_object_terms( $post->ID, $request['categories'], 'category', $update );
+}
