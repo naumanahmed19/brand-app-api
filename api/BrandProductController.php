@@ -21,36 +21,16 @@ class BrandProductController{
     $products_query = wc_get_products($args);
     $products = array();
     foreach ( $products_query as $product ) {
-
-
-      $ctrl  = new WC_REST_Posts_Controller();
-      
-      
-   //   $response =$ctrl->get_item($product);
-    //  $products[] = $this->brand_add_custom_data_to_product($product,$product);
+      $products[] = $this->get($product,$product);
     }
     return $products;
   }
-
   
   public function get( $response, $product) {
 
         $data = $response->get_data();  
-
-   
       
         $data['currency'] = get_woocommerce_currency_symbol();
-
-
-
-        $terms = get_the_terms( $data['id'],'product_cat');
-        $cats = [];
-        foreach ($terms as $term) {
-            $cats[] =$term;
-        }
-        $data['categories'] = $cats;
-
-
       
           /**
            * Add Colors
@@ -83,8 +63,10 @@ class BrandProductController{
        $attrs= [];
           foreach($product->get_attributes() as $key => $attr){     
             $attrs[]  = $attr->get_data();
+            $data['test'] = $key;
+            $data['test2'] = $attr;
         }
-        
+        $data['attributes'] =$attrs;
 
         
         foreach($data['attributes'] as $key => $attr){
