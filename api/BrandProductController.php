@@ -70,11 +70,14 @@ class BrandProductController{
 
         
         foreach($data['attributes'] as $key => $attr){
+
+          $attribute_label = wc_attribute_label($attr);
+          $data['test3'] =  $attribute_label;
           //Removing "pa_" from attribute slug and adding a cap to first letter
            $attr['name']=  ucfirst( str_replace('pa_', '',$attr['name']) );
            $data['attributes'][$key]['name'] = $attr['name'];
             foreach($data['attributes'][$key]['options'] as $k => $option){
-
+              $data['test4'] =  $attribute_label;
             
               if($attr['name'] === 'Color'){
                   $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
