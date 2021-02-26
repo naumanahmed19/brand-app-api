@@ -70,6 +70,8 @@ class BrandProductController{
 
         
         foreach($data['attributes'] as $key => $attr){
+
+          $attr['name']=  ucfirst( str_replace('pa_', '',$attr['name']) );
             foreach($data['attributes'][$key]['options'] as $k => $option){
               if($attr['name'] === 'Color'){
                   $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
