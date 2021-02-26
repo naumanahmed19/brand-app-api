@@ -61,9 +61,10 @@ class BrandProductController{
 
 
        $attrs= [];
+       $labels=[];
           foreach($product->get_attributes() as $key => $attr){     
             $attrs[]  = $attr->get_data();
-            $data['test'] = $product->get_attribute($key);
+            $labels =  explode(",",  $product->get_attribute($key));
             $data['test2'] = $attr;
         }
         $data['attributes'] =$attrs;
@@ -72,21 +73,21 @@ class BrandProductController{
         foreach($data['attributes'] as $key => $attr){
 
           $attribute_label = wc_attribute_label($attr);
-          $data['test3'] =  $attribute_label;
+        
           //Removing "pa_" from attribute slug and adding a cap to first letter
            $attr['name']=  ucfirst( str_replace('pa_', '',$attr['name']) );
            $data['attributes'][$key]['name'] = $attr['name'];
             foreach($data['attributes'][$key]['options'] as $k => $option){
-              $data['test4'] =  $attribute_label;
+     
             
               if($attr['name'] === 'Color'){
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $colors[$k],'disable'=>false];
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $colors[$k],'disable'=>false];
               }elseif($attr['name'] === 'Pattern'){
                   // $data['attributes'][$key]['name'] = 'Color';
                   // $data['attributes'][$key]['type'] = 'pattern';	
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $patterns[$k],'disable'=>false];	
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $patterns[$k],'disable'=>false];	
               }else{
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$option , 'value'=> $option,'disable'=>false];
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $option,'disable'=>false];
               } 
             }
       
