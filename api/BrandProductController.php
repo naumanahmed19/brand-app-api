@@ -61,10 +61,9 @@ class BrandProductController{
 
 
        $attrs= [];
-       $labels=[];
           foreach($product->get_attributes() as $key => $attr){     
             $attrs[]  = $attr->get_data();
-            $labels =  explode(",",  $product->get_attribute($key));
+           
             $data['test2'] = $attr;
         }
         $data['attributes'] =$attrs;
@@ -72,7 +71,8 @@ class BrandProductController{
         
         foreach($data['attributes'] as $key => $attr){
 
-          $attribute_label = wc_attribute_label($attr);
+       
+          $labels =  explode(",",  $product->get_attribute($key));
         
           //Removing "pa_" from attribute slug and adding a cap to first letter
            $attr['name']=  ucfirst( str_replace('pa_', '',$attr['name']) );
@@ -87,7 +87,7 @@ class BrandProductController{
                   // $data['attributes'][$key]['type'] = 'pattern';	
                   $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $patterns[$k],'disable'=>false];	
               }else{
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $option,'disable'=>false];
+                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> >$labels[$k],'disable'=>false];
               } 
             }
       
