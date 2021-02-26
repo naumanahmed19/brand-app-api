@@ -152,7 +152,7 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
 
   $data = $response->get_data();  
 
-  
+  var_dump( $data);
   $data['currency'] = get_woocommerce_currency_symbol();
 
 	/**
@@ -246,7 +246,7 @@ add_filter( 'woocommerce_rest_prepare_shop_order_object', 'brand_add_custom_data
 function brand_add_custom_data_to_order( $response, $post, $request ) {
 
   $data = $response->get_data();  
-  var_dump( $data);
+ 
 
   $products = [];
   $ctrl = new BrandProductController();
