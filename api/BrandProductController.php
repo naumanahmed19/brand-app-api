@@ -72,7 +72,7 @@ class BrandProductController{
         foreach($data['attributes'] as $key => $attr){
 
        
-          $labels =  explode(",",  $product->get_attribute($key));
+          $labels =  explode(",",  $product->get_attribute($attr['name']));
         
           //Removing "pa_" from attribute slug and adding a cap to first letter
            $attr['name']=  ucfirst( str_replace('pa_', '',$attr['name']) );
