@@ -63,7 +63,7 @@ class BrandProductController{
        $attrs= [];
           foreach($product->get_attributes() as $key => $attr){     
             $attrs[]  = $attr->get_data();
-            $data['test'] = $key;
+            $data['test'] = $product->get_attribute($key);
             $data['test2'] = $attr;
         }
         $data['attributes'] =$attrs;
