@@ -37,7 +37,7 @@ class BrandProductController{
 
         $data = $response->get_data();  
 
-        var_dump( $data);
+   
       
         $data['currency'] = get_woocommerce_currency_symbol();
 
@@ -84,7 +84,7 @@ class BrandProductController{
           foreach($product->get_attributes() as $key => $attr){     
             $attrs[]  = $attr->get_data();
         }
-        $data['attributes'] =$attrs;
+        
 
         
         foreach($data['attributes'] as $key => $attr){

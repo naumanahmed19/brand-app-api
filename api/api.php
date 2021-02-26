@@ -152,7 +152,7 @@ function brand_add_custom_data_to_product( $response, $post, $request ) {
 
   $data = $response->get_data();  
 
-  var_dump( $data);
+  
   $data['currency'] = get_woocommerce_currency_symbol();
 
 	/**
