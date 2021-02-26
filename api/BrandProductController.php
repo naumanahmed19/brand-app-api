@@ -87,7 +87,7 @@ class BrandProductController{
                   // $data['attributes'][$key]['type'] = 'pattern';	
                   $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> $patterns[$k],'disable'=>false];	
               }else{
-                  $data['attributes'][$key]['options'][$k] = ['option'=>$labels[$k], 'value'=> >$labels[$k],'disable'=>false];
+                  $data['attributes'][$key]['options'][$k] = ['option'=> $labels[$k], 'value'=> $labels[$k],'disable'=>false];
               } 
             }
       
