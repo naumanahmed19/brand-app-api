@@ -1,23 +1,23 @@
 <?php
 
-function rekord_get_post_media($id){
+function brand_get_post_media($id){
     $media = [];
     $media['thumbnail'] = get_the_post_thumbnail_url($id, 'thumbnail');
     $media['medium'] = get_the_post_thumbnail_url($id, 'medium');
 	$media['large'] = get_the_post_thumbnail_url($id, 'large');
 
-	if(!empty( $cover = rekord_get_field('cover',$id))){
+	if(!empty( $cover = brand_get_field('cover',$id))){
 		$media['cover'] = $cover['url']   ;
 	}
     	
     return $media;
 }
 
-function rekord_api_get($post_type, $postsPerPage = 10){
+function brand_api_get($post_type, $postsPerPage = 10){
 
 
 
-	if(!empty($number = rekord_get_field("r_{$post_type}_post_per_page", 'option'))){
+	if(!empty($number = brand_get_field("r_{$post_type}_post_per_page", 'option'))){
 		$postsPerPage =$number;
 	}
 

@@ -2,7 +2,7 @@
 
 include ( __DIR__ . '/acf.php');
 
-
+include ( __DIR__ . '/helpers.php');
 include ( __DIR__ . '/BrandProductController.php');
 include ( __DIR__ . '/BrandHomeController.php');
 include ( __DIR__ . '/BrandCategoriesController.php');
@@ -16,21 +16,21 @@ require_once ABSPATH . '/wp-content/plugins/simple-jwt-login/src/modules/SimpleJ
 
 
 
-function rekord_api_get_home($post_type){
+function brand_api_get_home($post_type){
     $response = new BrandHomeController();
     return  $response->get();
 }
-function rekord_api_get_categories($post_type){
+function brand_api_get_categories($post_type){
     $response = new BrandCategoriesController();
     return  $response->get();
 }
-function rekord_api_get_filters($post_type){
+function brand_api_get_filters($post_type){
     $response = new BrandFilterController();
     return  $response->get();
 }
-function rekord_api_get_posts() {
+function brand_api_get_posts() {
 	$ctrl = new BrandPostsController();
-	$posts = rekord_api_get('post');
+	$posts = brand_api_get('post');
 	$data =  $ctrl->data($posts);
 	return [
 		'data' => $data,
@@ -45,7 +45,7 @@ add_action('rest_api_init', function() {
 	foreach($routes as $route){
 		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',
-			'callback' => 'rekord_api_get_'.$route,
+			'callback' => 'brand_api_get_'.$route,
 		]);
 	}
 
