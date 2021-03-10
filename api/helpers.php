@@ -6,7 +6,7 @@ function brand_get_post_media($id){
     $media['medium'] = get_the_post_thumbnail_url($id, 'medium');
 	$media['large'] = get_the_post_thumbnail_url($id, 'large');
 
-	if(!empty( $cover = brand_get_field('cover',$id))){
+	if(!empty( $cover = get_field('cover',$id))){
 		$media['cover'] = $cover['url']   ;
 	}
     	
