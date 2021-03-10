@@ -1,18 +1,39 @@
 <?php
 
 function brand_get_post_media($id){
-    $media = [];
-    $media['thumbnail'] = get_the_post_thumbnail_url($id, 'thumbnail');
-    $media['medium'] = get_the_post_thumbnail_url($id, 'medium');
-	$media['large'] = get_the_post_thumbnail_url($id, 'large');
+	$media = [];
+	
+    $media['thumbnail'] = brand_get_the_post_thumbnail_url($id, 'thumbnail');
+    $media['medium'] = brand_get_the_post_thumbnail_url($id, 'medium');
+	$media['large'] = brand_get_the_post_thumbnail_url($id, 'large');
 
-	if(!empty( $cover = get_field('cover',$id))){
+	if(!empty( $cover = brand_get_field('cover',$id))){
 		$media['cover'] = $cover['url']   ;
 	}
     	
     return $media;
 }
 
+function brand_get_the_post_thumbnail_url($id, $size ) {
+
+	$img = get_the_post_thumbnail_url($id,$size); 
+
+	if($img){
+		return $img;
+	}
+	return null;
+}
+
+
+function brand_get_the_post_thumbnail_url($id, $size ) {
+
+	$img = get_the_post_thumbnail_url($id,$size); 
+
+	if($img){
+		return $img;
+	}
+	return null;
+}
 function brand_api_get($post_type, $postsPerPage = 10){
 
 
