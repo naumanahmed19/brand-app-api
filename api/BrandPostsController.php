@@ -20,7 +20,7 @@ class BrandPostsController{
                 $data[$i]['author'] = $this->getAuthor($post);
 
                 $data[$i]['commentCount'] = $post->comment_count;
-                $data[$i]['favorited'] = isFavorited($post->ID);
+              //  $data[$i]['favorited'] = isFavorited($post->ID);
                 
                 $data[$i]['comments'] = $this->getComments($post);
                 
