@@ -4,9 +4,9 @@
 if( function_exists('acf_add_options_page') ) {
   
 	acf_add_options_page(array(
-	  'page_title' 	=> 'Rekord App Settings',
-	  'menu_title'	=> 'Rekord App',
-	  'menu_slug' 	=> 'rekord-app',
+	  'page_title' 	=> 'Brand App Settings',
+	  'menu_title'	=> 'Brand App',
+	  'menu_slug' 	=> 'brand-app',
 	  'capability'	=> 'edit_posts',
 	//  'parent_slug'	=> 'edit.php?post_type=podcast',
 	  'redirect'		=> false
@@ -16,7 +16,7 @@ if( function_exists('acf_add_options_page') ) {
 
 	acf_add_local_field_group(array(
 		'key' => 'group_5f64bff58c3d2',
-		'title' => 'Rekord App',
+		'title' => 'Brand App',
 		'fields' => array(
 
 		
@@ -335,7 +335,7 @@ if( function_exists('acf_add_options_page') ) {
 				array(
 					'param' => 'options_page',
 					'operator' => '==',
-					'value' => 'rekord-app',
+					'value' => 'brand-app',
 				),
 			),
 		),

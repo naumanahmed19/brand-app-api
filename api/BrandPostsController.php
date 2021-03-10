@@ -16,7 +16,7 @@ class BrandPostsController{
                 $data[$i]['content'] = $post->post_content;
                 $data[$i]['slug'] = $post->post_name;
                 $data[$i]['date'] = $post->post_date;
-                $data[$i]['media'] = rekord_get_post_media($post->ID);
+                $data[$i]['media'] = brand_get_post_media($post->ID);
                 $data[$i]['author'] = $this->getAuthor($post);
 
                 $data[$i]['commentCount'] = $post->comment_count;

@@ -6,7 +6,7 @@
  * Version:     1.0.1
  * Author:      Nauman
  * Author URI:  https://xvelopers.com/
- * Text Domain: rekord
+ * Text Domain: brand
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -54,7 +54,7 @@ final class Brand_App_API {
 	 * @access public
 	 */
 	public function i18n() {
-		load_plugin_textdomain( 'rekord' );
+		load_plugin_textdomain( 'brand' );
 	}
 
 	/**
