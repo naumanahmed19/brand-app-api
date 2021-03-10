@@ -9,7 +9,7 @@ include ( __DIR__ . '/BrandCategoriesController.php');
 include ( __DIR__ . '/BrandFilterController.php');
 include ( __DIR__ . '/BrandUserController.php');
 include ( __DIR__ . '/BrandWooController.php');
-
+include ( __DIR__ . '/BrandPostsController.php');
 
 require_once ABSPATH . '/wp-content/plugins/simple-jwt-login/src/modules/SimpleJWTLoginService.php';
 
@@ -28,10 +28,20 @@ function rekord_api_get_filters($post_type){
     $response = new BrandFilterController();
     return  $response->get();
 }
+function rekord_api_get_posts() {
+	$ctrl = new BrandPostsController();
+	$posts = rekord_api_get('post');
+	$data =  $ctrl->data($posts);
+	return [
+		'data' => $data,
+		'status' => 200
+	];
+}
+
 
 add_action('rest_api_init', function() {
 
-	$routes = ['home','categories','filters'];
+	$routes = ['home','posts','categories','filters'];
 	foreach($routes as $route){
 		register_rest_route('wc/v3', $route, [
 			'methods' => 'GET',

@@ -13,7 +13,7 @@ function rekord_get_post_media($id){
     return $media;
 }
 
-function rekord_api_get_posts($post_type, $postsPerPage = 10){
+function rekord_api_get($post_type, $postsPerPage = 10){
 
 
 
