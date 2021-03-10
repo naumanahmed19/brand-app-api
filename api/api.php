@@ -31,11 +31,7 @@ function brand_api_get_filters($post_type){
 function brand_api_get_posts() {
 	$ctrl = new BrandPostsController();
 	$posts = brand_api_get('post');
-	$data =  $ctrl->data($posts);
-	return [
-		'data' => $data,
-		'status' => 200
-	];
+  return  $ctrl->data($posts);
 }
 
 
