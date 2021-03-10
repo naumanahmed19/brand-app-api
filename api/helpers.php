@@ -17,7 +17,7 @@ function brand_api_get($post_type, $postsPerPage = 10){
 
 
 
-	if(!empty($number = brand_get_field("r_{$post_type}_post_per_page", 'option'))){
+	if(!empty($number = get_field("r_{$post_type}_post_per_page", 'option'))){
 		$postsPerPage =$number;
 	}
 
