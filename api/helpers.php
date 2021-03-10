@@ -25,15 +25,6 @@ function brand_get_the_post_thumbnail_url($id, $size ) {
 }
 
 
-function brand_get_the_post_thumbnail_url($id, $size ) {
-
-	$img = get_the_post_thumbnail_url($id,$size); 
-
-	if($img){
-		return $img;
-	}
-	return null;
-}
 function brand_api_get($post_type, $postsPerPage = 10){
 
 
