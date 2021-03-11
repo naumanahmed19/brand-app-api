@@ -167,7 +167,8 @@ function getWidgets($s ){
 
     //general settings...
     $general = []; 
-    $general['logo'] =  get_field('logo', 'option') ;
+    $general['app_logo'] =  get_field('app_logo', 'option') ;
+    $general['app_logo_light'] =  get_field('app_logo_light', 'option') ;
     $general['app_currency'] =  get_field('app_currency', 'option') ;
     $general['app_filter_min_price'] =  get_field('app_filter_min_price', 'option') ;
     $general['app_filter_max_price'] =  get_field('app_filter_max_price', 'option') ;
@@ -180,7 +181,7 @@ function getWidgets($s ){
 
     //home settings...
     $home = [];
-    $home['app_home_logo'] =  get_field('app_home_logo', 'option') ;
+
     $home['app_home_search'] =  get_field('app_home_search', 'option') ;
  
     $settings['home'] = $home;
