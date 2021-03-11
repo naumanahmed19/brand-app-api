@@ -362,3 +362,14 @@ function wpse220930_rest_insert_post( $post, $request, $update = true )
     if ( ! empty( $request['categories'] ) )
         wp_set_object_terms( $post->ID, $request['categories'], 'category', $update );
 }
+
+
+
+/**
+ * Allow Comments
+ */
+
+add_filter( 'rest_allow_anonymous_comments', function ( $allow_anonymous, $request ) {
+  // ... custom logic here ...
+  return true; // or false to prohibit anonymous comments via post
+}, 10, 2 ); 
