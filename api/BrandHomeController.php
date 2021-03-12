@@ -167,8 +167,8 @@ function getWidgets($s ){
 
     //general settings...
     $general = []; 
-    $general['app_logo'] =  get_field('app_logo', 'option') ;
-    $general['app_logo_light'] =  get_field('app_logo_light', 'option') ;
+    $general['app_logo'] =  get_field('app_logo', 'option') ?  get_field('app_logo', 'option') : null ;
+    $general['app_logo_light'] =  get_field('app_logo_light', 'option') ?  get_field('app_logo_light', 'option') : null ;
     $general['app_currency'] =  get_field('app_currency', 'option') ;
     $general['app_filter_min_price'] =  get_field('app_filter_min_price', 'option') ;
     $general['app_filter_max_price'] =  get_field('app_filter_max_price', 'option') ;
