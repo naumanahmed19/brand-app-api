@@ -173,7 +173,7 @@ function getWidgets($s ){
     $general['app_filter_min_price'] =  get_field('app_filter_min_price', 'option') ;
     $general['app_filter_max_price'] =  get_field('app_filter_max_price', 'option') ;
     $general['app_default_theme'] =  get_field('app_default_theme', 'option') ;
-    $general['app_theme_switcher'] =  get_field('app_theme_switcher', 'option') ;
+    $general['app_theme_switcher'] =  json_encode(get_field('app_theme_switcher', 'option')) ;
     
     $settings['general'] = $general;
     
