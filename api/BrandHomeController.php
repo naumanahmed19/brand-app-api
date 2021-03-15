@@ -176,7 +176,15 @@ function getWidgets($s ){
     $general['app_theme_switcher'] =  json_decode(get_field('app_theme_switcher', 'option')) ;
     
     $settings['general'] = $general;
+
+
     
+    //intro settings...
+    $intro = [];
+    $intro['title'] =  get_field('intro_title', 'option') ;
+    $intro['content'] =  get_field('intro_subtitle', 'option') ;
+    $intro['images'] =  get_field('intro_gallery', 'option') ;
+    $settings['intro'] = $home;
 
 
     //home settings...
