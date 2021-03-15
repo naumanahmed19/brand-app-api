@@ -184,7 +184,7 @@ function getWidgets($s ){
     $intro['title'] =  get_field('intro_title', 'option') ;
     $intro['content'] =  get_field('intro_subtitle', 'option') ;
     $intro['images'] =  get_field('intro_gallery', 'option') ;
-    $settings['intro'] = $home;
+    $settings['intro'] = $intro;
 
 
     //home settings...
