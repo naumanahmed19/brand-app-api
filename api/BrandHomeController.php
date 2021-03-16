@@ -181,6 +181,7 @@ function getWidgets($s ){
     
     //intro settings...
     $intro = [];
+    $intro['enable'] =  get_field('intro_enable', 'option') ;
     $intro['title'] =  get_field('intro_title', 'option') ;
     $intro['content'] =  get_field('intro_subtitle', 'option') ;
     $intro['images'] =  get_field('intro_gallery', 'option') ;
