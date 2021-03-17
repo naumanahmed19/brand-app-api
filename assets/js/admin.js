@@ -54,9 +54,11 @@ jQuery(document).ready(function ($) {
 
     //on init
 
-    
-    let screen = localStorage.getItem('active_screen'); 
-    activeScreen(activeScreenIndex(screen));
+    $(window).load(function() {
+        let screen = localStorage.getItem('active_screen'); 
+        activeScreen(activeScreenIndex(screen));
+   });
+
 
 
 });
