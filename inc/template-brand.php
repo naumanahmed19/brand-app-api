@@ -60,7 +60,7 @@ document.addEventListener('prechange', function(event) {
               </div>
               <div class="right">
                 <ons-select id="choose-sel">
-                <!-- <option value="all" data-filter="all">All</option> -->
+                <option value="all" data-filter="all">All</option>
                 <?php foreach($cats as $cat): ?>
                   <option 
                     value="brand-section-<?php echo $cat->term_id; ?>" 
