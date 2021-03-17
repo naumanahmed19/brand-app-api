@@ -119,7 +119,11 @@ function getWidgets($s ){
       $sections[$i]['settings']['img_radius'] = intval(get_field('img_radius', $wId));
       $sections[$i]['settings']['img_size'] = intval(get_field('img_size', $wId));
       $sections[$i]['settings']['layout'] = get_field('cw_layout', $wId);
-      $sections[$i]['settings']['grid_items'] = get_field('cw_grid_items', $wId);
+      if(get_field('cw_layout', $wId) == 'grid'){
+==
+        $sections[$i]['settings']['grid_items'] = intval(get_field('cw_grid_items', $wId)) ;
+      }
+
       
     
     }
