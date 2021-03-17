@@ -21,10 +21,7 @@ jQuery(document).ready(function ($) {
 
         let index = 0;
 
-    
-
         console.log(screen);
-    
         
         switch (screen) {
             case 'home_screen':
@@ -46,7 +43,7 @@ jQuery(document).ready(function ($) {
         return index;
     }
 
-    function activeScreen(){
+    function activeScreen(index){
         document.querySelector('iframe').contentWindow.document.body.querySelector('ons-tabbar').setActiveTab(index)
     }
 
