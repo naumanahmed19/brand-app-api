@@ -56,7 +56,10 @@ jQuery(document).ready(function ($) {
 
     $(window).load(function() {
         let screen = localStorage.getItem('active_screen'); 
-        activeScreen(activeScreenIndex(screen));
+        console.log(screen);
+        let index = activeScreenIndex(screen);
+        console.log(index);
+        activeScreen(index);
    });
 
 
