@@ -5,7 +5,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Brand_ProductsCarousel_widget',
-			esc_html__( 'Products Carousel', 'brand-app' ),
+			esc_html__( 'Brand Products Carousel', 'brand-app' ),
 			array( 'description' => esc_html__( 'Display proudcts carousel', 'brand-app' ), ) // Args
 		);
 	}
@@ -16,6 +16,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		echo $args['before_widget'];
+
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
@@ -28,7 +29,10 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		$title = get_field( 'title', $widget_id ) ? get_field( 'title', $widget_id ) : '';
 		$items = intval(get_field('columns', $widget_id));
 	?>
-		<div class="py-5 text-xl font-semibold"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
+		<div class="px-5">
+			<div class="py-5 text-xl font-semibold">
+				<?php  echo esc_attr( $title, 'brand-app' );  ?>
+			</div>
 			<div class="lightSlider" data-pager="false" data-item="<?php echo $items; ?>">
 				<?php 
 				foreach ($products as $key => $product ) {?>
@@ -42,6 +46,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 			<?php } ?>
 			</div>
 		</div>
+
 
 	<?php
 		// Output generated fields
