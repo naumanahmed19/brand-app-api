@@ -237,7 +237,7 @@ final class Brand_App_API {
 
 		
 		// if no title then add widget content wrapper to before widget
-		add_filter( 'dynamic_sidebar_params', 'check_sidebar_params' );
+		add_filter( 'dynamic_sidebar_params', 'check_sidebar_params', -1 );
 		function check_sidebar_params( $params ) {
 			global $wp_registered_widgets;
 
