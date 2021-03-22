@@ -7,7 +7,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 			'Brand_CategoriesCarousel_widget',
 			esc_html__( 'Brand Category Carousel', 'brand-app' ),
 			array( 'description' => esc_html__( 'Display categories list in a carousel', 'brand-app' ),'customize_selective_refresh' => true,  ) // Args
-	=
+
 		);
 			// Enqueue style if widget is active (appears in a sidebar) or if in Customizer preview.
 			if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
