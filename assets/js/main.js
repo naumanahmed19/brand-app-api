@@ -35,7 +35,9 @@
 jQuery(document).ready(function ($) {
     "use strict";
 
-    filter();
+   setTimeout(() => {
+    filter(); 
+   }, 5000);
     lightSlider();
 $(".control-subsection").on('click', function(event){
     console.log(event);
