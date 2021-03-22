@@ -190,7 +190,9 @@ function filter(){
     }
 
 
-    lightSlider();
+    setTimeout(() => {
+        lightSlider();
+    }, 1000);
   });
 
 
