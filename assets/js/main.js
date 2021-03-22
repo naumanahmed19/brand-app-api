@@ -188,10 +188,13 @@ function filter(){
             .addClass('is-animated').fadeIn();
         });
     }
+
+
+    lightSlider();
   });
 
 
-  lightSlider();
+ 
 }
 
 
