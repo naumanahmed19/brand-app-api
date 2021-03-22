@@ -54,7 +54,7 @@ jQuery(document).ready(function ($) {
 
     function init() {  
         filter(); 
-        lightSlider();
+     
     }
 
 // // Refresh a moved partial containing a Twitter timeline iframe, since it has to be re-built.
@@ -141,6 +141,9 @@ function lightSlider(){
             },
         });
 
+
+        console.log('Lightslider rebuilding....');
+
         // $('.lSAction > .lSPrev').click(function () {
         //     $this.goToPrevSlide();
         // });
@@ -154,7 +157,7 @@ function lightSlider(){
 
 
 function filter(){
-    console.log('www');
+
     var $filters = $('#choose-sel'),
     $boxes = $('.boxes [data-cat]');
 
@@ -186,6 +189,9 @@ function filter(){
         });
     }
   });
+
+
+  lightSlider();
 }
 
 
