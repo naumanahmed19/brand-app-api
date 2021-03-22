@@ -54,6 +54,7 @@ jQuery(document).ready(function ($) {
 
     function init() {  
         filter(); 
+        lightSlider();
     }
 
 // // Refresh a moved partial containing a Twitter timeline iframe, since it has to be re-built.
