@@ -24,12 +24,11 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'                   => 'widget_brand_products',
-			'description'                 => __( 'Some Recent posts' ),
+			'classname'                   => 'Brand_ProductsCarousel_widget',
+			'description'                 => __(  'Display proudcts carousel','brand-app'),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'brand-products', __( 'Brand Products Carousel' ), $widget_ops );
-		$this->alt_option_name = 'widget_brand_products';
+		parent::__construct( 'Brand_ProductsCarousel_widget', __( 'Brand Products Carousel' ), $widget_ops );
 	}
 
 	/**
@@ -63,9 +62,6 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
         
 		<div class="px-5">
 			<div class="py-5 text-xl font-semibold">
-
-
-            ssss
 			<?php
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
