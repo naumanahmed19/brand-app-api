@@ -7,6 +7,7 @@ class BrandLinkTile extends WP_Widget {
 			'widget_link_tile',
 			esc_html__( 'Brand Link Tile', 'brand-app' ),
 			array( 'description' => esc_html__( 'Display categories list in a carousel', 'brand-app' ), ) // Args
+			'customize_selective_refresh' => true,
 		);
 	}
 
