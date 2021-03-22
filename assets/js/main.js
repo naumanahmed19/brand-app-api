@@ -54,13 +54,15 @@ $(".control-subsection").on('click', function(event){
 // Re-load Twitter widgets when a partial is rendered.
 wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
     if ( placement.container ) {
-        lightSlider()
+        lightSlider();
+        filter(); 
     }
 } );
 
 // Refresh a moved partial containing a Twitter timeline iframe, since it has to be re-built.
 wp.customize.selectiveRefresh.bind( 'partial-content-moved', function( placement ) {
     lightSlider();
+    filter(); 
     // if ( placement.container && placement.container.find( 'iframe.twitter-timeline:not([src]):first' ).length ) {
     //     placement.partial.refresh();
     // }
