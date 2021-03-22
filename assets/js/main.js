@@ -30,6 +30,7 @@
         document.getElementById('dynamic-sel').appendChild(option);
       }
 
+      
 
 jQuery(document).ready(function ($) {
     "use strict";
@@ -40,6 +41,30 @@ $(".control-subsection").on('click', function(event){
     console.log(event);
     //(... rest of your JS code)
 });
+
+
+
+   // Short-circuit selective refresh events if not in customizer preview or pre-4.5.
+   if ( 'undefined' === typeof wp || ! wp.customize || ! wp.customize.selectiveRefresh ) {
+    return;
+}
+
+// Re-load Twitter widgets when a partial is rendered.
+wp.customize.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
+    if ( placement.container ) {
+        lightSlider()
+    }
+} );
+
+// Refresh a moved partial containing a Twitter timeline iframe, since it has to be re-built.
+wp.customize.selectiveRefresh.bind( 'partial-content-moved', function( placement ) {
+    lightSlider();
+    // if ( placement.container && placement.container.find( 'iframe.twitter-timeline:not([src]):first' ).length ) {
+    //     placement.partial.refresh();
+    // }
+} );
+
+
 //light slider
    
 

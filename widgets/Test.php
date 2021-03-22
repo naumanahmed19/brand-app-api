@@ -27,10 +27,22 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 			'classname'                   => 'Brand_ProductsCarousel_widget',
 			'description'                 => __(  'Display proudcts carousel','brand-app'),
 			'customize_selective_refresh' => true,
+            
 		);
 		parent::__construct( 'Brand_ProductsCarousel_widget', __( 'Brand Products Carousel' ), $widget_ops );
-	}
 
+        // Enqueue style if widget is active (appears in a sidebar) or if in Customizer preview.
+        if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+            add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+        }
+    }
+
+
+    public function enqueue_scripts() {
+        wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
+	
+    }
+  
 	/**
 	 * Outputs the content for the current Recent Posts widget instance.
 	 *
