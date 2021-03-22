@@ -6,12 +6,19 @@ class Brandslider_Widget extends WP_Widget {
 		parent::__construct(
 			'brandslider_widget',
 			esc_html__( 'Brand Slider', 'brand-app' ),
-			array( 'description' => esc_html__( 'A slider with images linked to  a product category or url', 'brand-app' ), ) // Args
+			array( 'description' => esc_html__( 'A slider with images linked to  a product category or url', 'brand-app' ),'customize_selective_refresh' => true,  ) // Args
+	
 		);
-	}
+		// Enqueue style if widget is active (appears in a sidebar) or if in Customizer preview.
+		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		}
+		}
 
-	private $widget_fields = array(
-	);
+		public function enqueue_scripts() {
+			wp_enqueue_script( 'brand-main', plugin_dir_url( __FILE__ ) . 'assets/js/main.js', array('jquery'), '1.0.0', false );
+
+		}
 
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];

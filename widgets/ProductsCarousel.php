@@ -6,7 +6,7 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 		parent::__construct(
 			'Brand_ProductsCarousel_widget',
 			esc_html__( 'Brand Products Carousel', 'brand-app' ),
-			array( 'description' => esc_html__( 'Display proudcts carousel', 'brand-app' ), ) // Args
+			array( 'description' => esc_html__( 'Display proudcts carousel', 'brand-app' ), 'customize_selective_refresh' => true, ) // Args
 		);
 	}
 
