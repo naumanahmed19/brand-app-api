@@ -24,12 +24,12 @@ class Brand_ProductsCarousel_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'                   => 'widget_recent_entries_test',
+			'classname'                   => 'widget_brand_products',
 			'description'                 => __( 'Some Recent posts' ),
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'recent-posts-test', __( 'Brand Products Carousel' ), $widget_ops );
-		$this->alt_option_name = 'widget_recent_entries';
+		parent::__construct( 'brand-products', __( 'Brand Products Carousel' ), $widget_ops );
+		$this->alt_option_name = 'widget_brand_products';
 	}
 
 	/**
