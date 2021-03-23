@@ -161,33 +161,71 @@ function filter(){
     var $filters = $('#choose-sel'),
     $boxes = $('.boxes [data-cat]');
 
+
+   
+
+    $boxes.each(function() {
+    // var parent =$boxes.parent();
+    // console.log('parent', parent);
+
+    // var updateTitle = parent.attr('title');
+
   $filters.on('change', function(e) {
-      console.log(e);
     e.preventDefault();
     var $this = $(this);
 
 
     var $filterColor = $( "#choose-sel option:selected" ).val();
-    console.log($filterColor);
 
-    // $filters.removeClass('active');
-    // $this.addClass('active');
-
-    
     if ($filterColor == 'all') {
       $boxes.removeClass('is-animated')
         .fadeOut().promise().done(function() {
           $boxes.addClass('is-animated').fadeIn();
+    
         });
     } else {
       $boxes.removeClass('is-animated')
         .fadeOut().promise().done(function() {
-          $boxes.filter(function(i,el){ 
-              return el.dataset.cat.split(',').indexOf($filterColor)!==-1;
-          })
-            .addClass('is-animated').fadeIn();
+            let items =  $boxes.filter(function(i,el){ 
+                return el.dataset.cat.split(',').indexOf($filterColor)!==-1;
+            })
+            items.addClass('is-animated').fadeIn();
+            items.each(function() {
+          ///  this.parentNode.classList.add('is-animated');
+            //   console.log(this.closest('span'));
+          
+
+             // $('.customize-partial-edit-shortcut').addClass('is-animated').hide();
+//console.log()
+        //   $(this).parent().addClass('is-animated').hide();
+        //   $(this).closest('span').addClass('is-animated').fadeIn();
+        ///    this.parentNode.classList.add('is-animated');
+            });
+
+       
+          
+        //   let c = items.attr("class").split(/\s+/)[0];
+        //   let attr = $(`[data-customize-partial-id='${c}']`);
+        //   console.log(attr);
+
+        //   console.log(`[data-customize-partial-id='${c}']`);
+
+        
+
         });
     }
+
+
+    // if($boxes.length)
+    // {
+    //     $boxes.each(function() {
+    //         console.log(this.getAttribute('data-cat'));
+    //     this.parentNode.setAttribute('data-cat', this.getAttribute('data-cat'))
+    //     this.parentNode.classList.add('filterDiv');
+    //     //  this.parentNode['data-cat'] =this.data('cat');
+        
+    //     });
+    // }
 
 
     setTimeout(() => {
