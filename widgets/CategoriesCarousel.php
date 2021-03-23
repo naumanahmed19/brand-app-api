@@ -31,7 +31,17 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				
 				// widget ID with prefix for use in ACF API functions
 				$widget_id = 'widget_' . $args['widget_id'];
-				$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';?>
+				$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+				$categories = get_field( 'categories', $widget_id ) ? get_field( 'categories', $widget_id ) : '';
+				
+				
+				?>
+				<style>
+					.item-img{
+						border-radius: <?php echo intval(get_field('img_radius', $wId)); ?>
+					}
+
+				</style>
 			
 					<div class="py-5 text-xl font-semibold"><?php  echo esc_attr( $title, 'brand-app' );  ?></div>
 					<div class="lightSlider" data-pager="false" data-item="4">
@@ -42,7 +52,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 						$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
 				?>
 				<div class="text-center">
-					<div><img class="rounded-lg h-w-90" src="<?php echo $image ?>" /></div>
+					<div><img class="rounded-lg h-w-90 item-img" src="<?php echo $image ?>"/></div>
 					<div class="py-2 text-xl"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
 				</div>
 
