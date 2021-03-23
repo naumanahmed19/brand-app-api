@@ -39,8 +39,8 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				<style>
 					.item-img{
 						border-radius: <?php echo intval(get_field('img_radius', $wId)); ?>px;
-						width: <?php echo  intval(get_field('img_size', $wId)); ?>px;
-						height:<?php echo  intval(get_field('img_size', $wId)); ?>px;
+						width: <?php echo intval(get_field('img_size', $wId)); ?>px;
+						height:<?php echo intval(get_field('img_size', $wId)); ?>px;
 					}
 
 				</style>
