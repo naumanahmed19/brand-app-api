@@ -164,7 +164,7 @@ function filter(){
 
    
 
-    $boxes.each(function() {
+   // $boxes.each(function() {
     // var parent =$boxes.parent();
     // console.log('parent', parent);
 
