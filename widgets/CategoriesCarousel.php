@@ -39,7 +39,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 				
 				?>
 				<style>
-					.item-img{
+					.item-img-<?php echo $widget_id; ?>{
 						border-radius: <?php echo intval(get_field('img_radius', $widget_id)); ?>px;
 						width: <?php echo $size ?>px;
 						height:<?php echo $size ?>px;
@@ -56,7 +56,7 @@ class Brand_CategoriesCarousel_Widget extends WP_Widget {
 						$image = wp_get_attachment_url( $cat_thumb_id,'thumbnail' ); 
 				?>
 				<div class="text-center">
-					<div><img class="rounded-lg h-w-90 item-img" src="<?php echo $image ?>"/></div>
+					<div><img class="rounded-lg h-w-90 item-img-<?php echo $widget_id; ?>" src="<?php echo $image ?>"/></div>
 					<div class="py-2 text-xl"><?php echo esc_attr($cat->name, 'brand-app' );  ?></div>
 				</div>
 
