@@ -58,6 +58,7 @@ document.addEventListener('prechange', function(event) {
                 <img class="brand-home-logo" src="<?php echo $home_logo; ?>" alt=""  />
               <?php endif; ?>
               </div>
+              <?php if($cats): ?>
               <div class="right">
                 <ons-select id="choose-sel">
                 <option value="all" data-filter="all">All</option>
@@ -71,6 +72,7 @@ document.addEventListener('prechange', function(event) {
                 <?php endforeach; ?>
               </ons-select>
             </div>
+            <?php endif; ?>
           </ons-toolbar>
           <div class="cta filter has-toolbar scafold">
             <div class="boxes">
