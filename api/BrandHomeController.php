@@ -34,7 +34,7 @@ class BrandHomeController{
     public function getSlides($slides){
       $allSlides = [];
       foreach ($slides as $key => $slide ) {
-        $allSlides[$key]['image']  = $slide['image'];
+        $allSlides[$key]['image']  = $slide['image'] ? $slide['image'] : null;
         $allSlides[$key]['category']  = $slide['category'];
       }
 
