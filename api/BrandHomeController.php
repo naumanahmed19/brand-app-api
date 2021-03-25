@@ -4,7 +4,7 @@ class BrandHomeController{
 
     public function get(){
             $data = [];
-            $data['categories'] =  get_field('filter_categories', 'option');
+            $data['categories'] =  get_field('filter_categories', 'option') ? get_field('filter_categories', 'option') :null;
             $data['sections'] =  $this->getWidgets('home_screen');
             $data['settings'] =  $this->getSettings('home_screen');
             return  $data;
