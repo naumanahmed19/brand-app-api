@@ -39,7 +39,7 @@ add_action('rest_api_init', function() {
 
 	$routes = ['home','posts','categories','filters'];
 	foreach($routes as $route){
-		register_rest_route('/', $route, [
+		register_rest_route('', $route, [
 			'methods' => 'GET',
 			'callback' => 'brand_api_get_'.$route,
 		]);
