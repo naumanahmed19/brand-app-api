@@ -39,14 +39,14 @@ add_action('rest_api_init', function() {
 
 	$routes = ['home','posts','categories','filters'];
 	foreach($routes as $route){
-		register_rest_route('wc/v3', $route, [
+		register_rest_route('/', $route, [
 			'methods' => 'GET',
 			'callback' => 'brand_api_get_'.$route,
 		]);
 	}
 
 	
-	register_rest_route( 'brand', 'user/update', array(
+	register_rest_route( '/', 'user/update', array(
 		'methods' => 'POST',
 		'callback' => function ( $request ) use ( $route  ) {
 
@@ -73,13 +73,13 @@ add_action('rest_api_init', function() {
    * Brand Route to caclculate price on backend 
    */    
   
-  register_rest_route( 'brand/v1', 'calculate', array(
-		'methods' => 'POST',
-    'callback' => function ( $request ) use ( $route  ) {
-			$woo = new BrandWooController();
-			return $woo->calculate($request);
-    }
-	) );
+  // register_rest_route( 'brand/v1', 'calculate', array(
+	// 	'methods' => 'POST',
+  //   'callback' => function ( $request ) use ( $route  ) {
+	// 		$woo = new BrandWooController();
+	// 		return $woo->calculate($request);
+  //   }
+	// ) );
 
 
 
