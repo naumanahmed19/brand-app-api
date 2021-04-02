@@ -39,14 +39,14 @@ add_action('rest_api_init', function() {
 
 	$routes = ['home','posts','categories','filters'];
 	foreach($routes as $route){
-		register_rest_route('', $route, [
+		register_rest_route('brand', $route, [
 			'methods' => 'GET',
 			'callback' => 'brand_api_get_'.$route,
 		]);
 	}
 
 	
-	register_rest_route( '/', 'user/update', array(
+	register_rest_route( 'brand', 'user/update', array(
 		'methods' => 'POST',
 		'callback' => function ( $request ) use ( $route  ) {
 
